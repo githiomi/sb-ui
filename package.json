@@ -1,0 +1,27 @@
+{
+  "name": "sb-component-library",
+  "version": "1.0.0",
+  "description": "A UI component library for the web and mobile UI components used in the Sports Betting Application",
+  "keywords": [
+    "UI",
+    "atomic",
+    "components",
+    "web",
+    "mobile"
+  ],
+  "homepage": "https://github.com/githiomi/sb-ui#readme",
+  "bugs": {
+    "url": "https://github.com/githiomi/sb-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/githiomi/sb-ui.git"
+  },
+  "license": "ISC",
+  "author": "danielgithiomi",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
