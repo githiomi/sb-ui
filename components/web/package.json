@@ -1,17 +1,12 @@
 {
-  "name": "sb-component-library",
+  "name": "ui-web",
+  "private": "true",
   "version": "1.0.0",
-  "description": "A UI component library for the web and mobile UI components used in the Sports Betting Application",
+  "description": "The web specific UI component library",
   "keywords": [
-    "UI",
-    "atomic",
-    "components",
     "web",
-    "mobile"
-  ],
-  "workspaces": [
-    "packages/*",
-    "components/*"
+    "UI",
+    "library"
   ],
   "homepage": "https://github.com/githiomi/sb-ui#readme",
   "bugs": {
@@ -22,14 +17,19 @@
     "url": "git+https://github.com/githiomi/sb-ui.git"
   },
   "license": "ISC",
-  "author": "danielgithiomi",
+  "author": "danielgithiomi <https://github.com/danielgithiomi>",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
   "devDependencies": {
-    "turbo": "^2.9.12"
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
   },
   "packageManager": "bun@1.3.6"
 }
