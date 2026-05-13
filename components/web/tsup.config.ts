@@ -3,7 +3,14 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: ["index.ts"],
   format: ["cjs", "esm"],
-  dts: true,
+  dts: {
+    // TypeScript 6+ treats the `baseUrl` deprecation as an error when generating d.ts.
+    // tsup's dts compiler can silence it with this compilerOption.
+    compilerOptions: {
+      ignoreDeprecations: "6.0",
+      jsx: "react-jsx",
+    },
+  },
   sourcemap: true,
   clean: true,
   outDir: "dist",
