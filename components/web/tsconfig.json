@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "composite": true,
     "outDir": "./dist",
+    "noEmit": true,
     "allowImportingTsExtensions": true
   },
   "include": ["src", "atoms"]
