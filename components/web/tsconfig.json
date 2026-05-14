@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "types": ["node"],
     "target": "ES2022",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noEmit": true,
+    "composite": true,
+    "outDir": "./dist",
     "allowImportingTsExtensions": true
-  }
+  },
+  "include": ["src", "atoms"]
 }
