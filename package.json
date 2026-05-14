@@ -10,6 +10,7 @@
     "mobile"
   ],
   "workspaces": [
+    "apps/*",
     "packages/*",
     "components/*"
   ],
@@ -25,6 +26,7 @@
   "type": "module",
   "author": "danielgithiomi <https://github.com/danielgithiomi>",
   "scripts": {
+    "dev": "turbo dev",
     "build": "turbo build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

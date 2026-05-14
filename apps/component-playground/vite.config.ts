@@ -10,4 +10,9 @@ export default defineConfig({
       "ui-web": path.resolve(__dirname, "../../components/web"),
     },
   },
+  server: {
+    watch: {
+      ignored: ["!**/components/web/**"],
+    },
+  },
 });

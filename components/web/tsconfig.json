@@ -7,8 +7,6 @@
     "target": "ES2022",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "composite": true,
-    "outDir": "./dist",
     "noEmit": true,
     "allowImportingTsExtensions": true
   },
