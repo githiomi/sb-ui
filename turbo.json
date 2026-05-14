@@ -6,7 +6,20 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "build/**"],
-      "inputs": ["src/**", "package.json"]
+      "inputs": [
+        "package.json",
+        "tsup.config.ts",
+        "tailwind.config.ts",
+        "tailwind-theme.ts",
+        "tailwind.preset.ts",
+        "postcss.config.js",
+        "scripts/**",
+        "src/**",
+        "index.ts",
+        "atoms/**",
+        "molecules/**",
+        "organisms/**"
+      ]
     }
   }
 }

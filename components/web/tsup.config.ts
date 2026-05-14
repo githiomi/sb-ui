@@ -19,5 +19,5 @@ export default defineConfig({
   outExtension({ format }) {
     return format === "esm" ? { js: ".mjs" } : { js: ".cjs" };
   },
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom", "@uniicy/assets"],
 });

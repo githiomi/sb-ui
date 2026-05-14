@@ -18,25 +18,53 @@
   },
   "license": "ISC",
   "author": "danielgithiomi <https://github.com/danielgithiomi>",
-  "type": "commonjs",
+  "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "tailwind.config.ts",
+    "tailwind.preset.ts",
+    "tailwind-theme.ts"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./styles.css": "./dist/styles.css",
+    "./tailwind-preset": "./tailwind.preset.ts"
+  },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && bun run build:styles",
+    "build:styles": "bun ./scripts/build-styles.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^3.4.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
   },
   "dependencies": {
+    "@uniicy/assets": "workspace:*",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "@types/node": "^25.7.0",
     "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
   },
   "packageManager": "bun@1.3.14"
 }

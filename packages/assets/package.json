@@ -1,0 +1,10 @@
+{
+  "name": "@uniicy/assets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Design tokens and shared assets",
+  "license": "ISC",
+  "exports": {
+    ".": "./index.ts"
+  }
+}
