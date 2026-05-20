@@ -23,7 +23,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
   actions,
 }) => {
   return (
-    <header className="border-b border-outline bg-surface">
+    <header className="border-b border-outline/20 bg-surface">
       <div className="mx-auto max-w-5xl px-6 py-10">
         <nav className="mb-3 flex items-center gap-1.5 text-xs text-fg-subtle">
           <Link to="/" className="hover:text-fg-muted">

@@ -4,7 +4,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export function TopBar() {
   return (
-    <header className="sticky top-0 z-30 border-b border-outline bg-surface/80 backdrop-blur">
+    <header className="shrink-0 border-b border-outline/20 bg-surface/80 backdrop-blur">
       <div className="flex h-14 items-center gap-6 px-6">
         <NavLink to="/" className="shrink-0">
           <Logo />
@@ -43,7 +43,7 @@ export function TopBar() {
             href="https://github.com/githiomi/sb-ui"
             target="_blank"
             rel="noreferrer"
-            className="hidden h-9 items-center gap-2 rounded-lg border border-outline bg-surface px-3 text-sm text-fg-muted transition hover:border-outline-strong hover:text-fg sm:inline-flex"
+            className="hidden h-9 items-center gap-2 rounded-lg border border-outline/20 bg-surface px-3 text-sm text-fg-muted transition hover:border-outline-strong hover:text-fg sm:inline-flex"
           >
             <svg
               viewBox="0 0 24 24"

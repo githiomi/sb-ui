@@ -20,7 +20,7 @@ export const VariantSection: FC<VariantSectionProps> = ({
   fullBleed = false,
 }) => {
   return (
-    <section className="border-b border-outline last:border-b-0">
+    <section className="border-b border-outline/20 last:border-b-0">
       <div className="mx-auto grid max-w-5xl gap-6 px-6 py-10 md:grid-cols-[220px,1fr]">
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-fg-subtle">
@@ -33,7 +33,7 @@ export const VariantSection: FC<VariantSectionProps> = ({
           ) : null}
         </div>
         <div
-          className={`overflow-hidden rounded-2xl border border-outline bg-canvas shadow-soft ${
+          className={`overflow-hidden rounded-2xl border border-outline/20 bg-canvas shadow-soft ${
             fullBleed ? "" : "p-6"
           }`}
         >

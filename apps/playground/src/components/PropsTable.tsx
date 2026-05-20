@@ -14,7 +14,7 @@ interface PropsTableProps {
 
 export const PropsTable: FC<PropsTableProps> = ({ rows }) => {
   return (
-    <div className="overflow-hidden rounded-2xl border border-outline bg-surface">
+    <div className="overflow-hidden rounded-2xl border border-outline/20 bg-surface">
       <table className="w-full text-left text-sm">
         <thead className="bg-neutral-300 text-xs uppercase tracking-wider text-fg-subtle">
           <tr>
@@ -31,7 +31,7 @@ export const PropsTable: FC<PropsTableProps> = ({ rows }) => {
               className={
                 idx === rows.length - 1
                   ? ""
-                  : "border-b border-outline-subtle"
+                  : "border-b border-outline-subtle/10"
               }
             >
               <td className="px-4 py-3 align-top font-mono text-[13px] text-fg">

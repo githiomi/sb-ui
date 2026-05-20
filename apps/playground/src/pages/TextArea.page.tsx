@@ -110,7 +110,7 @@ export function TextAreaPage() {
             value={controlledValue}
             onChange={(event) => setControlledValue(event.target.value)}
             rows={3}
-            className="mt-3 w-full rounded-md border border-outline bg-surface p-3 font-mono text-xs text-fg-muted focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+            className="mt-3 w-full rounded-md border border-outline/20 bg-surface p-3 font-mono text-xs text-fg-muted focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
           />
         </div>
       </VariantSection>
@@ -121,7 +121,7 @@ export function TextAreaPage() {
       >
         <form
           onSubmit={(event) => event.preventDefault()}
-          className="mx-auto max-w-xl rounded-2xl border border-outline bg-surface p-6 shadow-soft"
+          className="mx-auto max-w-xl rounded-2xl border border-outline/20 bg-surface p-6 shadow-soft"
         >
           <header className="mb-5">
             <h3 className="text-base font-semibold text-fg">
@@ -144,7 +144,7 @@ export function TextAreaPage() {
                 id="text-area-form-title"
                 type="text"
                 placeholder="Quick summary"
-                className="h-10 w-full rounded-md border border-outline bg-canvas px-3 text-sm text-fg placeholder:text-fg-subtle focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                className="h-10 w-full rounded-md border border-outline/20 bg-canvas px-3 text-sm text-fg placeholder:text-fg-subtle focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               />
             </div>
 
@@ -172,7 +172,7 @@ export function TextAreaPage() {
         </form>
       </VariantSection>
 
-      <section className="border-t border-outline">
+      <section className="border-t border-outline/20">
         <div className="mx-auto max-w-5xl px-6 py-12">
           <header className="mb-5">
             <h2 className="text-lg font-semibold text-fg">API reference</h2>

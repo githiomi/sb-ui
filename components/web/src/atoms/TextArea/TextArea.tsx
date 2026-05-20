@@ -21,7 +21,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         placeholder={placeholder}
         className={cn(
           "mt-1 w-full rounded-md border",
-          "border-outline bg-canvas text-fg",
+          "border-outline/20 bg-canvas text-fg",
           "placeholder:text-fg-subtle",
           "focus:outline-none focus:border-brand"
         )}

@@ -157,7 +157,7 @@ export function LandingPage() {
       </section>
 
       {/* Features */}
-      <section className="border-y border-outline bg-surface">
+      <section className="border-y border-outline/20 bg-surface">
         <div className="mx-auto grid max-w-5xl gap-6 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((feature) => (
             <div key={feature.title} className="flex flex-col gap-3">
@@ -220,13 +220,13 @@ export function LandingPage() {
                 onChange={(event) => setQuery(event.target.value)}
                 type="search"
                 placeholder="Search components"
-                className="h-10 w-full rounded-lg border border-outline bg-surface pl-9 pr-3 text-sm text-fg placeholder:text-fg-subtle focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                className="h-10 w-full rounded-lg border border-outline/20 bg-surface pl-9 pr-3 text-sm text-fg placeholder:text-fg-subtle focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
               />
             </label>
           </div>
 
           {filteredRoutes.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-outline bg-surface px-6 py-12 text-center">
+            <div className="rounded-2xl border border-dashed border-outline/20 bg-surface px-6 py-12 text-center">
               <p className="text-sm text-fg-muted">
                 No components match{" "}
                 <span className="font-mono text-fg">"{query}"</span>.
@@ -252,7 +252,7 @@ export function LandingPage() {
                         <Link
                           key={route.slug}
                           to={route.path}
-                          className="group flex flex-col gap-3 rounded-2xl border border-outline bg-surface p-5 transition hover:-translate-y-0.5 hover:border-primary-500/40 hover:shadow-elevated"
+                          className="group flex flex-col gap-3 rounded-2xl border border-outline/20 bg-surface p-5 transition hover:-translate-y-0.5 hover:border-primary-500/40 hover:shadow-elevated"
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-mono text-xs uppercase tracking-wider text-fg-subtle">
@@ -291,7 +291,7 @@ export function LandingPage() {
         </div>
       </section>
 
-      <footer className="border-t border-outline bg-surface">
+      <footer className="border-t border-outline/20 bg-surface">
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-8 text-xs text-fg-subtle sm:flex-row sm:items-center sm:justify-between">
           <p>
             Built with React, Vite & Tailwind. Tokens from{" "}

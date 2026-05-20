@@ -1,12 +1,16 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+@tailwind components;
 
 /*
  * The CSS variables that back the semantic tokens (--color-fg, --color-surface, …)
  * are declared by `ui-web/styles.css`, which is imported once from `main.tsx`.
- * Anything theme-aware in the playground should reference those variables
- * (directly or via Tailwind classes like `bg-surface`, `text-fg`).
+ * Each variable holds a *space-separated RGB triplet* (e.g. `0 130 157`) so it
+ * can be consumed both:
+ *   - by Tailwind utilities (the preset already wraps it in
+ *     `rgb(var(--…) / <alpha-value>)`), AND
+ *   - directly from CSS — but the raw `var(--…)` must be wrapped in `rgb(...)`
+ *     at the call site (see the rules below).
  */
 
 @layer base {
@@ -26,23 +30,23 @@
       Roboto,
       sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    color: var(--color-fg);
-    background-color: var(--color-canvas);
+    color: rgb(var(--color-fg));
+    background-color: rgb(var(--color-canvas));
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: var(--color-accent-500);
-    color: var(--color-primary-700);
+    background-color: rgb(var(--color-accent-500));
+    color: rgb(var(--color-primary-700));
   }
 }
 
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-outline-strong) transparent;
+    scrollbar-color: rgb(var(--color-outline-strong)) transparent;
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -51,12 +55,12 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: var(--color-outline);
+    background-color: rgb(var(--color-outline) / 0.35);
     border-radius: 9999px;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-outline-strong);
+    background-color: rgb(var(--color-outline-strong));
   }
 
   .text-balance {

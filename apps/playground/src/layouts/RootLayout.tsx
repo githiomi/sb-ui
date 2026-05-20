@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
-import { Sidebar } from "../components/Sidebar";
 import { TopBar } from "../components/TopBar";
+import { Sidebar } from "../components/Sidebar";
 
 export function RootLayout() {
   return (
-    <div className="flex min-h-screen flex-col bg-canvas text-fg">
+    <div className="flex h-screen flex-col overflow-hidden bg-canvas text-fg">
       <TopBar />
-      <div className="flex flex-1">
+      <div className="flex min-h-0 flex-1">
         <Sidebar />
-        <main className="flex-1 overflow-x-hidden">
+        <main className="min-w-0 flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin">
           <Outlet />
         </main>
       </div>
