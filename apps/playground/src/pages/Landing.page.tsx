@@ -1,12 +1,12 @@
-import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { StatusBadge } from "../components/StatusBadge";
 import {
   CATEGORY_LABELS,
   componentRoutes,
   groupByCategory,
   type ComponentCategory,
 } from "../routes";
-import { StatusBadge } from "../components/StatusBadge";
 
 const FEATURES = [
   {

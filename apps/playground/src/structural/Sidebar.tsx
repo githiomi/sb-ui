@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { StatusBadge } from "./StatusBadge";
+import { StatusBadge } from "../components/StatusBadge";
 import {
     CATEGORY_LABELS,
     componentRoutes,

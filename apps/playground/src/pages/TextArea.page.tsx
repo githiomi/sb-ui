@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextArea } from "ui-web";
-import { PageHeader } from "../components/PageHeader";
+import { PageHeader } from "../structural/PageHeader";
 import { VariantSection } from "../components/VariantSection";
 import { PropsTable, type PropRow } from "../components/PropsTable";
 
