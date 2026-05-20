@@ -8,7 +8,15 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true
   },
-  "include": ["src", "atoms"]
+  "include": [
+    "src",
+    "scripts",
+    "index.ts",
+    "tailwind.config.ts",
+    "tailwind.preset.ts",
+    "tailwind-theme.ts"
+  ]
 }
