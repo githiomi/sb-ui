@@ -6,6 +6,7 @@ function App() {
       <TextArea
         id="test"
         label="Test TextArea"
+        className="bg-white"
         placeholder="Enter your text here..."
       />
     </div>

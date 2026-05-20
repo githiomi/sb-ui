@@ -26,4 +26,15 @@ export default defineConfig({
    * to resolve them at runtime.
    */
   noExternal: ["@uniicy/libs", "classnames", "tailwind-merge"],
+  /*
+   * `clean: true` wipes dist/ before every (re)build. Without this hook, the
+   * stylesheet emitted by `build-styles.ts` would be deleted on every watch
+   * rebuild and never re-emitted — causing `ui-web/styles.css` to 404 in the
+   * playground until you manually re-ran the styles build.
+   *
+   * Running it as an onSuccess command guarantees that any successful JS
+   * build (one-shot OR incremental in --watch mode) is immediately followed
+   * by a fresh stylesheet.
+   */
+  onSuccess: "bun ./scripts/build-styles.ts",
 });
