@@ -1,14 +1,6 @@
 import React from "react";
+import { cn } from "@uniicy/libs";
 import type { TextAreaProps } from "./TextArea.types";
-
-/**
- * Minimal class concatenation helper. Keeps the library dep-free; swap for
- * `clsx`/`tailwind-merge` later if conflict resolution between consumer and
- * library classes becomes a problem.
- */
-function cn(...classes: Array<string | undefined | null | false>) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export const TextArea: React.FC<TextAreaProps> = ({
   id,
