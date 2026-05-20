@@ -12,7 +12,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     <div className={cn("bg-surface p-3 rounded-lg", className)}>
       <label
         htmlFor={id}
-        className="block font-semibold text-link"
+        className="block font-semibold text-red-600"
       >
         {label}
       </label>
