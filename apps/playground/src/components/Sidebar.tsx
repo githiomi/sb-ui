@@ -18,7 +18,7 @@ export function Sidebar() {
     const grouped = groupByCategory(componentRoutes);
 
     return (
-        <aside className="hidden h-full w-64 shrink-0 overflow-y-auto border-r border-primary-500 bg-surface scrollbar-thin md:block">
+        <aside className="hidden h-full w-64 shrink-0 overflow-y-auto border-r border-accent bg-surface scrollbar-thin md:block">
             <div className="px-4 py-5">
                 <div className="mb-4 flex items-center justify-between">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fg-subtle">
