@@ -73,7 +73,7 @@ export function Sidebar() {
                                                     `group flex items-center justify-between gap-2 rounded-lg px-3 py-1.5 text-sm transition ${
                                                         isActive
                                                             ? "bg-primary-500/10 text-fg"
-                                                            : "text-fg-muted hover:bg-neutral-300 hover:text-fg"
+                                                            : "text-fg-muted hover:bg-neutral-800 hover:text-fg"
                                                     }`
                                                 }
                                             >

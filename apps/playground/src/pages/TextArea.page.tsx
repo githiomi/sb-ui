@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextArea } from "ui-web";
 import { PageHeader } from "@layouts/shared";
-import { VariantSection } from "../components/VariantSection";
-import { PropsTable, type PropRow } from "../layouts/shared/PropsTable";
+import { VariantSection } from "@components/VariantSection";
+import { PropsTable, type PropRow } from "@layouts/shared/PropsTable";
 
 const PROPS: PropRow[] = [
     {
