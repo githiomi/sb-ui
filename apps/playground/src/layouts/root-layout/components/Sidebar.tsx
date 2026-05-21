@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { StatusBadge } from "../components/StatusBadge";
+import { StatusBadge } from "@components/StatusBadge";
 import {
     CATEGORY_LABELS,
     componentRoutes,
     groupByCategory,
     type ComponentCategory,
-} from "../routes";
+} from "@app/routes";
 
 const CATEGORY_ORDER: ComponentCategory[] = [
     "atom",

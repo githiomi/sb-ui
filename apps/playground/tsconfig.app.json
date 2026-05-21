@@ -1,4 +1,11 @@
 {
+  /*
+   * Inherits `baseUrl` + `paths` (the `@app/*`, `@components/*`, …
+   * aliases) from the solution-level `tsconfig.json`. `extends` only
+   * merges `compilerOptions`, so this config keeps owning its own
+   * `include` and project-specific options below.
+   */
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "es2023",

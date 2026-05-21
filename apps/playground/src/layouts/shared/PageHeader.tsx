@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import type { FC, ReactNode } from "react";
-import { StatusBadge } from "../components/StatusBadge";
+import { StatusBadge } from "@components/StatusBadge";
 import {
     CATEGORY_LABELS,
     type ComponentCategory,
     type ComponentStatus,
-} from "../routes";
+} from "@app/routes";
 
 interface PageHeaderProps {
     category: ComponentCategory;

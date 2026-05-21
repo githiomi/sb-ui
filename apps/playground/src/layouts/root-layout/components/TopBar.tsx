@@ -1,6 +1,6 @@
+import { Logo } from "@components/Logo";
 import { NavLink } from "react-router-dom";
-import { Logo } from "./Logo";
-import { ThemeToggle } from "../components/ThemeToggle";
+import { ThemeToggle } from "@components/ThemeToggle";
 
 export function TopBar() {
     return (
