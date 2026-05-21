@@ -20,12 +20,11 @@ export const Logo: FC<LogoProps> = ({ className }) => {
                         stroke="currentColor"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <path d="M3 10A6.06 6.06 0 0 1 12 10 A6.06 6.06 0 0 0 21 10" />
-                        <path d="M6 3v12a6 6 0 0 0 12 0V3" />
+                        <path d="M6 5h12" />
+                        <path d="M4 12h10" />
+                        <path d="M12 19h8" />
                     </svg>
-                    
                 </span>
                 <span className="text-fg">
                     Uniicy<span className="text-primary-500">.</span>
