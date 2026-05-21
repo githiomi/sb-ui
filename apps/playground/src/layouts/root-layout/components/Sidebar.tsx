@@ -24,7 +24,7 @@ export function Sidebar() {
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fg-subtle">
                         Library
                     </p>
-                    <span className="rounded-full bg-primary-500/10 px-2 py-0.5 text-[10px] font-medium text-primary-500">
+                    <span className="rounded-full bg-primary-500/25 px-2 py-0.5 text-[10px] font-medium text-white/75">
                         v1.0
                     </span>
                 </div>
