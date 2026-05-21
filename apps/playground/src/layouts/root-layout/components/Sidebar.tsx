@@ -36,7 +36,7 @@ export function Sidebar() {
                         `mb-4 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition ${
                             isActive
                                 ? "bg-primary-500/10 text-fg"
-                                : "text-fg-muted hover:bg-neutral-300 hover:text-fg"
+                                : "text-fg-muted hover:bg-neutral-800 hover:text-fg"
                         }`
                     }
                 >

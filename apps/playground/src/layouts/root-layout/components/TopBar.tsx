@@ -18,7 +18,7 @@ export function TopBar() {
                             `rounded-md px-3 py-1.5 transition ${
                                 isActive
                                     ? "bg-primary-500/10 text-fg"
-                                    : "text-fg-muted hover:bg-neutral-300 hover:text-fg"
+                                    : "text-fg-muted hover:bg-neutral-800 hover:text-fg"
                             }`
                         }
                     >
