@@ -4,7 +4,6 @@ import { X } from "@uniicy/icons";
 import { colors } from "@assets/colors";
 import { Tooltip } from "@atoms/Tooltip";
 import { TextAreaProps } from "./TextArea.types";
-import { useTheme } from "../../../Themes/ThemeProvider";
 
 export const TextArea: React.FC<TextAreaProps> = ({
     id,
@@ -41,9 +40,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const clearButtonRef = useRef<HTMLButtonElement>(null);
 
-    const { theme } = useTheme();
-    const clearButtonColor =
-        status === "none" ? colors[theme].colorPrimary : "white";
+    const clearButtonColor = status === "none" ? colors.primary[500] : "white";
 
     useEffect(() => {
         if (autoFocus && textAreaRef.current) {

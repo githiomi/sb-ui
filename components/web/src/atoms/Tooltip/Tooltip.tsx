@@ -131,7 +131,7 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
     };
 
     function useTooltipVisibility(
-        ref: React.RefObject<HTMLElement>,
+        ref: React.RefObject<HTMLElement | null>,
         trigger: TooltipTrigger,
         delay?: number,
     ): boolean {

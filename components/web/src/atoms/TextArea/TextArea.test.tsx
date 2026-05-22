@@ -4,15 +4,11 @@ import type { TextAreaProps } from "./TextArea.types";
 
 export const TextArea: React.FC<TextAreaProps> = ({
     id,
-    label,
     className,
     placeholder,
 }) => {
     return (
         <div className={cn("bg-surface p-3 rounded-lg", className)}>
-            <label htmlFor={id} className="block font-semibold">
-                {label}
-            </label>
             <textarea
                 id={id}
                 placeholder={placeholder}

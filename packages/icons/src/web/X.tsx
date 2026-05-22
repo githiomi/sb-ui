@@ -1,12 +1,12 @@
 import type { IconProps } from "../types";
 
 /** Close / clear icon (used in inputs, modals, etc.). */
-export const X = ({
+export const X: React.FC<IconProps> = ({
     size = 16,
     color = "currentColor",
     className,
     ...props
-}: IconProps) => (
+}) => (
     <svg
         width={size}
         height={size}
