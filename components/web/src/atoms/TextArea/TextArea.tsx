@@ -241,7 +241,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
                         id={`${id}-count`}
                         aria-live="polite"
                         aria-label={`Current Word Count: ${value?.length}/${maxLength}`}
-                        className="absolute bottom-1.5 right-1 text-[11px] text-[var(--color-statusClosed)]"
+                        className={cn("absolute bottom-1.5 right-1 text-[10px] text-neutral-500", {
+                            "bottom-2 right-2": resize !== 'none',
+                        })}
                     >
                         {maxLength
                             ? `${value?.length}/${maxLength}`

@@ -55,9 +55,13 @@ export function TextAreaPage() {
                 <div className="max-w-lg">
                     <TextArea
                         status={"none"}
+                        showCount={true}
+                        maxLength={100}
                         value={textAreaValue}
                         id="text-area-default"
                         tooltip="This is a tooltip"
+                        onChange={(value) => setTextAreaValue(value)}
+                        placeholder="Jot down a few thoughts about tonight's fixture…"
                         tooltipOptions={{
                             trigger: "hover",
                             placement: "right",
@@ -66,8 +70,6 @@ export function TextAreaPage() {
                             content: "This is a tooltip",
                             id: "text-area-default-tooltip",
                         }}
-                        onChange={(value) => setTextAreaValue(value)}
-                        placeholder="Jot down a few thoughts about tonight's fixture…"
                     />
                 </div>
             </VariantSection>
@@ -79,9 +81,8 @@ export function TextAreaPage() {
                 <div className="rounded-xl bg-primary-900 p-6">
                     <TextArea
                         id="text-area-dark"
-                        value={textAreaValue}
+                        onChange={() => {}}
                         className="bg-primary-800"
-                        onChange={(value) => setTextAreaValue(value)}
                         placeholder="Tell us what felt off about the last bet…"
                     />
                 </div>
