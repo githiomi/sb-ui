@@ -9,7 +9,14 @@
     "skipLibCheck": true,
     "noEmit": true,
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@atoms/*": ["./src/atoms/*"],
+      "@assets/*": ["../../packages/assets/*"],
+      "@uniicy/libs/*": ["../../packages/libs/*"],
+      "@uniicy/styles/*": ["../../packages/styles/*"],
+      "@uniicy/themes/*": ["../../packages/themes/*"]
+    }
   },
   "include": [
     "src",
