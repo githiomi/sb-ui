@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { TopBar, Sidebar } from "@layouts/root-layout";
+import { TopBar, Sidebar } from "./components";
 
 export function RootLayout() {
     return (

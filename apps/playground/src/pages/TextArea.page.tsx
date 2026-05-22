@@ -52,8 +52,8 @@ export function TextAreaPage() {
             >
                 <div className="max-w-lg">
                     <TextArea
+                        onChange={() => {}}
                         id="text-area-default"
-                        label="Match notes"
                         placeholder="Jot down a few thoughts about tonight's fixture…"
                     />
                 </div>
@@ -66,7 +66,7 @@ export function TextAreaPage() {
                 <div className="rounded-xl bg-primary-900 p-6">
                     <TextArea
                         id="text-area-dark"
-                        label="Punter feedback"
+                        onChange={() => {}}
                         placeholder="Tell us what felt off about the last bet…"
                         className="bg-primary-800"
                     />
@@ -80,12 +80,12 @@ export function TextAreaPage() {
                 <div className="grid gap-4 sm:grid-cols-2">
                     <TextArea
                         id="text-area-pros"
-                        label="What went well"
+                        onChange={() => {}}
                         placeholder="Highlight the wins from this campaign…"
                     />
                     <TextArea
                         id="text-area-cons"
-                        label="What to improve"
+                        onChange={() => {}}
                         placeholder="List the friction points or bugs you noticed…"
                     />
                 </div>
@@ -97,8 +97,8 @@ export function TextAreaPage() {
             >
                 <div className="max-w-lg">
                     <TextArea
+                        onChange={() => {}}
                         id="text-area-controlled"
-                        label="Match preview"
                         placeholder="Set the scene for tomorrow's derby…"
                     />
                     <div className="mt-3 flex items-center justify-between text-xs text-fg-subtle">
@@ -156,8 +156,8 @@ export function TextAreaPage() {
                         </div>
 
                         <TextArea
+                            onChange={() => {}}
                             id="text-area-form-body"
-                            label="Describe the problem"
                             placeholder="What are you trying to accomplish, and what's currently in the way?"
                         />
 
