@@ -5,7 +5,7 @@
 //     placeholder: string;
 // }
 
-import { TooltipProps } from "@sb/ui/components/atoms/Tooltip";
+import { TooltipProps } from "@atoms/Tooltip";
 import { FocusEvent, ReactNode, TextareaHTMLAttributes } from "react";
 
 export type TextAreaSize = "small" | "default" | "large";

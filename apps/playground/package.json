@@ -12,8 +12,9 @@
   "dependencies": {
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "ui-web": "workspace:*",
     "react-router-dom": "^7.15.1",
-    "ui-web": "workspace:*"
+    "@uniicy/icons": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

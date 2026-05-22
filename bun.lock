@@ -15,6 +15,7 @@
       "name": "web-playground",
       "version": "0.0.0",
       "dependencies": {
+        "@uniicy/icons": "workspace:*",
         "react": "^19.2.6",
         "react-dom": "^19.2.6",
         "react-router-dom": "^7.15.1",
@@ -43,6 +44,7 @@
       "version": "1.0.0",
       "dependencies": {
         "@uniicy/assets": "workspace:*",
+        "@uniicy/icons": "workspace:*",
         "@uniicy/libs": "workspace:*",
       },
       "devDependencies": {
@@ -75,6 +77,19 @@
       "devDependencies": {
         "@types/react": "^19.2.14",
         "react": "^19.2.6",
+      },
+      "peerDependencies": {
+        "react": "^18.0.0 || ^19.0.0",
+      },
+    },
+    "packages/icons": {
+      "name": "@uniicy/icons",
+      "version": "1.0.0",
+      "devDependencies": {
+        "@types/react": "^19.2.14",
+        "react": "^19.2.6",
+        "tsup": "^8.5.1",
+        "typescript": "^6.0.3",
       },
       "peerDependencies": {
         "react": "^18.0.0 || ^19.0.0",
@@ -359,6 +374,8 @@
     "@uniicy/assets": ["@uniicy/assets@workspace:packages/assets"],
 
     "@uniicy/core": ["@uniicy/core@workspace:packages/core"],
+
+    "@uniicy/icons": ["@uniicy/icons@workspace:packages/icons"],
 
     "@uniicy/libs": ["@uniicy/libs@workspace:packages/libs"],
 

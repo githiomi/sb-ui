@@ -13,6 +13,8 @@
     "paths": {
       "@atoms/*": ["./src/atoms/*"],
       "@assets/*": ["../../packages/assets/*"],
+      "@uniicy/icons": ["../../packages/icons/src/index.ts"],
+      "@uniicy/icons/*": ["../../packages/icons/src/*"],
       "@uniicy/libs/*": ["../../packages/libs/*"],
       "@uniicy/styles/*": ["../../packages/styles/*"],
       "@uniicy/themes/*": ["../../packages/themes/*"]

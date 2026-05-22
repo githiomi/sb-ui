@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@uniicy/libs";
-import { X } from "../../Icons";
+import { X } from "@uniicy/icons";
 import { colors } from "@assets/colors";
 import { Tooltip } from "@atoms/Tooltip";
 import { TextAreaProps } from "./TextArea.types";

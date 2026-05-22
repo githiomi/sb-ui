@@ -19,7 +19,7 @@ export default defineConfig({
   outExtension({ format }) {
     return format === "esm" ? { js: ".mjs" } : { js: ".cjs" };
   },
-  external: ["react", "react-dom", "@uniicy/assets"],
+  external: ["react", "react-dom", "@uniicy/assets", "@uniicy/icons"],
   /*
    * `@uniicy/libs` is a workspace-only package; bundle it (and its transitive
    * `classnames` + `tailwind-merge`) into the output so consumers don't have
