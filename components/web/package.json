@@ -66,6 +66,7 @@
     "autoprefixer": "^10.4.21",
     "motion": "^12.40.0",
     "postcss": "^8.5.3",
+    "postcss-import": "^16.1.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "tailwindcss": "^3.4.17"
