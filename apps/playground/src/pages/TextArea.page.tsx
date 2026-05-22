@@ -33,6 +33,8 @@ const PROPS: PropRow[] = [
 ];
 
 export function TextAreaPage() {
+    const [textAreaValue, setTextAreaValue] = useState("");
+
     const [controlledValue, setControlledValue] = useState(
         "Manchester United vs Arsenal — write your match preview here…",
     );
@@ -52,8 +54,10 @@ export function TextAreaPage() {
             >
                 <div className="max-w-lg">
                     <TextArea
-                        onChange={() => {}}
+                        status={"none"}
+                        value={textAreaValue}
                         id="text-area-default"
+                        onChange={(value) => setTextAreaValue(value)}
                         placeholder="Jot down a few thoughts about tonight's fixture…"
                     />
                 </div>
@@ -66,9 +70,10 @@ export function TextAreaPage() {
                 <div className="rounded-xl bg-primary-900 p-6">
                     <TextArea
                         id="text-area-dark"
-                        onChange={() => {}}
-                        placeholder="Tell us what felt off about the last bet…"
+                        value={textAreaValue}
                         className="bg-primary-800"
+                        onChange={(value) => setTextAreaValue(value)}
+                        placeholder="Tell us what felt off about the last bet…"
                     />
                 </div>
             </VariantSection>

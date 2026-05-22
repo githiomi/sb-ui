@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@uniicy/libs";
 import { X } from "@uniicy/icons";
 import { colors } from "@assets/colors";
 import { Tooltip } from "@atoms/Tooltip";
 import { TextAreaProps } from "./TextArea.types";
+import React, { useEffect, useRef, useState } from "react";
 
 export const TextArea: React.FC<TextAreaProps> = ({
     id,
@@ -40,7 +40,8 @@ export const TextArea: React.FC<TextAreaProps> = ({
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const clearButtonRef = useRef<HTMLButtonElement>(null);
 
-    const clearButtonColor = status === "none" ? colors.primary[500] : "white";
+    const clearButtonColor =
+        status === "none" ? colors.primary[500] : colors.neutral[300];
 
     useEffect(() => {
         if (autoFocus && textAreaRef.current) {
@@ -76,7 +77,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     };
 
     const textareaClasses = cn(
-        "w-full p-2 border border-2 rounded-sm transition-all duration-200 text-black bg-text-main",
+        "w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg-inverse bg-fg rounded",
         {
             // Size variants
             "text-sm": size === "small",
@@ -89,19 +90,21 @@ export const TextArea: React.FC<TextAreaProps> = ({
             "bg-white": !disabled && !readOnly,
 
             // Status variants
-            "border-yellow-500": status === "warning",
-            "border-red-500": status === "error",
-            "border-gray-300": status === "none",
+            // "border-error-500": status === "error",
+            // "border-neutral-300": status === "none",
+            // "border-warning-500": status === "warning",
 
             // Add-ons
             "rounded-tl-none rounded-bl-none": addonBefore,
             "rounded-tr-none rounded-br-none": addonAfter,
 
             // Focus state
-            "focus-within:ring-2 focus-within:shadow-[0_0_15px_0] focus-within:shadow-inputSuccessBorderColor focus-within:ring-inputSuccessBorderColor outline-none":
+            "focus-within:ring-2 focus-within:shadow-[0_0_15px_0] focus-within:shadow-primary-500 focus-within:ring-primary-500 outline-none":
                 isFocused,
-            "ring-1 !ring-statusWarning": status === "warning",
-            "ring-1 !ring-statusError": status === "error",
+            "ring-2 !ring-error-500 focus-within:shadow-error-500":
+                status === "error",
+            "ring-2 !ring-warning-500 focus-within:shadow-warning-500":
+                status === "warning",
 
             // Resize options
             "resize-none": resize === "none",
@@ -116,11 +119,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
         "absolute top-2 right-2 size-5 cursor-pointer flex items-center justify-center rounded-full focus:outline-none",
         {
             "right-6": suffix,
-            "bg-gray-200 hover:bg-gray-300": status === "none",
-            "bg-[var(--color-statusError)] hover:opacity-90 text-white":
-                status === "error",
-            "bg-[var(--color-statusWarning)] hover:opacity-90 text-white":
-                status === "warning",
+            "bg-neutral-300 hover:bg-neutral-400": status === "none",
+            "bg-error-500/90 hover:bg-error-500": status === "error",
+            "bg-warning-500/90 hover:bg-warning-500": status === "warning",
         },
     );
 
@@ -143,9 +144,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
             >
                 {addonBefore && (
                     <div
+                        role="presentation"
                         aria-label={`Text Area Before Addon: ${addonBefore}`}
                         className="absolute left-0 top-0 flex h-full items-center px-2"
-                        role="presentation"
                     >
                         {addonBefore}
                     </div>
@@ -226,7 +227,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
                     >
                         <span className="sr-only">Clear input</span>
                         <div aria-hidden="true">
-                            <X size={8} color={clearButtonColor} />
+                            <X
+                                size={12}
+                                strokeWidth={2.5}
+                                color={clearButtonColor}
+                            />
                         </div>
                     </button>
                 )}
