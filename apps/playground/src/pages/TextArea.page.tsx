@@ -59,15 +59,12 @@ export function TextAreaPage() {
                         id="text-area-default"
                         tooltip="This is a tooltip"
                         tooltipOptions={{
-                            id: "text-area-default-tooltip",
-                            content: "This is a tooltip",
-                            placement: "top",
                             trigger: "hover",
-                            delay: 0,
-                            arrow: true,
-                            animation: "fade",
-                            maxWidth: 200,
-                            disabled: false,
+                            placement: "right",
+                            className: "text-primary",
+                            pointerDirection: "center",
+                            content: "This is a tooltip",
+                            id: "text-area-default-tooltip",
                         }}
                         onChange={(value) => setTextAreaValue(value)}
                         placeholder="Jot down a few thoughts about tonight's fixture…"
