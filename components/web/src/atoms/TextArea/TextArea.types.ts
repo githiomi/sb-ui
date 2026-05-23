@@ -1,10 +1,3 @@
-// export interface TextAreaProps {
-//     id: string;
-//     label: string;
-//     className?: string;
-//     placeholder: string;
-// }
-
 import { TooltipProps } from "@atoms/Tooltip";
 import { FocusEvent, ReactNode, TextareaHTMLAttributes } from "react";
 

@@ -16,7 +16,7 @@ export const PropsTable: FC<PropsTableProps> = ({ rows }) => {
   return (
     <div className="overflow-hidden rounded-2xl border border-outline/20 bg-surface">
       <table className="w-full text-left text-sm">
-        <thead className="bg-neutral-300 text-xs uppercase tracking-wider text-fg-subtle">
+        <thead className="bg-neutral-800 text-xs uppercase tracking-wider text-fg">
           <tr>
             <th className="px-4 py-3 font-medium">Prop</th>
             <th className="px-4 py-3 font-medium">Type</th>

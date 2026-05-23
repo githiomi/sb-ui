@@ -1,6 +1,6 @@
 import { LandingPage } from "./pages";
 import type { ComponentType } from "react";
-import { TextAreaPage } from "./pages/TextArea.page";
+import { TextAreaPage } from "./pages/TextArea/TextArea.page";
 
 /**
  * Single source of truth for the playground's navigation.
