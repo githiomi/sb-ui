@@ -1,16 +1,31 @@
-import { TextArea } from "ui-web";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RootLayout } from "./layouts/root-layout";
+import { NotFoundPage } from "./pages/NotFound.page";
+import { HOME_ROUTE, componentRoutes } from "./routes";
 
 function App() {
-  return (
-    <div style={{ padding: "2rem" }}>
-      <TextArea
-        id="test"
-        label="Test TextArea"
-        className="bg-white"
-        placeholder="Enter your text here..."
-      />
-    </div>
-  );
+    const HomeElement = HOME_ROUTE.element;
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route element={<RootLayout />}>
+                    <Route path={HOME_ROUTE.path} element={<HomeElement />} />
+                    {componentRoutes.map((route) => {
+                        const PageElement = route.element;
+                        return (
+                            <Route
+                                key={route.slug}
+                                path={route.path}
+                                element={<PageElement />}
+                            />
+                        );
+                    })}
+                    <Route path="*" element={<NotFoundPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

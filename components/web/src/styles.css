@@ -5,8 +5,13 @@
  * block of CSS custom properties (light + dark) to this file before running
  * Tailwind, producing the shipped `dist/styles.css`.
  *
- * Consumers import the built file with `import "ui-web/styles.css"`.
+ * Component-specific global classes live next to each component as `<Name>.css`
+ * and are pulled in here. Add a new `@import` when you add another file.
+ *
+ * Consumers import the built file with `import "@sbw-ui/styles.css"`.
  */
+@import "./atoms/Tooltip/Tooltip.css";
+
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+@tailwind components;

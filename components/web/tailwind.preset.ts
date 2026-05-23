@@ -20,12 +20,12 @@ import { buildTailwindThemeColors } from "./tailwind-theme";
  * ```
  */
 const TailwindPreset: Partial<Config> = {
-  darkMode: "media",
-  theme: {
-    extend: {
-      colors: buildTailwindThemeColors(),
+    darkMode: "media",
+    theme: {
+        extend: {
+            colors: buildTailwindThemeColors(),
+        },
     },
-  },
 };
 
 export default TailwindPreset;
