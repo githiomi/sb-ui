@@ -7,7 +7,10 @@ import { PropsTable } from "@layouts/shared/PropsTable";
 import { VariantSection } from "@components/VariantSection";
 
 export function TextAreaPage() {
-    const [textAreaValue, setTextAreaValue] = useState("");
+    const [defaultValue, setDefaultValue] = useState("");
+    const [tooltipValue, setTooltipValue] = useState("");
+    const [statusValue, setStatusValue] = useState("");
+    const [showCountValue, setShowCountValue] = useState("");
 
     // STATUS
     const [status, setStatus] = useState<TextAreaStatus>("none");
@@ -31,9 +34,9 @@ export function TextAreaPage() {
             >
                 <div className="max-w-lg">
                     <TextArea
-                        value={textAreaValue}
+                        value={defaultValue}
                         id="text-area-default"
-                        onChange={(value) => setTextAreaValue(value)}
+                        onChange={(value) => setDefaultValue(value)}
                         placeholder="Jot down a few thoughts about tonight's fixture…"
                     />
                 </div>
@@ -45,9 +48,10 @@ export function TextAreaPage() {
             >
                 <div>
                     <TextArea
-                        onChange={() => {}}
+                        value={tooltipValue}
                         id="text-area-with-tooltip"
                         tooltip="This is a tooltip"
+                        onChange={(value) => setTooltipValue(value)}
                         placeholder="Jot down a few thoughts about tonight's fixture…"
                         tooltipOptions={{
                             trigger: "hover",
@@ -69,8 +73,9 @@ export function TextAreaPage() {
                     <TextArea
                         status={status}
                         className="flex-1"
-                        onChange={() => {}}
+                        value={statusValue}
                         id="text-area-with-status-error"
+                        onChange={(value) => setStatusValue(value)}
                         placeholder="This is a text area with state"
                     />
 
@@ -114,8 +119,9 @@ export function TextAreaPage() {
                     <TextArea
                         showCount={true}
                         maxLength={100}
-                        onChange={() => {}}
+                        value={showCountValue}
                         id="text-area-character-counter"
+                        onChange={(value) => setShowCountValue(value)}
                         placeholder="This is a text area with a character counter"
                     />
                 </div>

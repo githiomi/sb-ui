@@ -240,7 +240,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
                     <div
                         id={`${id}-count`}
                         aria-live="polite"
-                        aria-label={`Current Word Count: ${value?.length}/${maxLength}`}
+                        aria-label={`Current Word Count: ${value?.length || 0}/${maxLength || 0}`}
                         className={cn("absolute bottom-1.5 right-1 text-[10px] text-neutral-500", {
                             "bottom-2 right-2": resize !== 'none',
                         })}
