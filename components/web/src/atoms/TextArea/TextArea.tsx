@@ -1,6 +1,5 @@
 import { cn } from "@uniicy/libs";
 import { X } from "@uniicy/icons";
-import { colors } from "@assets/colors";
 import { Tooltip } from "@atoms/Tooltip";
 import { TextAreaProps } from "./TextArea.types";
 import React, { useEffect, useRef, useState } from "react";
@@ -40,9 +39,6 @@ export const TextArea: React.FC<TextAreaProps> = ({
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const clearButtonRef = useRef<HTMLButtonElement>(null);
 
-    const clearButtonColor =
-        status === "none" ? colors.primary[500] : colors.neutral[300];
-
     useEffect(() => {
         if (autoFocus && textAreaRef.current) {
             textAreaRef.current.focus();
@@ -77,22 +73,17 @@ export const TextArea: React.FC<TextAreaProps> = ({
     };
 
     const textareaClasses = cn(
-        "w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg-inverse bg-fg rounded",
+        "w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg-inverse dark:text-fg rounded",
         {
             // Size variants
             "text-sm": size === "small",
-            "text-base": size === "default",
             "text-lg": size === "large",
+            "text-base": size === "default",
 
             // State variants
             "bg-gray-300 text-gray-500 cursor-not-allowed":
                 disabled || readOnly,
-            "bg-white": !disabled && !readOnly,
-
-            // Status variants
-            // "border-error-500": status === "error",
-            // "border-neutral-300": status === "none",
-            // "border-warning-500": status === "warning",
+            "bg-fg dark:bg-surface": !disabled && !readOnly,
 
             // Add-ons
             "rounded-tl-none rounded-bl-none": addonBefore,
@@ -230,7 +221,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
                             <X
                                 size={12}
                                 strokeWidth={2.5}
-                                color={clearButtonColor}
+                                className={cn("text-neutral-200", {
+                                    "text-primary": status === "none",
+                                })}
                             />
                         </div>
                     </button>
@@ -241,9 +234,12 @@ export const TextArea: React.FC<TextAreaProps> = ({
                         id={`${id}-count`}
                         aria-live="polite"
                         aria-label={`Current Word Count: ${value?.length || 0}/${maxLength || 0}`}
-                        className={cn("absolute bottom-1.5 right-1 text-[10px] text-neutral-500", {
-                            "bottom-2 right-2": resize !== 'none',
-                        })}
+                        className={cn(
+                            "absolute bottom-1.5 right-1 text-[10px] text-neutral-500",
+                            {
+                                "bottom-2 right-2": resize !== "none",
+                            },
+                        )}
                     >
                         {maxLength
                             ? `${value?.length}/${maxLength}`
