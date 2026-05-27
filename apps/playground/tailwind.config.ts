@@ -1,15 +1,14 @@
 import type { Config } from "tailwindcss";
-import uiPreset from "../../components/web/tailwind.preset";
+import uiPreset from "@dgithiomi/sbui-web/tailwind-preset";
 
 /**
- * The playground extends the `sbui-web` preset so the same primitive
+ * The playground extends the `@dgithiomi/sbui-web` preset so the same primitive
  * (`bg-primary-500`, `bg-accent-500`, …) and semantic (`bg-surface`,
  * `text-fg`, `border-outline`, …) tokens that drive the component
  * library are available to the playground's own JSX as well.
  *
- * The component library's source is also added to `content` so the
- * Tailwind JIT compiler picks up classes used inside the library
- * during local development.
+ * The installed package output is also added to `content`, matching how a
+ * separate consumer app would scan the published dependency.
  */
 export default {
     presets: [uiPreset],
@@ -17,7 +16,7 @@ export default {
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
-        "../../components/web/src/**/*.{ts,tsx}",
+        "./node_modules/@dgithiomi/sbui-web/dist/**/*.{js,mjs}",
     ],
     theme: {
         extend: {

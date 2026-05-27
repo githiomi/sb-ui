@@ -2,7 +2,7 @@ import { useState } from "react";
 import { cn } from "@libs/utils";
 import { PageHeader } from "@layouts/shared";
 import { TextAreaProps } from "./TextArea.props";
-import { TextArea, type TextAreaStatus } from "sbui-web";
+import { TextArea, type TextAreaStatus } from "@dgithiomi/sbui-web";
 import { PropsTable } from "@layouts/shared/PropsTable";
 import { VariantSection } from "@components/VariantSection";
 

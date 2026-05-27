@@ -10,7 +10,7 @@ A **React** component library and **interactive playground** for building, previ
 
 | Area               | Path                                                                         | Role                                                                                               |
 | ------------------ | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Web components** | [`components/web`](./components/web)                                         | Atomic React components (`TextArea`, `Tooltip`, …), built with **tsup**, shipped as **`sbui-web`** |
+| **Web components** | [`components/web`](./components/web)                                         | Atomic React components (`TextArea`, `Tooltip`, …), built with **tsup**, shipped as **`@dgithiomi/sbui-web`** |
 | **Playground**     | [`apps/playground`](./apps/playground)                                       | Vite app to browse variants, API tables, and theme modes                                           |
 | **Design tokens**  | [`packages/assets`](./packages/assets)                                       | Color primitives, themes (light/dark), shared token source                                         |
 | **Icons**          | [`packages/icons`](./packages/icons)                                         | Shared SVG icon components (`@uniicy/icons`)                                                       |
@@ -25,7 +25,7 @@ A **React** component library and **interactive playground** for building, previ
 - **Atomic design** — Components organized as atoms (molecules/organisms planned as the library grows).
 - **Token-driven theming** — Colors from `@uniicy/assets` become CSS variables and Tailwind utilities (`text-fg`, `bg-surface`, `border-outline`, …).
 - **Light & dark** — Theme variables follow `prefers-color-scheme` and a `.dark` class for manual toggling.
-- **Shipped stylesheet** — One import (`sbui-web/styles.css`) gives consumers tokens, Tailwind utilities, and component CSS (e.g. tooltip animations).
+- **Shipped stylesheet** — One import (`@dgithiomi/sbui-web/styles.css`) gives consumers tokens, Tailwind utilities, and component CSS (e.g. tooltip animations).
 - **TypeScript-first** — Props documented in `.types.ts` files; declarations published in `dist/`.
 - **Interactive playground** — Sidebar navigation, variant sections, props tables, and status badges for each component.
 
@@ -38,7 +38,7 @@ sb-component-library/
 ├── apps/
 │   └── playground/          # Vite + React docs / demo app
 ├── components/
-│   └── web/                 # sbui-web — publishable component library
+│   └── web/                 # @dgithiomi/sbui-web — publishable component library
 │       ├── src/atoms/       # TextArea, Tooltip, …
 │       ├── scripts/         # build-styles.ts (Tailwind → dist/styles.css)
 │       └── dist/            # Built JS + styles.css (after build)
@@ -94,8 +94,8 @@ bun run dev
 
 This uses **Turborepo** to:
 
-1. Build workspace dependencies (`sbui-web`, icons, etc.)
-2. Start **`sbui-web`** in watch mode (`tsup --watch`)
+1. Build workspace dependencies (`@dgithiomi/sbui-web`, icons, etc.)
+2. Start **`@dgithiomi/sbui-web`** in watch mode (`tsup --watch`)
 3. Start the **playground** Vite dev server
 
 Open the URL Vite prints (typically `http://localhost:5173`). Use the sidebar to open **TextArea** (and other components as they are added), try variants, and read the API reference at the bottom of each page.
@@ -134,26 +134,26 @@ Understanding this helps when debugging styling or publishing.
 
 ## Using the library in your app (consumers)
 
-The published npm package name is **`sbui-web`** (configurable before publish). Consumers need:
+The published npm package name is **`@dgithiomi/sbui-web`** (configurable before publish). Consumers need:
 
 1. **Install** the package and React peers
 2. **Import the stylesheet once** at the app root
-3. **Import components** from `"sbui-web"`
-4. **(Optional)** Add `sbui-web/tailwind-preset` if their app uses the same Tailwind tokens
+3. **Import components** from `"@dgithiomi/sbui-web"`
+4. **(Optional)** Add `@dgithiomi/sbui-web/tailwind-preset` if their app uses the same Tailwind tokens
 
 ### Quick start
 
 ```bash
-bun add sbui-web react react-dom
-# or: npm install sbui-web react react-dom
+bun add @dgithiomi/sbui-web react react-dom
+# or: npm install @dgithiomi/sbui-web react react-dom
 ```
 
 ```tsx
 // main.tsx or app/layout.tsx — import once
-import "sbui-web/styles.css";
+import "@dgithiomi/sbui-web/styles.css";
 
 // Your component file
-import { TextArea } from "sbui-web";
+import { TextArea } from "@dgithiomi/sbui-web";
 import { useState } from "react";
 
 export function Notes() {
@@ -169,7 +169,7 @@ export function Notes() {
 }
 ```
 
-**Next.js (App Router):** put interactive usage in a `"use client"` file and import `sbui-web/styles.css` in `app/layout.tsx`.
+**Next.js (App Router):** put interactive usage in a `"use client"` file and import `@dgithiomi/sbui-web/styles.css` in `app/layout.tsx`.
 
 For **React + Vite**, **Next.js Pages/App Router**, Tailwind preset setup, dark mode, troubleshooting, and a pre-publish checklist, see:
 
@@ -177,13 +177,13 @@ For **React + Vite**, **Next.js Pages/App Router**, Tailwind preset setup, dark 
 
 ---
 
-## Package exports (`sbui-web`)
+## Package exports (`@dgithiomi/sbui-web`)
 
 | Import                     | Description                         |
 | -------------------------- | ----------------------------------- |
-| `sbui-web`                 | React components + TypeScript types |
-| `sbui-web/styles.css`      | Global stylesheet (required)        |
-| `sbui-web/tailwind-preset` | Tailwind v3 preset for host apps    |
+| `@dgithiomi/sbui-web`                 | React components + TypeScript types |
+| `@dgithiomi/sbui-web/styles.css`      | Global stylesheet (required)        |
+| `@dgithiomi/sbui-web/tailwind-preset` | Tailwind v3 preset for host apps    |
 
 **Peer dependencies:** `react`, `react-dom` (^19). `tailwindcss` (^3.4) is optional if the host app uses the preset.
 
@@ -230,12 +230,12 @@ Prefer semantic classes in components so light/dark switches without changing JS
 
 ## Publishing (maintainers)
 
-Before publishing `sbui-web` to npm:
+Before publishing `@dgithiomi/sbui-web` to npm:
 
-1. Remove `"private": true` from [`components/web/package.json`](./components/web/package.json).
-2. Resolve **`@uniicy/icons`** and **`@uniicy/assets`** — publish them or bundle into `sbui-web` (they are currently external in the tsup build).
-3. Run `bun run build` in `components/web` and verify `dist/` includes JS, types, and `styles.css`.
-4. Document the final package name in this README and in the consumer guide.
+1. Run `bun run build` in `components/web` and verify `dist/` includes JS, types, and `styles.css`.  
+2. Confirm the package tarball has no `workspace:*` dependencies with `npm pack --dry-run`.  
+3. Publish from `components/web` using `npm publish --access public`.  
+4. Install `@dgithiomi/sbui-web` in a separate React/Next.js app and import `@dgithiomi/sbui-web/styles.css` once.
 
 See the **Before publishing** section in [docs/consumer-integration-guide.md](./docs/consumer-integration-guide.md).
 

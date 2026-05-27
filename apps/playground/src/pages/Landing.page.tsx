@@ -34,7 +34,7 @@ const FEATURES = [
     {
         title: "Themeable in two lines",
         description:
-            "Pull in `sbui-web/styles.css` and the Tailwind preset, then style with `bg-surface`, `text-brand`, and friends.",
+            "Pull in `@dgithiomi/sbui-web/styles.css` and the Tailwind preset, then style with `bg-surface`, `text-brand`, and friends.",
         icon: <path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5" />,
     },
 ];
