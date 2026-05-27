@@ -1,5 +1,5 @@
 {
-  "name": "ui-web",
+  "name": "sbui-web",
   "private": "true",
   "version": "1.0.0",
   "description": "The web specific UI component library",

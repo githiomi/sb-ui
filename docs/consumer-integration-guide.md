@@ -1,16 +1,16 @@
 # Integrating the UI Web Component Library
 
-This guide explains how another team can use the published React component library in a **React** (Vite, CRA, etc.) or **Next.js** app. It reflects how the library is built today (`components/web`, npm name **`ui-web`** until you publish under a different scope).
+This guide explains how another team can use the published React component library in a **React** (Vite, CRA, etc.) or **Next.js** app. It reflects how the library is built today (`components/web`, npm name **`sbui-web`** until you publish under a different scope).
 
 ---
 
 ## What you are integrating
 
-| Piece | Purpose |
-|--------|---------|
-| **JavaScript bundle** (`ui-web`) | React components (`TextArea`, `Tooltip`, …) and TypeScript types |
-| **Stylesheet** (`ui-web/styles.css`) | Design tokens (CSS variables), Tailwind utilities, and component-specific CSS (animations, tooltip arrows, etc.) |
-| **Tailwind preset** (`ui-web/tailwind-preset`) | Optional — lets the host app use the same color/semantic tokens (`text-fg`, `bg-surface`, …) in its own JSX |
+| Piece                                            | Purpose                                                                                                          |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **JavaScript bundle** (`sbui-web`)               | React components (`TextArea`, `Tooltip`, …) and TypeScript types                                                 |
+| **Stylesheet** (`sbui-web/styles.css`)           | Design tokens (CSS variables), Tailwind utilities, and component-specific CSS (animations, tooltip arrows, etc.) |
+| **Tailwind preset** (`sbui-web/tailwind-preset`) | Optional — lets the host app use the same color/semantic tokens (`text-fg`, `bg-surface`, …) in its own JSX      |
 
 The library is **not** “CSS-in-JS only.” Consumers should import the **pre-built stylesheet once** at the app root. Components rely on global classes and CSS variables from that file.
 
@@ -18,11 +18,11 @@ The library is **not** “CSS-in-JS only.” Consumers should import the **pre-b
 
 ## Requirements
 
-| Dependency | Version (peer) | Notes |
-|------------|----------------|--------|
-| `react` | `^19.0.0` | Required peer |
-| `react-dom` | `^19.0.0` | Required peer |
-| `tailwindcss` | `^3.4.0` | Optional peer — only needed if the host app uses Tailwind with the preset |
+| Dependency    | Version (peer) | Notes                                                                     |
+| ------------- | -------------- | ------------------------------------------------------------------------- |
+| `react`       | `^19.0.0`      | Required peer                                                             |
+| `react-dom`   | `^19.0.0`      | Required peer                                                             |
+| `tailwindcss` | `^3.4.0`       | Optional peer — only needed if the host app uses Tailwind with the preset |
 
 **Recommended:** TypeScript, PostCSS, and Autoprefixer in the host app if they use Tailwind v3.
 
@@ -32,23 +32,23 @@ The library is **not** “CSS-in-JS only.” Consumers should import the **pre-b
 
 Complete these steps so npm consumers do not hit missing-module errors:
 
-1. **Set the public package name** — e.g. `ui-web` or `@your-org/ui-web` (update `components/web/package.json`, remove `"private": true`).
+1. **Set the public package name** — e.g. `sbui-web` or `@your-org/sbui-web` (update `components/web/package.json`, remove `"private": true`).
 2. **Publish satellite packages or bundle them** — The library build currently treats `@uniicy/icons` and `@uniicy/assets` as **externals**. Either:
-   - Publish `@uniicy/icons` and `@uniicy/assets` to npm and list them as **dependencies** of `ui-web`, or
-   - Bundle them into `ui-web` and stop externalizing them in `tsup.config.ts`.
+    - Publish `@uniicy/icons` and `@uniicy/assets` to npm and list them as **dependencies** of `sbui-web`, or
+    - Bundle them into `sbui-web` and stop externalizing them in `tsup.config.ts`.
 3. **Ship the `files` field contents** — `dist/`, `tailwind.preset.ts`, `tailwind-theme.ts` (as configured in `package.json`).
 4. **Run a full build** before publish:
-   ```bash
-   cd components/web
-   bun run build          # JS + d.ts (tsup; onSuccess rebuilds styles)
-   bun run build:styles   # if you need styles without a full tsup run
-   ```
+    ```bash
+    cd components/web
+    bun run build          # JS + d.ts (tsup; onSuccess rebuilds styles)
+    bun run build:styles   # if you need styles without a full tsup run
+    ```
 5. **Verify exports** — Consumers rely on:
-   - `ui-web` → components
-   - `ui-web/styles.css` → stylesheet
-   - `ui-web/tailwind-preset` → Tailwind preset (TypeScript)
+    - `sbui-web` → components
+    - `sbui-web/styles.css` → stylesheet
+    - `sbui-web/tailwind-preset` → Tailwind preset (TypeScript)
 
-6. **Document the published name** in README (replace `ui-web` below if you use a scope).
+6. **Document the published name** in README (replace `sbui-web` below if you use a scope).
 
 ---
 
@@ -58,16 +58,16 @@ Complete these steps so npm consumers do not hit missing-module errors:
 
 ```bash
 # npm
-npm install ui-web
+npm install sbui-web
 
 # yarn
-yarn add ui-web
+yarn add sbui-web
 
 # pnpm
-pnpm add ui-web
+pnpm add sbui-web
 
 # bun
-bun add ui-web
+bun add sbui-web
 ```
 
 Install peers if the package manager does not do it automatically:
@@ -82,7 +82,7 @@ If the host app uses the Tailwind preset for its own UI:
 npm install -D tailwindcss postcss autoprefixer
 ```
 
-Also install any **documented companion packages** (e.g. `@uniicy/icons`) if they are not bundled inside `ui-web`.
+Also install any **documented companion packages** (e.g. `@uniicy/icons`) if they are not bundled inside `sbui-web`.
 
 ---
 
@@ -93,33 +93,37 @@ Import **once** at the application entry so tokens and component CSS load global
 **React (Vite) — `src/main.tsx`:**
 
 ```ts
-import "ui-web/styles.css";
+import "sbui-web/styles.css";
 import "./index.css"; // your app styles after, if you need overrides
 ```
 
 **Next.js App Router — `app/layout.tsx`:**
 
 ```tsx
-import "ui-web/styles.css";
+import "sbui-web/styles.css";
 import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body>{children}</body>
+        </html>
+    );
 }
 ```
 
 **Next.js Pages Router — `pages/_app.tsx`:**
 
 ```tsx
-import "ui-web/styles.css";
+import "sbui-web/styles.css";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+    return <Component {...pageProps} />;
 }
 ```
 
@@ -132,19 +136,19 @@ Without this import, components may render unstyled (missing colors, animations,
 Import from the main entry:
 
 ```tsx
-import { TextArea, Tooltip } from "ui-web";
+import { TextArea, Tooltip } from "sbui-web";
 
 export function NotesField() {
-  const [value, setValue] = useState("");
+    const [value, setValue] = useState("");
 
-  return (
-    <TextArea
-      id="notes"
-      value={value}
-      onChange={setValue}
-      placeholder="Add a note…"
-    />
-  );
+    return (
+        <TextArea
+            id="notes"
+            value={value}
+            onChange={setValue}
+            placeholder="Add a note…"
+        />
+    );
 }
 ```
 
@@ -154,10 +158,10 @@ export function NotesField() {
 "use client";
 
 import { useState } from "react";
-import { TextArea } from "ui-web";
+import { TextArea } from "sbui-web";
 
 export function NotesField() {
-  // ...
+    // ...
 }
 ```
 
@@ -177,21 +181,21 @@ npx tailwindcss init -p
 
 ```ts
 import type { Config } from "tailwindcss";
-import uiPreset from "ui-web/tailwind-preset";
+import uiPreset from "sbui-web/tailwind-preset";
 
 export default {
-  presets: [uiPreset],
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    // Scan the published package so any class names referenced in app code match
-    "./node_modules/ui-web/dist/**/*.{js,mjs}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+    presets: [uiPreset],
+    content: [
+        "./src/**/*.{js,ts,jsx,tsx,mdx}",
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+        // Scan the published package so any class names referenced in app code match
+        "./node_modules/sbui-web/dist/**/*.{js,mjs}",
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
 } satisfies Config;
 ```
 
@@ -203,7 +207,7 @@ export default {
 @tailwind utilities;
 ```
 
-**Important:** The library’s **component styles** still come from `ui-web/styles.css`. The preset does not replace that import; it aligns **your** Tailwind build with the same token names.
+**Important:** The library’s **component styles** still come from `sbui-web/styles.css`. The preset does not replace that import; it aligns **your** Tailwind build with the same token names.
 
 ---
 
@@ -215,7 +219,7 @@ export default {
 // next.config.js or next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["ui-web"],
+    transpilePackages: ["sbui-web"],
 };
 
 export default nextConfig;
@@ -231,7 +235,7 @@ export default nextConfig;
 
 Types ship with the package (`dist/index.d.ts`). No extra `@types` package is required.
 
-If path aliases are used in the host app, they are independent of the library — import only from `"ui-web"`.
+If path aliases are used in the host app, they are independent of the library — import only from `"sbui-web"`.
 
 ---
 
@@ -255,41 +259,41 @@ Semantic utilities (`text-fg`, `bg-surface`, `text-link`, …) read from those v
 ┌─────────────────────────────────────────────────────────┐
 │  Host app (React / Next.js)                             │
 ├─────────────────────────────────────────────────────────┤
-│  1. import "ui-web/styles.css"  ← library look & feel   │
-│  2. import { TextArea } from "ui-web"  ← components     │
+│  1. import "sbui-web/styles.css"  ← library look & feel   │
+│  2. import { TextArea } from "sbui-web"  ← components     │
 │  3. (optional) tailwind preset  ← your own utilities     │
 └─────────────────────────────────────────────────────────┘
 ```
 
 - **Layer 1** — Required for library components to look correct.
-- **Layer 3** — Only needed when *your* JSX uses the same Tailwind token classes.
+- **Layer 3** — Only needed when _your_ JSX uses the same Tailwind token classes.
 
 ---
 
 ## Checklist
 
-| Step | Done? |
-|------|--------|
-| Install `ui-web` + `react` + `react-dom` | ☐ |
-| Install companion packages if documented (`@uniicy/icons`, etc.) | ☐ |
-| Import `ui-web/styles.css` at app root | ☐ |
-| Use `"use client"` in Next.js for interactive usage | ☐ |
-| Add `transpilePackages: ["ui-web"]` if needed | ☐ |
-| (Optional) Tailwind preset + `content` includes `node_modules/ui-web/dist/**` | ☐ |
-| Verify one screen in light and dark | ☐ |
+| Step                                                                            | Done? |
+| ------------------------------------------------------------------------------- | ----- |
+| Install `sbui-web` + `react` + `react-dom`                                      | ☐     |
+| Install companion packages if documented (`@uniicy/icons`, etc.)                | ☐     |
+| Import `sbui-web/styles.css` at app root                                        | ☐     |
+| Use `"use client"` in Next.js for interactive usage                             | ☐     |
+| Add `transpilePackages: ["sbui-web"]` if needed                                 | ☐     |
+| (Optional) Tailwind preset + `content` includes `node_modules/sbui-web/dist/**` | ☐     |
+| Verify one screen in light and dark                                             | ☐     |
 
 ---
 
 ## Troubleshooting
 
-| Symptom | Likely cause | Fix |
-|---------|----------------|-----|
-| Unstyled / no colors | Stylesheet not imported | Add `import "ui-web/styles.css"` at root |
-| `Cannot find module '@uniicy/icons'` | Icons not published / not installed | Install peer package or use a build that bundles icons |
-| Tailwind classes in *your* code have no effect | Preset or `content` paths missing | Add preset and scan `node_modules/ui-web/dist` |
-| Tooltip animations missing | Old or missing `styles.css` | Reinstall package; ensure latest `dist/styles.css` |
-| Next.js: hooks error in Server Component | Client component boundary missing | Add `"use client"` to the file using the library |
-| Types not found | Old publish without `dist/index.d.ts` | Upgrade package version |
+| Symptom                                        | Likely cause                          | Fix                                                    |
+| ---------------------------------------------- | ------------------------------------- | ------------------------------------------------------ |
+| Unstyled / no colors                           | Stylesheet not imported               | Add `import "sbui-web/styles.css"` at root             |
+| `Cannot find module '@uniicy/icons'`           | Icons not published / not installed   | Install peer package or use a build that bundles icons |
+| Tailwind classes in _your_ code have no effect | Preset or `content` paths missing     | Add preset and scan `node_modules/sbui-web/dist`       |
+| Tooltip animations missing                     | Old or missing `styles.css`           | Reinstall package; ensure latest `dist/styles.css`     |
+| Next.js: hooks error in Server Component       | Client component boundary missing     | Add `"use client"` to the file using the library       |
+| Types not found                                | Old publish without `dist/index.d.ts` | Upgrade package version                                |
 
 ---
 
@@ -299,26 +303,26 @@ Semantic utilities (`text-fg`, `bg-surface`, `text-link`, …) read from those v
 
 ```tsx
 // main.tsx
-import "ui-web/styles.css";
+import "sbui-web/styles.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+    <StrictMode>
+        <App />
+    </StrictMode>,
 );
 ```
 
 ```tsx
 // App.tsx
-import { TextArea } from "ui-web";
+import { TextArea } from "sbui-web";
 import { useState } from "react";
 
 export default function App() {
-  const [v, setV] = useState("");
-  return <TextArea id="demo" value={v} onChange={setV} placeholder="Hello" />;
+    const [v, setV] = useState("");
+    return <TextArea id="demo" value={v} onChange={setV} placeholder="Hello" />;
 }
 ```
 
@@ -326,15 +330,19 @@ export default function App() {
 
 ```tsx
 // app/layout.tsx
-import "ui-web/styles.css";
+import "sbui-web/styles.css";
 import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body>{children}</body>
+        </html>
+    );
 }
 ```
 
@@ -343,7 +351,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 import { DemoField } from "./demo-field";
 
 export default function Page() {
-  return <DemoField />;
+    return <DemoField />;
 }
 ```
 
@@ -352,11 +360,11 @@ export default function Page() {
 "use client";
 
 import { useState } from "react";
-import { TextArea } from "ui-web";
+import { TextArea } from "sbui-web";
 
 export function DemoField() {
-  const [v, setV] = useState("");
-  return <TextArea id="demo" value={v} onChange={setV} />;
+    const [v, setV] = useState("");
+    return <TextArea id="demo" value={v} onChange={setV} />;
 }
 ```
 
@@ -372,10 +380,10 @@ export function DemoField() {
 
 ## Summary
 
-1. **Install** `ui-web` and React peers (and any documented satellite packages).
-2. **Import** `ui-web/styles.css` once at the root.
-3. **Import components** from `"ui-web"`.
+1. **Install** `sbui-web` and React peers (and any documented satellite packages).
+2. **Import** `sbui-web/styles.css` once at the root.
+3. **Import components** from `"sbui-web"`.
 4. **Next.js:** use Client Components + optional `transpilePackages`.
-5. **Optional:** wire `ui-web/tailwind-preset` into the host Tailwind config if the app uses the same design tokens.
+5. **Optional:** wire `sbui-web/tailwind-preset` into the host Tailwind config if the app uses the same design tokens.
 
 That is the full integration path for React and Next.js consumers.

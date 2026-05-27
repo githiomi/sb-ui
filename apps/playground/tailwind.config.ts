@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import uiPreset from "../../components/web/tailwind.preset";
 
 /**
- * The playground extends the `ui-web` preset so the same primitive
+ * The playground extends the `sbui-web` preset so the same primitive
  * (`bg-primary-500`, `bg-accent-500`, …) and semantic (`bg-surface`,
  * `text-fg`, `border-outline`, …) tokens that drive the component
  * library are available to the playground's own JSX as well.

@@ -6,7 +6,7 @@ import { buildTailwindThemeColors } from "./tailwind-theme";
  *
  * Usage (in a consuming app's tailwind.config):
  * ```ts
- * import uiPreset from "ui-web/tailwind-preset";
+ * import uiPreset from "sbui-web/tailwind-preset";
  * export default {
  *   presets: [uiPreset],
  *   content: ["./src/**\/*.{ts,tsx}"],
@@ -16,7 +16,7 @@ import { buildTailwindThemeColors } from "./tailwind-theme";
  * The consumer should ALSO import the shipped stylesheet once, so the CSS
  * variables that back these tokens are defined:
  * ```ts
- * import "ui-web/styles.css";
+ * import "sbui-web/styles.css";
  * ```
  */
 const TailwindPreset: Partial<Config> = {

@@ -2,7 +2,7 @@ import { cn } from "@uniicy/libs";
 import { ProgressBarProps } from "./ProgressBar.types";
 import React, { useEffect, useRef, useState } from "react";
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
+export const ProgressBar: React.FC<ProgressBarProps> = ({
     id,
     className,
     value: propValue,
@@ -254,5 +254,3 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         </section>
     );
 };
-
-export default ProgressBar;
