@@ -1,6 +1,5 @@
-import { LandingPage } from "./pages";
 import type { ComponentType } from "react";
-import { TextAreaPage } from "./pages/TextArea/TextArea.page";
+import { LandingPage, ProgressBarPage, TextAreaPage } from "./pages";
 
 /**
  * Single source of truth for the playground's navigation.
@@ -44,6 +43,15 @@ export const componentRoutes: ComponentRoute[] = [
         category: "atom",
         status: "stable",
         element: TextAreaPage,
+    },
+    {
+        slug: "progress-bar",
+        path: "/components/progress-bar",
+        title: "ProgressBar",
+        description: "A progress bar component.",
+        category: "atom",
+        status: "stable",
+        element: ProgressBarPage,
     },
 ];
 

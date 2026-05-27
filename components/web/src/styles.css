@@ -11,6 +11,7 @@
  * Consumers import the built file with `import "@sbw-ui/styles.css"`.
  */
 @import "./atoms/Tooltip/Tooltip.css";
+@import "./atoms/ProgressBar/ProgressBar.css";
 
 @tailwind base;
 @tailwind utilities;
