@@ -50,7 +50,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     const clampedPercentage = Math.min(Math.max(percentage, 0), 100);
 
     return (
-        <section
+        <div
             data-testid={id}
             aria-label="Progress bar"
             className={cn(
@@ -99,7 +99,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                     id={id}
                     ref={progressBarRef}
                     className={cn(
-                        "overflow-hidden bg-[var(--color-secondary)]",
+                        "overflow-hidden bg-primary-600",
                         {
                             "w-full rounded-full": direction === "horizontal",
                             "h-full rounded-full": direction === "vertical",
@@ -109,10 +109,10 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                                 size === "medium" && direction === "horizontal",
                             "h-3":
                                 size === "large" && direction === "horizontal",
-                            "w-2": size === "small" && direction === "vertical",
-                            "w-3":
+                            "w-1": size === "small" && direction === "vertical",
+                            "w-2":
                                 size === "medium" && direction === "vertical",
-                            "w-4": size === "large" && direction === "vertical",
+                            "w-3": size === "large" && direction === "vertical",
                         },
                         className,
                     )}
@@ -137,12 +137,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                                 "h-full": direction === "horizontal",
                                 "absolute bottom-0 w-full rounded-b-full":
                                     direction === "vertical",
-                                "bg-[var(--color-primaryBackground)]":
-                                    color === "primary",
-                                "bg-[var(--color-accent)]":
-                                    color === "secondary",
-                                "bg-[var(--color-statusSuccess)]":
-                                    color === "tertiary",
+                                "bg-primary-400": color === "primary",
+                                "bg-accent-400": color === "secondary",
+                                "bg-success-400": color === "tertiary",
                                 "progress-bar-dashed": variant === "dashed",
                                 "progress-bar-dotted": variant === "dotted",
                                 stripe_overlay: striped,
@@ -181,7 +178,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                                         : "inset-x-0 bottom-1"
                                 }`}
                             >
-                                <span className="text-[10px] font-semibold text-[var(--color-textMain)]">
+                                <span className="text-[10px] font-semibold text-fg">
                                     {indeterminate
                                         ? showLoadingLabel
                                             ? "Loading..."
@@ -210,7 +207,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                                   }),
                         }}
                     >
-                        <span className="text-[10px] font-semibold text-[var(--color-textMain)]">
+                        <span className="text-[10px] font-semibold text-fg">
                             {indeterminate
                                 ? showLoadingLabel
                                     ? "Loading..."
@@ -251,6 +248,6 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                     )}
                 </div>
             )}
-        </section>
+        </div>
     );
 };

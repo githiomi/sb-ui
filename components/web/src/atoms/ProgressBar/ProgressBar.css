@@ -1,0 +1,92 @@
+@keyframes indeterminate {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 0;
+    }
+}
+
+@keyframes indeterminate-horizontal {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes indeterminate-vertical {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.progress-bar-container {
+    background-color: rgb(var(--color-fg));
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-bar-indeterminate {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-indeterminate::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: inherit;
+    background-size: inherit;
+    background-repeat: inherit;
+    animation: indeterminate 1.5s ease-in-out infinite;
+}
+
+.stripe_overlay {
+    @apply bg-[image:linear-gradient(45deg,rgba(255,255,255,0.6)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.6)_50%,rgba(255,255,255,0.6)_75%,transparent_75%,transparent)] bg-[length:20px_20px];
+}
+
+.progress-bar-animated {
+    animation: stripes 1s linear infinite;
+}
+
+.progress-bar-dashed {
+    background-image: linear-gradient(
+        to right,
+        currentColor 50%,
+        transparent 50%
+    );
+    background-size: 20px 100%;
+    background-repeat: repeat-x;
+}
+
+.progress-bar-dotted {
+    background-image: radial-gradient(
+        circle,
+        currentColor 25%,
+        transparent 25%
+    );
+    background-size: 10px 10px;
+    background-repeat: repeat-x;
+}

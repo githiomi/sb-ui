@@ -83,7 +83,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
             // State variants
             "bg-gray-300 text-gray-500 cursor-not-allowed":
                 disabled || readOnly,
-            "bg-fg dark:bg-surface": !disabled && !readOnly,
+            "bg-fg": !disabled && !readOnly,
 
             // Add-ons
             "rounded-tl-none rounded-bl-none": addonBefore,
