@@ -7,7 +7,7 @@ export function ProgressBarPage() {
     return (
         <div className="bg-canvas">
             <PageHeader
-                status="planned"
+                status="stable"
                 category="atom"
                 title="ProgressBar"
                 description="A progress bar component."

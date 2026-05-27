@@ -50,7 +50,7 @@ export const componentRoutes: ComponentRoute[] = [
         title: "ProgressBar",
         description: "A progress bar component.",
         category: "atom",
-        status: "planned",
+        status: "stable",
         element: ProgressBarPage,
     },
 ];
