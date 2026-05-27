@@ -1,2 +1,3 @@
-export * from './Tooltip';
-export * from './TextArea';
+export * from "./Tooltip";
+export * from "./TextArea";
+export * from "./ProgressBar";
