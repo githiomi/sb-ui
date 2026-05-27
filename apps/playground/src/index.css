@@ -1,4 +1,4 @@
-@import "sbui-web/styles.css";
+@import "@dgithiomi/sbui-web/styles.css";
 
 @tailwind base;
 @tailwind utilities;

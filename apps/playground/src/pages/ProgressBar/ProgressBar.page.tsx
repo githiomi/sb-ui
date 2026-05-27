@@ -1,4 +1,4 @@
-import { ProgressBar } from "sbui-web";
+import { ProgressBar } from "@dgithiomi/sbui-web";
 import { ProgressBarProps } from "./ProgressBar.props";
 import { PageHeader, PropsTable } from "@layouts/shared";
 import { VariantSection } from "@components/VariantSection";

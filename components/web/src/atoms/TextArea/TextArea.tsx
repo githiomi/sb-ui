@@ -73,7 +73,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     };
 
     const textareaClasses = cn(
-        "w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg-inverse dark:text-fg rounded",
+        "w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg dark:text-fg-inverse rounded",
         {
             // Size variants
             "text-sm": size === "small",
