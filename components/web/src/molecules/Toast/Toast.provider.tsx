@@ -2,7 +2,13 @@ import React from "react";
 import { Toast } from "./Toast";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { createContext, useCallback, useEffect, useState, ReactNode } from "react";
+import {
+    createContext,
+    useCallback,
+    useEffect,
+    useState,
+    ReactNode,
+} from "react";
 import { ToastContextType, ToastInternal, ToastProps } from "./Toast.types";
 
 export const ToastContext = createContext<ToastContextType | null>(null);
@@ -43,6 +49,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
 
                                   return (
                                       <motion.div
+                                          className="w-full"
                                           key={toastUUID}
                                           layout
                                           initial={{ opacity: 0, x: 50, y: 10 }}
@@ -60,7 +67,9 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
                                       >
                                           <Toast
                                               {...toast}
-                                              onClose={() => removeToast(toastUUID)}
+                                              onClose={() =>
+                                                  removeToast(toastUUID)
+                                              }
                                           />
                                       </motion.div>
                                   );

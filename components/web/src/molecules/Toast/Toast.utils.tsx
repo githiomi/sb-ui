@@ -6,11 +6,11 @@ export const TOAST_VARIANTS: Record<ToastVariant, ToastVariantProps> = {
     success: {
         backgroundColor: "rgb(var(--color-fg))",
         textColor: "rgb(var(--color-fg-inverse))",
-        iconBackground: "rgb(var(--color-success-400))",
-        toastContentColor: "rgb(var(--color-success-600))",
+        toastContentColor: "rgb(var(--color-success-500))",
+        iconBackground: "rgb(var(--color-success-400) / 90%)",
         icon: (
             <Success
-                size={16}
+                size={17}
                 className="rounded-full"
                 color="rgb(var(--color-success-600))"
             />
@@ -19,28 +19,23 @@ export const TOAST_VARIANTS: Record<ToastVariant, ToastVariantProps> = {
     error: {
         backgroundColor: "rgb(var(--color-fg))",
         textColor: "rgb(var(--color-fg-inverse))",
-        toastContentColor: "rgb(var(--color-error-600))",
+        toastContentColor: "rgb(var(--color-error-400))",
         iconBackground: "rgb(var(--color-error-400) / 80%)",
-        icon: <XFill size={16} color="rgb(var(--color-error-600))" />,
+        icon: <XFill size={17} color="rgb(var(--color-error-600) / 90%)" />,
     },
     warning: {
         backgroundColor: "rgb(var(--color-fg))",
         textColor: "rgb(var(--color-fg-inverse))",
         iconBackground: "rgb(var(--color-warning-500))",
-        toastContentColor: "rgb(var(--color-warning-600))",
-        icon: <Warning size={16} color="rgb(var(--color-warning-600))" />,
+        toastContentColor: "rgb(var(--color-warning-500))",
+        icon: <Warning size={17} color="white" />,
     },
     info: {
         backgroundColor: "rgb(var(--color-fg))",
         textColor: "rgb(var(--color-fg-inverse))",
-        iconBackground: "rgb(var(--color-primary-400))",
-        toastContentColor: "rgb(var(--color-primary-600))",
-        icon: (
-            <CircledInformation
-                size={16}
-                color="rgb(var(--color-primary-600))"
-            />
-        ),
+        iconBackground: "rgb(var(--color-primary-500))",
+        toastContentColor: "rgb(var(--color-primary-500))",
+        icon: <CircledInformation size={17} color="white" />,
     },
 };
 

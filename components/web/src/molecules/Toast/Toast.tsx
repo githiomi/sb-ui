@@ -88,12 +88,12 @@ export const Toast: React.FC<ToastProps> = ({
             <div className="flex flex-1 flex-row items-center justify-between gap-2 p-3">
                 <div
                     style={{ backgroundColor: iconBackground }}
-                    className="grid size-8 place-items-center rounded-full"
+                    className="grid size-7 place-items-center rounded-full self-start mt-1"
                 >
                     {icon}
                 </div>
                 <div className="pointer-events-none flex-1">
-                    {title && <p className="font-semibold">{title}</p>}
+                    {title && <p className="text-base font-semibold">{title}</p>}
                     <p className="text-sm">{message}</p>
                 </div>
                 <div
@@ -102,7 +102,7 @@ export const Toast: React.FC<ToastProps> = ({
                     style={{
                         borderColor: toastColors.closeIconBorderColor,
                     }}
-                    className={`cursor-pointer rounded-full border p-1 opacity-50 hover:opacity-100`}
+                    className={`!cursor-pointer rounded-full border p-1 opacity-50 hover:opacity-100`}
                 >
                     <X size={16} color={toastColors.closeIconColor} />
                 </div>
