@@ -10,8 +10,9 @@ export const TOAST_VARIANTS: Record<ToastVariant, ToastVariantProps> = {
         toastContentColor: "rgb(var(--color-success-400))",
         icon: (
             <Success
-                color="rgb(var(--color-success-700))"
+                size={16}
                 className="rounded-full"
+                color="rgb(var(--color-success-600))"
             />
         ),
     },
@@ -20,21 +21,26 @@ export const TOAST_VARIANTS: Record<ToastVariant, ToastVariantProps> = {
         textColor: "rgb(var(--color-fg-inverse))",
         iconBackground: "rgb(var(--color-error-400))",
         toastContentColor: "rgb(var(--color-error-400))",
-        icon: <XFill color="rgb(var(--color-error-700))" />,
+        icon: <XFill size={16} color="rgb(var(--color-error-600))" />,
     },
     warning: {
         backgroundColor: "rgb(var(--color-fg))",
         textColor: "rgb(var(--color-fg-inverse))",
-        iconBackground: "rgb(var(--color-warning-400))",
-        toastContentColor: "rgb(var(--color-warning-400))",
-        icon: <Warning color="rgb(var(--color-warning-700))" />,
+        iconBackground: "rgb(var(--color-warning-500))",
+        toastContentColor: "rgb(var(--color-warning-500))",
+        icon: <Warning size={16} color="rgb(var(--color-warning-600))" />,
     },
     info: {
         backgroundColor: "rgb(var(--color-fg))",
         textColor: "rgb(var(--color-fg-inverse))",
-        iconBackground: "rgb(var(--color-neutral-400))",
-        toastContentColor: "rgb(var(--color-neutral-400))",
-        icon: <CircledInformation color="white" />,
+        iconBackground: "rgb(var(--color-primary-400))",
+        toastContentColor: "rgb(var(--color-primary-400))",
+        icon: (
+            <CircledInformation
+                size={16}
+                color="rgb(var(--color-primary-600))"
+            />
+        ),
     },
 };
 

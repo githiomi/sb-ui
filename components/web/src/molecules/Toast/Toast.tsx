@@ -10,7 +10,7 @@ export const Toast: React.FC<ToastProps> = ({
     title,
     message,
     onClose,
-    variant,
+    variant = "success",
     duration = "short",
 }) => {
     const isMobile = useIsMobile();
@@ -88,7 +88,7 @@ export const Toast: React.FC<ToastProps> = ({
             <div className="flex flex-1 flex-row items-center justify-between gap-2 p-3">
                 <div
                     style={{ backgroundColor: iconBackground }}
-                    className="grid size-8 place-items-center rounded-full"
+                    className="grid size-6 place-items-center rounded-full"
                 >
                     {icon}
                 </div>
@@ -102,9 +102,9 @@ export const Toast: React.FC<ToastProps> = ({
                     style={{
                         borderColor: toastColors.closeIconBorderColor,
                     }}
-                    className={`cursor-pointer rounded-full border p-2 opacity-50 hover:opacity-100`}
+                    className={`cursor-pointer rounded-full border p-1 opacity-50 hover:opacity-100`}
                 >
-                    <X color={toastColors.closeIconColor} />
+                    <X size={16} color={toastColors.closeIconColor} />
                 </div>
             </div>
             {/* Duration progress bar */}
