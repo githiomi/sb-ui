@@ -1,4 +1,4 @@
-# Uniicy UI — Component Library
+# SB UI — Sport Betting Component Library
 
 A **React** component library and **interactive playground** for building, previewing, and stress-testing UI used in the Uniicy sports-betting experience. The repo is a **Bun + Turborepo** monorepo: design tokens and shared utilities live in `packages/`, publishable web components live in `components/web`, and the playground in `apps/playground` is the live workbench for developers and QA.
 
@@ -8,15 +8,15 @@ A **React** component library and **interactive playground** for building, previ
 
 ## What’s in this repo
 
-| Area               | Path                                                                         | Role                                                                                               |
-| ------------------ | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Area               | Path                                                                         | Role                                                                                                          |
+| ------------------ | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | **Web components** | [`components/web`](./components/web)                                         | Atomic React components (`TextArea`, `Tooltip`, …), built with **tsup**, shipped as **`@dgithiomi/sbui-web`** |
-| **Playground**     | [`apps/playground`](./apps/playground)                                       | Vite app to browse variants, API tables, and theme modes                                           |
-| **Design tokens**  | [`packages/assets`](./packages/assets)                                       | Color primitives, themes (light/dark), shared token source                                         |
-| **Icons**          | [`packages/icons`](./packages/icons)                                         | Shared SVG icon components (`@uniicy/icons`)                                                       |
-| **Utilities**      | [`packages/libs`](./packages/libs)                                           | Shared helpers (e.g. `cn()` via `classnames` + `tailwind-merge`)                                   |
-| **Core**           | [`packages/core`](./packages/core)                                           | Shared hooks and utilities for apps in the monorepo                                                |
-| **Consumer docs**  | [`docs/consumer-integration-guide.md`](./docs/consumer-integration-guide.md) | Full guide for teams integrating the library in React or Next.js                                   |
+| **Playground**     | [`apps/playground`](./apps/playground)                                       | Vite app to browse variants, API tables, and theme modes                                                      |
+| **Design tokens**  | [`packages/assets`](./packages/assets)                                       | Color primitives, themes (light/dark), shared token source                                                    |
+| **Icons**          | [`packages/icons`](./packages/icons)                                         | Shared SVG icon components (`@uniicy/icons`)                                                                  |
+| **Utilities**      | [`packages/libs`](./packages/libs)                                           | Shared helpers (e.g. `cn()` via `classnames` + `tailwind-merge`)                                              |
+| **Core**           | [`packages/core`](./packages/core)                                           | Shared hooks and utilities for apps in the monorepo                                                           |
+| **Consumer docs**  | [`docs/consumer-integration-guide.md`](./docs/consumer-integration-guide.md) | Full guide for teams integrating the library in React or Next.js                                              |
 
 ---
 
@@ -177,10 +177,67 @@ For **React + Vite**, **Next.js Pages/App Router**, Tailwind preset setup, dark 
 
 ---
 
+## Global provider usage (recommended)
+
+`SbuiProvider` is the single top-level wrapper for library features that require React context (Toast now, more features later).
+
+### Why `enableToastProvider` exists
+
+- `enableToastProvider` is an **optional boolean prop** on `SbuiProvider`.
+- Default is `true`, so Toast context is mounted automatically.
+- You only set `enableToastProvider={false}` for advanced cases (for example:
+  tests, custom host-level toast system, or temporarily disabling Toast behavior).
+- In normal consumer apps, you should **not** set it; keep default behavior.
+
+### One-wrapper setup
+
+```tsx
+// main.tsx / app root
+import { SbuiProvider } from "@dgithiomi/sbui-web";
+import "@dgithiomi/sbui-web/styles.css";
+
+export function Root() {
+    return (
+        <SbuiProvider>
+            <App />
+        </SbuiProvider>
+    );
+}
+```
+
+### Triggering Toast from components
+
+```tsx
+import { useToast } from "@dgithiomi/sbui-web";
+
+export function SaveButton() {
+    const { showToast } = useToast();
+
+    return (
+        <button
+            onClick={() =>
+                showToast({
+                    variant: "success",
+                    title: "Saved",
+                    message: "Your changes were saved.",
+                    duration: "short",
+                })
+            }
+        >
+            Save
+        </button>
+    );
+}
+```
+
+If `enableToastProvider={false}`, `useToast()` will throw unless you provide `ToastProvider` yourself.
+
+---
+
 ## Package exports (`@dgithiomi/sbui-web`)
 
-| Import                     | Description                         |
-| -------------------------- | ----------------------------------- |
+| Import                                | Description                         |
+| ------------------------------------- | ----------------------------------- |
 | `@dgithiomi/sbui-web`                 | React components + TypeScript types |
 | `@dgithiomi/sbui-web/styles.css`      | Global stylesheet (required)        |
 | `@dgithiomi/sbui-web/tailwind-preset` | Tailwind v3 preset for host apps    |
@@ -232,9 +289,9 @@ Prefer semantic classes in components so light/dark switches without changing JS
 
 Before publishing `@dgithiomi/sbui-web` to npm:
 
-1. Run `bun run build` in `components/web` and verify `dist/` includes JS, types, and `styles.css`.  
-2. Confirm the package tarball has no `workspace:*` dependencies with `npm pack --dry-run`.  
-3. Publish from `components/web` using `npm publish --access public`.  
+1. Run `bun run build` in `components/web` and verify `dist/` includes JS, types, and `styles.css`.
+2. Confirm the package tarball has no `workspace:*` dependencies with `npm pack --dry-run`.
+3. Publish from `components/web` using `npm publish --access public`.
 4. Install `@dgithiomi/sbui-web` in a separate React/Next.js app and import `@dgithiomi/sbui-web/styles.css` once.
 
 See the **Before publishing** section in [docs/consumer-integration-guide.md](./docs/consumer-integration-guide.md).

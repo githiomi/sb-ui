@@ -30,6 +30,7 @@ export default defineConfig({
      */
     noExternal: [
         "@uniicy/assets",
+        "@uniicy/core",
         "@uniicy/icons",
         "@uniicy/libs",
         "classnames",
