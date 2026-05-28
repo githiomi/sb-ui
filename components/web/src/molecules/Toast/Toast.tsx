@@ -9,22 +9,22 @@ import { TOAST_VARIANTS as variants, secondsToMillis } from "./Toast.utils";
 export const Toast: React.FC<ToastProps> = ({
     title,
     message,
-    variant = "success",
-    duration = "short",
     onClose,
+    variant,
+    duration = "short",
 }) => {
     const isMobile = useIsMobile();
     const [progress, setProgress] = useState(0);
     const [paused, setPaused] = useState(false);
     const startTimeRef = useRef<number | null>(null);
     const durationMs =
-        duration === "short" ? secondsToMillis(4) : secondsToMillis(7);
+        duration === "short" ? secondsToMillis(3) : secondsToMillis(6);
     const {
-        backgroundColor,
-        toastContentColor,
-        iconBackground,
         icon,
         textColor,
+        iconBackground,
+        backgroundColor,
+        toastContentColor,
     } = variants[variant];
 
     useEffect(() => {

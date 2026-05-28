@@ -1,47 +1,35 @@
-import {
-    X
-    // XFill,
-    // Warning,
-    // SuccessIcon,
-    // InformationCircle,
-} from "@uniicy/icons";
 import React from "react";
 import { ToastVariant, ToastVariantProps } from "./Toast.types";
+import { XFill, Warning, Success, CircledInformation } from "@uniicy/icons";
 
 export const TOAST_VARIANTS: Record<ToastVariant, ToastVariantProps> = {
     success: {
-        textColor: "var(--toast-text)",
-        iconBackground: "var(--toast-success)",
-        toastContentColor: "var(--toast-success)",
-        backgroundColor: "var(--toast-background)",
-        icon: (
-            <X
-                color="var(--toast-success-icon)"
-                className="rounded-full"
-                size={17}
-            />
-        ),
+        backgroundColor: "var(--color-fg)",
+        textColor: "var(--color-fg-inverse)",
+        iconBackground: "var(--color-success-400)",
+        toastContentColor: "var(--color-success-400)",
+        icon: <Success color="var(--color-success-700)" className="rounded-full" />,
     },
     error: {
-        textColor: "var(--toast-text)",
-        backgroundColor: "var(--toast-background)",
-        toastContentColor: "var(--toast-error)",
-        iconBackground: "var(--toast-error-icon)",
-        icon: <X />,
+        backgroundColor: "var(--color-fg)",
+        textColor: "var(--color-fg-inverse)",
+        iconBackground: "var(--color-error-400)",
+        toastContentColor: "var(--color-error-400)",
+        icon: <XFill color="var(--color-error-700)" />,
     },
     warning: {
-        textColor: "var(--toast-text)",
-        backgroundColor: "var(--toast-background)",
-        toastContentColor: "var(--toast-warning)",
-        iconBackground: "var(--toast-warning-icon)",
-        icon: <X color="white" size={17} />,
+        backgroundColor: "var(--color-fg)",
+        textColor: "var(--color-fg-inverse)",
+        iconBackground: "var(--color-warning-400)",
+        toastContentColor: "var(--color-warning-400)",
+        icon: <Warning color="var(--color-warning-700)" />,
     },
     info: {
-        textColor: "var(--toast-text)",
-        backgroundColor: "var(--toast-background)",
-        iconBackground: "var(--color-secondary)",
-        toastContentColor: "var(--color-primary)",
-        icon: <X color="white" size={17} />,
+        backgroundColor: "var(--color-fg)",
+        textColor: "var(--color-fg-inverse)",
+        iconBackground: "var(--color-neutral-400)",
+        toastContentColor: "var(--color-neutral-400)",
+        icon: <CircledInformation color="white" />,
     },
 };
 

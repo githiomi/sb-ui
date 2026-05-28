@@ -3,9 +3,9 @@ import type { IconProps } from "../types";
 
 export const X: React.FC<IconProps> = ({
     size = 16,
+    className,
     strokeWidth = 2,
     color = "currentColor",
-    className,
     ...props
 }) => (
     <svg
