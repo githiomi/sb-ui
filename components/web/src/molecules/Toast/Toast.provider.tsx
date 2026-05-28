@@ -2,17 +2,20 @@ import React from "react";
 import { Toast } from "./Toast";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { createContext, useCallback, useState, ReactNode } from "react";
+import { createContext, useCallback, useEffect, useState, ReactNode } from "react";
 import { ToastContextType, ToastInternal, ToastProps } from "./Toast.types";
 
-export const ToastContext = createContext<ToastContextType>({
-    showToast: () => {},
-});
+export const ToastContext = createContext<ToastContextType | null>(null);
 
 export const ToastProvider: React.FC<{ children: ReactNode }> = ({
     children,
 }) => {
     const [toasts, setToasts] = useState<ToastInternal[]>([]);
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const showToast = useCallback((toast: ToastProps) => {
         const toastUUID = crypto.randomUUID();
@@ -29,40 +32,42 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
     return (
         <ToastContext.Provider value={{ showToast }}>
             {children}
-            {createPortal(
-                <div className="z-9999 fixed bottom-4 right-4 flex flex-col gap-3">
-                    <AnimatePresence initial={false}>
-                        {toasts.map((toast) => {
-                            const { toastUUID } = toast;
+            {isClient
+                ? createPortal(
+                      <div className="z-9999 fixed bottom-4 right-4 flex flex-col gap-3">
+                          <AnimatePresence initial={false}>
+                              {toasts.map((toast) => {
+                                  const { toastUUID } = toast;
 
-                            return (
-                                <motion.div
-                                    key={toastUUID}
-                                    layout
-                                    initial={{ opacity: 0, x: 50, y: 10 }}
-                                    animate={{ opacity: 1, x: 0, y: 0 }}
-                                    exit={{
-                                        opacity: 0,
-                                        x: 50,
-                                        transition: { duration: 0.25 },
-                                    }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 300,
-                                        damping: 24,
-                                    }}
-                                >
-                                    <Toast
-                                        {...toast}
-                                        onClose={() => removeToast(toastUUID)}
-                                    />
-                                </motion.div>
-                            );
-                        })}
-                    </AnimatePresence>
-                </div>,
-                document.body,
-            )}
+                                  return (
+                                      <motion.div
+                                          key={toastUUID}
+                                          layout
+                                          initial={{ opacity: 0, x: 50, y: 10 }}
+                                          animate={{ opacity: 1, x: 0, y: 0 }}
+                                          exit={{
+                                              opacity: 0,
+                                              x: 50,
+                                              transition: { duration: 0.25 },
+                                          }}
+                                          transition={{
+                                              type: "spring",
+                                              stiffness: 300,
+                                              damping: 24,
+                                          }}
+                                      >
+                                          <Toast
+                                              {...toast}
+                                              onClose={() => removeToast(toastUUID)}
+                                          />
+                                      </motion.div>
+                                  );
+                              })}
+                          </AnimatePresence>
+                      </div>,
+                      document.body,
+                  )
+                : null}
         </ToastContext.Provider>
     );
 };
