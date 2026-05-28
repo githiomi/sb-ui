@@ -79,7 +79,7 @@ export const Toast: React.FC<ToastProps> = ({
                 backgroundColor: toastColors.backgroundColor,
             }}
             className={cn(
-                "sm:w-90 relative flex w-full items-center overflow-hidden rounded-xl shadow-xl",
+                "relative flex w-full items-center overflow-hidden rounded-xl shadow-xl sm:w-[22.5rem]",
                 {
                     "bottom-14 right-0": isMobile,
                 },

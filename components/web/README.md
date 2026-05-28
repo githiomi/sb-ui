@@ -1,8 +1,8 @@
-# Uniicy UI — Component Library
+# SB UI — Sport Betting Component Library
 
 A **React** component library and **interactive playground** for building, previewing, and stress-testing UI used in the Uniicy sports-betting experience. The repo is a **Bun + Turborepo** monorepo: design tokens and shared utilities live in `packages/`, publishable web components live in `components/web`, and the playground in `apps/playground` is the live workbench for developers and QA.
 
-![Uniicy component playground — overview screen](../../docs/images/playground.png)
+![Uniicy component playground — overview screen](https://raw.githubusercontent.com/githiomi/sb-ui/main/docs/images/playground.png)
 
 ---
 

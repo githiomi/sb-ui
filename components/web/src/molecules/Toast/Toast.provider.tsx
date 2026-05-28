@@ -18,7 +18,9 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
     }, []);
 
     const showToast = useCallback((toast: ToastProps) => {
-        const toastUUID = crypto.randomUUID();
+        const toastUUID =
+            globalThis.crypto?.randomUUID?.() ??
+            `${Date.now()}-${Math.random().toString(36).slice(2)}`;
         const newToast: ToastInternal = { ...toast, toastUUID };
         setToasts((prev) => [...prev, newToast]);
     }, []);
@@ -34,7 +36,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({
             {children}
             {isClient
                 ? createPortal(
-                      <div className="z-9999 fixed bottom-4 right-4 flex flex-col gap-3">
+                      <div className="fixed bottom-4 right-4 z-[9999] flex flex-col gap-3">
                           <AnimatePresence initial={false}>
                               {toasts.map((toast) => {
                                   const { toastUUID } = toast;
