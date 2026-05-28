@@ -88,7 +88,7 @@ export const Toast: React.FC<ToastProps> = ({
             <div className="flex flex-1 flex-row items-center justify-between gap-2 p-3">
                 <div
                     style={{ backgroundColor: iconBackground }}
-                    className="grid size-6 place-items-center rounded-full"
+                    className="grid size-8 place-items-center rounded-full"
                 >
                     {icon}
                 </div>
