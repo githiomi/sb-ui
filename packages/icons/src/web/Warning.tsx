@@ -1,13 +1,13 @@
-import React from "react";
-import { IconProps } from "../types";
+import React from 'react';
+import { IconProps } from '../types';
 
 export const Warning: React.FC<IconProps> = ({
-    size = 16,
-    className,
-    strokeWidth = 2,
-    color = "#004560",
-    ...props
-}) => (
+                                                 size = 16,
+                                                 className,
+                                                 strokeWidth = 2,
+                                                 color = '#004560',
+                                                 ...props
+                                             }) => (
     <svg
         fill="none"
         aria-hidden

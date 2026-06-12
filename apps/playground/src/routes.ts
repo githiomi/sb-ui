@@ -1,5 +1,5 @@
-import type { ComponentType } from "react";
-import { LandingPage, ProgressBarPage, TextAreaPage } from "./pages";
+import type { ComponentType } from 'react';
+import { LandingPage, ProgressBarPage, TextAreaPage } from './pages';
 
 /**
  * Single source of truth for the playground's navigation.
@@ -13,9 +13,9 @@ import { LandingPage, ProgressBarPage, TextAreaPage } from "./pages";
  * landing-page catalog and breadcrumbs will pick it up automatically.
  */
 
-export type ComponentStatus = "stable" | "beta" | "planned";
+export type ComponentStatus = 'stable' | 'beta' | 'planned';
 
-export type ComponentCategory = "atom" | "molecule" | "organism" | "template";
+export type ComponentCategory = 'atom' | 'molecule' | 'organism' | 'template';
 
 export interface ComponentRoute {
     slug: string;
@@ -28,38 +28,38 @@ export interface ComponentRoute {
 }
 
 export const HOME_ROUTE = {
-    path: "/",
-    title: "Overview",
-    element: LandingPage,
+    path: '/',
+    title: 'Overview',
+    element: LandingPage
 } as const;
 
 export const componentRoutes: ComponentRoute[] = [
     {
-        slug: "text-area",
-        path: "/components/text-area",
-        title: "TextArea",
+        slug: 'text-area',
+        path: '/components/text-area',
+        title: 'TextArea',
         description:
-            "Multi-line text input for collecting long-form user content.",
-        category: "atom",
-        status: "stable",
-        element: TextAreaPage,
+            'Multi-line text input for collecting long-form user content.',
+        category: 'atom',
+        status: 'stable',
+        element: TextAreaPage
     },
     {
-        slug: "progress-bar",
-        path: "/components/progress-bar",
-        title: "ProgressBar",
-        description: "A progress bar component.",
-        category: "atom",
-        status: "stable",
-        element: ProgressBarPage,
-    },
+        slug: 'progress-bar',
+        path: '/components/progress-bar',
+        title: 'ProgressBar',
+        description: 'A progress bar component.',
+        category: 'atom',
+        status: 'stable',
+        element: ProgressBarPage
+    }
 ];
 
 export const CATEGORY_LABELS: Record<ComponentCategory, string> = {
-    atom: "Atoms",
-    molecule: "Molecules",
-    organism: "Organisms",
-    template: "Templates",
+    atom: 'Atoms',
+    molecule: 'Molecules',
+    organism: 'Organisms',
+    template: 'Templates'
 };
 
 export function groupByCategory(routes: ComponentRoute[]) {
@@ -72,7 +72,7 @@ export function groupByCategory(routes: ComponentRoute[]) {
             atom: [],
             molecule: [],
             organism: [],
-            template: [],
-        },
+            template: []
+        }
     );
 }

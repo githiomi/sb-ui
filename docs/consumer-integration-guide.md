@@ -1,25 +1,27 @@
 # Integrating the UI Web Component Library
 
-This guide explains how another team can use the published React component library in a **React** (Vite, CRA, etc.) or **Next.js** app. It reflects how the library is built today (`components/web`, npm name **`@dgithiomi/sbui-web`**).
+This guide explains how another team can use the published React component library in a **React** (Vite, CRA, etc.) or *
+*Next.js** app. It reflects how the library is built today (`components/web`, npm name **`@dgithiomi/sbui-web`**).
 
 ---
 
 ## What you are integrating
 
-| Piece                                            | Purpose                                                                                                          |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Piece                                                       | Purpose                                                                                                          |
+|-------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | **JavaScript bundle** (`@dgithiomi/sbui-web`)               | React components (`TextArea`, `Tooltip`, …) and TypeScript types                                                 |
 | **Stylesheet** (`@dgithiomi/sbui-web/styles.css`)           | Design tokens (CSS variables), Tailwind utilities, and component-specific CSS (animations, tooltip arrows, etc.) |
 | **Tailwind preset** (`@dgithiomi/sbui-web/tailwind-preset`) | Optional — lets the host app use the same color/semantic tokens (`text-fg`, `bg-surface`, …) in its own JSX      |
 
-The library is **not** “CSS-in-JS only.” Consumers should import the **pre-built stylesheet once** at the app root. Components rely on global classes and CSS variables from that file.
+The library is **not** “CSS-in-JS only.” Consumers should import the **pre-built stylesheet once** at the app root.
+Components rely on global classes and CSS variables from that file.
 
 ---
 
 ## Requirements
 
 | Dependency    | Version (peer) | Notes                                                                     |
-| ------------- | -------------- | ------------------------------------------------------------------------- |
+|---------------|----------------|---------------------------------------------------------------------------|
 | `react`       | `^19.0.0`      | Required peer                                                             |
 | `react-dom`   | `^19.0.0`      | Required peer                                                             |
 | `tailwindcss` | `^3.4.0`       | Optional peer — only needed if the host app uses Tailwind with the preset |
@@ -33,8 +35,10 @@ The library is **not** “CSS-in-JS only.” Consumers should import the **pre-b
 Complete these steps so npm consumers do not hit missing-module errors:
 
 1. **Set the public package name** — this repo currently uses `@dgithiomi/sbui-web` in `components/web/package.json`.
-2. **Bundle satellite packages** — The library build bundles `@uniicy/icons`, `@uniicy/assets`, and `@uniicy/libs` into `@dgithiomi/sbui-web`, so consumers install one package.
-3. **Ship the `files` field contents** — `dist/`, `tailwind.preset.ts`, `tailwind-theme.ts` (as configured in `package.json`).
+2. **Bundle satellite packages** — The library build bundles `@uniicy/icons`, `@uniicy/assets`, and `@uniicy/libs` into
+   `@dgithiomi/sbui-web`, so consumers install one package.
+3. **Ship the `files` field contents** — `dist/`, `tailwind.preset.ts`, `tailwind-theme.ts` (as configured in
+   `package.json`).
 4. **Run a full build** before publish:
     ```bash
     cd components/web
@@ -80,7 +84,8 @@ If the host app uses the Tailwind preset for its own UI:
 npm install -D tailwindcss postcss autoprefixer
 ```
 
-No companion package install is needed for the current build because icons, assets, and shared utilities are bundled into `@dgithiomi/sbui-web`.
+No companion package install is needed for the current build because icons, assets, and shared utilities are bundled
+into `@dgithiomi/sbui-web`.
 
 ---
 
@@ -167,7 +172,8 @@ export function NotesField() {
 
 ### 4. Tailwind in the host app (optional but common)
 
-Use this when the host app writes its **own** Tailwind classes using the same design tokens (`text-fg`, `bg-canvas`, `border-outline`, …).
+Use this when the host app writes its **own** Tailwind classes using the same design tokens (`text-fg`, `bg-canvas`,
+`border-outline`, …).
 
 **4a. Initialize Tailwind** (if not already):
 
@@ -205,7 +211,8 @@ export default {
 @tailwind utilities;
 ```
 
-**Important:** The library’s **component styles** still come from `@dgithiomi/sbui-web/styles.css`. The preset does not replace that import; it aligns **your** Tailwind build with the same token names.
+**Important:** The library’s **component styles** still come from `@dgithiomi/sbui-web/styles.css`. The preset does not
+replace that import; it aligns **your** Tailwind build with the same token names.
 
 ---
 
@@ -233,7 +240,8 @@ export default nextConfig;
 
 Types ship with the package (`dist/index.d.ts`). No extra `@types` package is required.
 
-If path aliases are used in the host app, they are independent of the library — import only from `"@dgithiomi/sbui-web"`.
+If path aliases are used in the host app, they are independent of the library — import only from
+`"@dgithiomi/sbui-web"`.
 
 ---
 
@@ -245,9 +253,11 @@ The shipped stylesheet includes:
 - `@media (prefers-color-scheme: dark)` overrides
 - `.dark` class overrides (for manual dark mode)
 
-To force dark mode in the host app, add `class="dark"` on `<html>` or a layout wrapper and toggle it from your theme provider.
+To force dark mode in the host app, add `class="dark"` on `<html>` or a layout wrapper and toggle it from your theme
+provider.
 
-Semantic utilities (`text-fg`, `bg-surface`, `text-link`, …) read from those variables, so they track the active theme without prop drilling.
+Semantic utilities (`text-fg`, `bg-surface`, `text-link`, …) read from those variables, so they track the active theme
+without prop drilling.
 
 ---
 
@@ -270,28 +280,28 @@ Semantic utilities (`text-fg`, `bg-surface`, `text-link`, …) read from those v
 
 ## Checklist
 
-| Step                                                                            | Done? |
-| ------------------------------------------------------------------------------- | ----- |
+| Step                                                                                       | Done? |
+|--------------------------------------------------------------------------------------------|-------|
 | Install `@dgithiomi/sbui-web` + `react` + `react-dom`                                      | ☐     |
-| Install companion packages if documented (`@uniicy/icons`, etc.)                | ☐     |
+| Install companion packages if documented (`@uniicy/icons`, etc.)                           | ☐     |
 | Import `@dgithiomi/sbui-web/styles.css` at app root                                        | ☐     |
-| Use `"use client"` in Next.js for interactive usage                             | ☐     |
+| Use `"use client"` in Next.js for interactive usage                                        | ☐     |
 | Add `transpilePackages: ["@dgithiomi/sbui-web"]` if needed                                 | ☐     |
 | (Optional) Tailwind preset + `content` includes `node_modules/@dgithiomi/sbui-web/dist/**` | ☐     |
-| Verify one screen in light and dark                                             | ☐     |
+| Verify one screen in light and dark                                                        | ☐     |
 
 ---
 
 ## Troubleshooting
 
-| Symptom                                        | Likely cause                          | Fix                                                    |
-| ---------------------------------------------- | ------------------------------------- | ------------------------------------------------------ |
-| Unstyled / no colors                           | Stylesheet not imported               | Add `import "@dgithiomi/sbui-web/styles.css"` at root             |
-| `Cannot find module '@uniicy/icons'`           | Icons not published / not installed   | Install peer package or use a build that bundles icons |
-| Tailwind classes in _your_ code have no effect | Preset or `content` paths missing     | Add preset and scan `node_modules/@dgithiomi/sbui-web/dist`       |
-| Tooltip animations missing                     | Old or missing `styles.css`           | Reinstall package; ensure latest `dist/styles.css`     |
-| Next.js: hooks error in Server Component       | Client component boundary missing     | Add `"use client"` to the file using the library       |
-| Types not found                                | Old publish without `dist/index.d.ts` | Upgrade package version                                |
+| Symptom                                        | Likely cause                          | Fix                                                         |
+|------------------------------------------------|---------------------------------------|-------------------------------------------------------------|
+| Unstyled / no colors                           | Stylesheet not imported               | Add `import "@dgithiomi/sbui-web/styles.css"` at root       |
+| `Cannot find module '@uniicy/icons'`           | Icons not published / not installed   | Install peer package or use a build that bundles icons      |
+| Tailwind classes in _your_ code have no effect | Preset or `content` paths missing     | Add preset and scan `node_modules/@dgithiomi/sbui-web/dist` |
+| Tooltip animations missing                     | Old or missing `styles.css`           | Reinstall package; ensure latest `dist/styles.css`          |
+| Next.js: hooks error in Server Component       | Client component boundary missing     | Add `"use client"` to the file using the library            |
+| Types not found                                | Old publish without `dist/index.d.ts` | Upgrade package version                                     |
 
 ---
 
@@ -370,7 +380,8 @@ export function DemoField() {
 
 ## Versioning and upgrades
 
-- Treat **minor** releases as potentially adding CSS — always import the stylesheet from the installed version after upgrades.
+- Treat **minor** releases as potentially adding CSS — always import the stylesheet from the installed version after
+  upgrades.
 - If a release notes mention new peer dependencies, install them before deploying.
 - Pin versions in production apps (`package.json` exact or lockfile).
 
@@ -382,6 +393,7 @@ export function DemoField() {
 2. **Import** `@dgithiomi/sbui-web/styles.css` once at the root.
 3. **Import components** from `"@dgithiomi/sbui-web"`.
 4. **Next.js:** use Client Components + optional `transpilePackages`.
-5. **Optional:** wire `@dgithiomi/sbui-web/tailwind-preset` into the host Tailwind config if the app uses the same design tokens.
+5. **Optional:** wire `@dgithiomi/sbui-web/tailwind-preset` into the host Tailwind config if the app uses the same
+   design tokens.
 
 That is the full integration path for React and Next.js consumers.

@@ -1,7 +1,7 @@
-import { ProgressBar } from "@dgithiomi/sbui-web";
-import { ProgressBarProps } from "./ProgressBar.props";
-import { PageHeader, PropsTable } from "@layouts/shared";
-import { VariantSection } from "@components/VariantSection";
+import { ProgressBar } from '@dgithiomi/sbui-web';
+import { ProgressBarProps } from './ProgressBar.props';
+import { PageHeader, PropsTable } from '@layouts/shared';
+import { VariantSection } from '@components/VariantSection';
 
 export function ProgressBarPage() {
     return (
@@ -226,7 +226,7 @@ export function ProgressBarPage() {
                             API reference
                         </h2>
                         <p className="mt-1 text-sm text-fg-muted">
-                            Public props exposed by{" "}
+                            Public props exposed by{' '}
                             <span className="font-mono text-fg">
                                 ProgressBar
                             </span>

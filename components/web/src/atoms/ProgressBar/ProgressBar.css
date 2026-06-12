@@ -64,7 +64,7 @@
 }
 
 .stripe_overlay {
-    @apply bg-[image:linear-gradient(45deg,rgba(255,255,255,0.6)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.6)_50%,rgba(255,255,255,0.6)_75%,transparent_75%,transparent)] bg-[length:20px_20px];
+    @apply bg-[image:linear-gradient(45deg,rgba(255,255,255,0.6)_25%, transparent_25%, transparent_50%,rgba(255,255,255,0.6)_50%,rgba(255,255,255,0.6)_75%, transparent_75%, transparent)] bg-[length:20px_20px];
 }
 
 .progress-bar-animated {
@@ -73,9 +73,9 @@
 
 .progress-bar-dashed {
     background-image: linear-gradient(
-        to right,
-        currentColor 50%,
-        transparent 50%
+            to right,
+            currentColor 50%,
+            transparent 50%
     );
     background-size: 20px 100%;
     background-repeat: repeat-x;
@@ -83,9 +83,9 @@
 
 .progress-bar-dotted {
     background-image: radial-gradient(
-        circle,
-        currentColor 25%,
-        transparent 25%
+            circle,
+            currentColor 25%,
+            transparent 25%
     );
     background-size: 10px 10px;
     background-repeat: repeat-x;

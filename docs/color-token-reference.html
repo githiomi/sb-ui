@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>SB UI color token reference</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --page: #f5f7f8;
+            --surface: #ffffff;
+            --surface-soft: #f8fafb;
+            --text: #10232c;
+            --muted: #5c6970;
+            --border: #d9e0e3;
+            --shadow: 0 12px 36px rgba(0, 42, 59, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--page);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", sans-serif;
+            line-height: 1.5;
+        }
+
+        main {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 40px 0 56px;
+        }
+
+        header {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin-bottom: 14px;
+        }
+
+        h3 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin: 22px 0 12px;
+        }
+
+        a {
+            color: #005374;
+            font-weight: 700;
+        }
+
+        code {
+            background: rgba(0, 67, 94, 0.08);
+            border: 1px solid rgba(0, 67, 94, 0.12);
+            border-radius: 6px;
+            padding: 0.12rem 0.32rem;
+            font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+            monospace;
+            font-size: 0.92em;
+        }
+
+        .intro {
+            max-width: 850px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .callout {
+            display: grid;
+            gap: 8px;
+            padding: 16px;
+            border: 1px solid rgba(0, 83, 116, 0.2);
+            background: #eef8fb;
+            border-radius: 8px;
+            margin: 18px 0 0;
+        }
+
+        .section {
+            margin-top: 28px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+        }
+
+        .swatch-card {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .swatch {
+            min-height: 92px;
+            display: grid;
+            align-items: end;
+            padding: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .swatch-label {
+            display: inline-flex;
+            width: fit-content;
+            max-width: 100%;
+            padding: 4px 7px;
+            border-radius: 6px;
+            color: white;
+            background: rgba(0, 0, 0, 0.46);
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+            monospace;
+            overflow-wrap: anywhere;
+        }
+
+        .details {
+            display: grid;
+            gap: 7px;
+            padding: 12px;
+            font-size: 0.9rem;
+        }
+
+        .details strong {
+            font-size: 1rem;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .utility {
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .semantic-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .semantic-card {
+            display: grid;
+            grid-template-columns: minmax(150px, 0.8fr) repeat(2, minmax(220px, 1fr));
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .semantic-name,
+        .semantic-mode {
+            padding: 14px;
+        }
+
+        .semantic-name {
+            display: grid;
+            align-content: center;
+            gap: 6px;
+            background: var(--surface-soft);
+            border-right: 1px solid var(--border);
+        }
+
+        .semantic-mode + .semantic-mode {
+            border-left: 1px solid var(--border);
+        }
+
+        .semantic-swatch {
+            height: 64px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.08) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(0, 0, 0, 0.08) 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.08) 75%),
+            linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.08) 75%);
+            background-position: 0 0,
+            0 8px,
+            8px -8px,
+            -8px 0;
+            background-size: 16px 16px;
+        }
+
+        .semantic-swatch-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 7px;
+        }
+
+        .alpha-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 14px;
+        }
+
+        .alpha-card {
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(45deg, #eef2f4 25%, transparent 25%),
+            linear-gradient(-45deg, #eef2f4 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, #eef2f4 75%),
+            linear-gradient(-45deg, transparent 75%, #eef2f4 75%),
+            white;
+            background-position: 0 0,
+            0 10px,
+            10px -10px,
+            -10px 0;
+            background-size: 20px 20px;
+        }
+
+        .alpha-fill {
+            height: 72px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            margin-bottom: 10px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 720px;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--surface-soft);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        @media (max-width: 760px) {
+            main {
+                width: min(100% - 20px, 1180px);
+                padding-top: 24px;
+            }
+
+            .section {
+                padding: 16px;
+            }
+
+            .semantic-card {
+                grid-template-columns: 1fr;
+            }
+
+            .semantic-name,
+            .semantic-mode + .semantic-mode {
+                border-left: 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <h1>SB UI color token reference</h1>
+        <p class="intro">
+            This page renders the visual swatches for the tokens generated from
+            <code>packages/assets/colors.ts</code>. It is easier to inspect than the
+            Markdown version because browsers reliably render the CSS colors here.
+        </p>
+        <div class="callout">
+            <strong>Looking for <code>bg-primary-500</code>?</strong>
+            <p>
+                It is <code>#00829d</code>, generated as <code>0 130 157</code>.
+                Visually, it is the main brand teal.
+            </p>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>How to use this page</h2>
+        <p class="muted">
+            Open this file directly in a browser. The Markdown preview may hide
+            swatches, but this HTML file uses normal CSS backgrounds.
+        </p>
+        <p class="muted">
+            File:
+            <code>docs/color-token-reference.html</code>
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>Primitive colors</h2>
+        <p class="muted">
+            These tokens do not change between light and dark mode. Each token is
+            available in Tailwind as <code>bg-...</code>, <code>text-...</code>,
+            <code>border-...</code>, and opacity variants such as
+            <code>bg-primary-500/20</code>.
+        </p>
+        <div id="primitive-sections"></div>
+    </section>
+
+    <section class="section">
+        <h2>Semantic colors</h2>
+        <p class="muted">
+            Semantic tokens are theme-aware aliases. Prefer these for app surfaces,
+            text, canvas backgrounds, and outlines.
+        </p>
+        <div class="semantic-grid" id="semantic-sections"></div>
+    </section>
+
+    <section class="section">
+        <h2>Opacity tokens</h2>
+        <p class="muted">
+            These are defined in <code>colors.ts</code>, but they are not emitted as
+            standalone CSS variables in <code>dist/styles.css</code>. They are shown
+            here on a checkerboard so the alpha is visible.
+        </p>
+        <div class="alpha-grid" id="opacity-sections"></div>
+    </section>
+
+    <section class="section">
+        <h2>Important notes</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>What it means</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>rgba(...)</code> source tokens</td>
+                    <td>
+                        The current <code>toRgbTuple()</code> converter keeps only RGB
+                        channels. For example, <code>rgba(112,112,112,0.2)</code>
+                        becomes <code>112 112 112</code>. Use a Tailwind opacity suffix
+                        such as <code>border-outline/20</code> when you want the alpha.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>--color-secondary</code></td>
+                    <td>
+                        This appears in generated CSS from
+                        <code>Tooltip.tsx</code>, but it is not generated in
+                        <code>:root</code>. It only works if a consumer app defines that
+                        CSS variable separately.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>.text-[a-zA-Z0-9-]</code></td>
+                    <td>
+                        This is Tailwind scanner noise from a regex-like string in
+                        <code>Tooltip.tsx</code>. It is not a real color token.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script>
+    const primitiveGroups = [
+        {
+            name: 'Primary',
+            defaultToken: 'primary-500',
+            colors: [
+                ['primary-400', '#009cbc', '0 156 188', 'Bright cyan teal'],
+                ['primary-500', '#00829d', '0 130 157', 'Main brand teal'],
+                ['primary-600', '#005374', '0 83 116', 'Deep blue teal'],
+                ['primary-700', '#004560', '0 69 96', 'Dark teal blue'],
+                ['primary-800', '#00435e', '0 67 94', 'Very dark teal blue'],
+                ['primary-900', '#002a3b', '0 42 59', 'Near-navy teal']
+            ]
+        },
+        {
+            name: 'Accent',
+            defaultToken: 'accent-500',
+            colors: [
+                ['accent-300', '#d6d3a2', '214 211 162', 'Muted khaki yellow'],
+                ['accent-400', '#fff351', '255 243 81', 'Bright lemon yellow'],
+                ['accent-500', '#ffed00', '255 237 0', 'Brand yellow']
+            ]
+        },
+        {
+            name: 'Success',
+            defaultToken: 'success-500',
+            colors: [
+                ['success-200', '#0fe630', '15 230 48', 'Neon green'],
+                ['success-300', '#3fa41a', '63 164 26', 'Grass green'],
+                ['success-400', '#069668', '6 150 104', 'Green teal'],
+                ['success-500', '#10b981', '16 185 129', 'Main success green'],
+                ['success-600', '#047857', '4 120 87', 'Deep success green'],
+                ['success-700', '#01583e', '1 88 62', 'Very dark green']
+            ]
+        },
+        {
+            name: 'Error',
+            defaultToken: 'error-500',
+            colors: [
+                ['error-400', '#f80505', '248 5 5', 'Vivid red'],
+                ['error-500', '#dc3545', '220 53 69', 'Main error red'],
+                ['error-600', '#931f06', '147 31 6', 'Burnt red'],
+                ['error-700', '#561000', '86 16 0', 'Very dark red brown']
+            ]
+        },
+        {
+            name: 'Warning',
+            defaultToken: 'warning-500',
+            colors: [
+                ['warning-500', '#f9a201', '249 162 1', 'Main amber warning'],
+                ['warning-600', '#935801', '147 88 1', 'Dark amber brown'],
+                ['warning-700', '#583300', '88 51 0', 'Very dark amber brown']
+            ]
+        },
+        {
+            name: 'Neutral',
+            defaultToken: 'neutral-500',
+            colors: [
+                ['neutral-200', '#ffffff', '255 255 255', 'White'],
+                ['neutral-300', '#f5f5f5', '245 245 245', 'Very light gray'],
+                ['neutral-400', '#cccccc', '204 204 204', 'Light gray'],
+                ['neutral-500', '#a2a8a8', '162 168 168', 'Cool medium gray'],
+                ['neutral-600', '#707070', '112 112 112', 'Medium gray'],
+                ['neutral-700', '#004560', '0 69 96', 'Dark teal blue'],
+                ['neutral-800', '#002a3b', '0 42 59', 'Near-navy teal'],
+                ['neutral-900', '#000000', '0 0 0', 'Black']
+            ]
+        }
+    ];
+
+    const semanticColors = [
+        {
+            token: 'fg',
+            utility: 'text-fg',
+            light: ['#000000', '0 0 0', 'neutral-900'],
+            dark: ['#ffffff', '255 255 255', 'neutral-200']
+        },
+        {
+            token: 'fg-muted',
+            utility: 'text-fg-muted',
+            light: ['#707070', '112 112 112', 'neutral-600'],
+            dark: ['#a2a8a8', '162 168 168', 'neutral-500']
+        },
+        {
+            token: 'fg-subtle',
+            utility: 'text-fg-subtle',
+            light: ['#a2a8a8', '162 168 168', 'neutral-500'],
+            dark: ['#cccccc', '204 204 204', 'neutral-400']
+        },
+        {
+            token: 'fg-inverse',
+            utility: 'text-fg-inverse',
+            light: ['#ffffff', '255 255 255', 'neutral-200'],
+            dark: ['#000000', '0 0 0', 'neutral-900']
+        },
+        {
+            token: 'link',
+            utility: 'text-link',
+            light: ['#ffed00', '255 237 0', 'accent-500'],
+            dark: ['#ffed00', '255 237 0', 'accent-500']
+        },
+        {
+            token: 'brand',
+            utility: 'text-brand',
+            light: ['#004560', '0 69 96', 'primary-700'],
+            dark: ['#009cbc', '0 156 188', 'primary-400']
+        },
+        {
+            token: 'surface',
+            utility: 'bg-surface',
+            light: ['#ffffff', '255 255 255', '#ffffff'],
+            dark: ['#00435e', '0 67 94', 'primary-800']
+        },
+        {
+            token: 'surface-elevated',
+            utility: 'bg-surface-elevated',
+            light: ['#f5f5f5', '245 245 245', 'neutral-300'],
+            dark: ['#00435e', '0 67 94', 'primary-800']
+        },
+        {
+            token: 'surface-inverse',
+            utility: 'bg-surface-inverse',
+            light: ['#002a3b', '0 42 59', 'primary-900'],
+            dark: ['#ffffff', '255 255 255', 'neutral-200']
+        },
+        {
+            token: 'canvas',
+            utility: 'bg-canvas',
+            light: ['#ffffff', '255 255 255', 'neutral-200'],
+            dark: ['#002a3b', '0 42 59', 'primary-900']
+        },
+        {
+            token: 'outline',
+            utility: 'border-outline/20',
+            light: ['rgba(112,112,112,0.2)', '112 112 112', 'opacity.neutral.200'],
+            dark: ['rgba(0,156,188,0.03)', '0 156 188', 'opacity.primary.200']
+        },
+        {
+            token: 'outline-subtle',
+            utility: 'border-outline-subtle/10',
+            light: ['rgba(112,112,112,0.1)', '112 112 112', 'opacity.neutral.100'],
+            dark: ['rgba(0,156,188,0.02)', '0 156 188', 'opacity.primary.100']
+        },
+        {
+            token: 'outline-strong',
+            utility: 'border-outline-strong',
+            light: ['#a2a8a8', '162 168 168', 'neutral-500'],
+            dark: ['#005374', '0 83 116', 'primary-600']
+        }
+    ];
+
+    const opacityColors = [
+        ['opacity.black.100', 'rgba(0,0,0,0.3)', '0 0 0', '30% black'],
+        ['opacity.black.200', 'rgba(0,0,0,0.5)', '0 0 0', '50% black'],
+        ['opacity.black.300', 'rgba(0,0,0,0.7)', '0 0 0', '70% black'],
+        ['opacity.black.400', 'rgba(0,0,0,0.75)', '0 0 0', '75% black'],
+        ['opacity.primary.100', 'rgba(0,156,188,0.02)', '0 156 188', '2% bright teal'],
+        ['opacity.primary.200', 'rgba(0,156,188,0.03)', '0 156 188', '3% bright teal'],
+        ['opacity.primary.300', 'rgba(0,156,188,0.3)', '0 156 188', '30% bright teal'],
+        ['opacity.primary.400', 'rgba(0,156,188,0.4)', '0 156 188', '40% bright teal'],
+        ['opacity.neutral.100', 'rgba(112,112,112,0.1)', '112 112 112', '10% gray'],
+        ['opacity.neutral.200', 'rgba(112,112,112,0.2)', '112 112 112', '20% gray'],
+        ['opacity.neutral.300', 'rgba(112,112,112,0.6)', '112 112 112', '60% gray']
+    ];
+
+    function escapeHtml(value) {
+        return String(value)
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;');
+    }
+
+    function renderPrimitiveCard([token, hex, rgb, description]) {
+        return `
+        <article class="swatch-card">
+          <div class="swatch" style="background: ${hex}">
+            <span class="swatch-label">bg-${token}</span>
+          </div>
+          <div class="details">
+            <strong>${token}</strong>
+            <span class="muted">${description}</span>
+            <span>Hex: <code>${hex}</code></span>
+            <span>RGB tuple: <code>${rgb}</code></span>
+            <span class="utility">Use: <code>bg-${token}</code></span>
+            <span class="utility">With alpha: <code>bg-${token}/20</code></span>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderPrimitiveSections() {
+        const root = document.getElementById('primitive-sections');
+        root.innerHTML = primitiveGroups
+            .map((group) => `
+          <h3>${group.name}</h3>
+          <p class="muted">
+            Default <code>${group.name.toLowerCase()}</code> maps to
+            <code>${group.defaultToken}</code>.
+          </p>
+          <div class="grid">
+            ${group.colors.map(renderPrimitiveCard).join('')}
+          </div>
+        `)
+            .join('');
+    }
+
+    function renderSemanticMode(label, [color, rgb, source]) {
+        return `
+        <div class="semantic-mode">
+          <div class="semantic-swatch">
+            <div class="semantic-swatch-inner" style="background: ${color}"></div>
+          </div>
+          <strong>${label}</strong>
+          <div class="muted">RGB tuple: <code>${rgb}</code></div>
+          <div class="muted">Source: <code>${escapeHtml(source)}</code></div>
+          <div class="muted">Rendered: <code>${escapeHtml(color)}</code></div>
+        </div>
+      `;
+    }
+
+    function renderSemanticSections() {
+        const root = document.getElementById('semantic-sections');
+        root.innerHTML = semanticColors
+            .map((item) => `
+          <article class="semantic-card">
+            <div class="semantic-name">
+              <strong>${item.token}</strong>
+              <span class="muted">Use <code>${item.utility}</code></span>
+            </div>
+            ${renderSemanticMode('Light', item.light)}
+            ${renderSemanticMode('Dark', item.dark)}
+          </article>
+        `)
+            .join('');
+    }
+
+    function renderOpacitySections() {
+        const root = document.getElementById('opacity-sections');
+        root.innerHTML = opacityColors
+            .map(([token, rgba, rgb, description]) => `
+          <article class="alpha-card">
+            <div class="alpha-fill" style="background: ${rgba}"></div>
+            <strong>${token}</strong>
+            <div class="muted">${description}</div>
+            <div>Source: <code>${rgba}</code></div>
+            <div>Tuple if converted: <code>${rgb}</code></div>
+          </article>
+        `)
+            .join('');
+    }
+
+    renderPrimitiveSections();
+    renderSemanticSections();
+    renderOpacitySections();
+</script>
+</body>
+</html>

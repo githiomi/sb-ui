@@ -1,13 +1,13 @@
-import React from "react";
-import { IconProps } from "../types";
+import React from 'react';
+import { IconProps } from '../types';
 
 export const XFill: React.FC<IconProps> = ({
-    size = 16,
-    className,
-    strokeWidth = 2,
-    color = "currentColor",
-    ...props
-}) => (
+                                               size = 16,
+                                               className,
+                                               strokeWidth = 2,
+                                               color = 'currentColor',
+                                               ...props
+                                           }) => (
     <svg
         fill="none"
         aria-hidden

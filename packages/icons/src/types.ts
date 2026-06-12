@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 /**
  * Base props for all web SVG icons.
@@ -8,7 +8,7 @@ import type { SVGProps } from "react";
  * - `color` maps to `fill` or `stroke` depending on the icon implementation.
  */
 export type IconProps = SVGProps<SVGSVGElement> & {
-  color?: string;
-  strokeWidth?: number;
-  size?: number | string;
+    color?: string;
+    strokeWidth?: number;
+    size?: number | string;
 };

@@ -1,5 +1,5 @@
-import { TooltipProps } from "@atoms/Tooltip";
-import { FocusEvent, ReactNode, TextareaHTMLAttributes } from "react";
+import { TooltipProps } from '@atoms/Tooltip';
+import { FocusEvent, ReactNode, TextareaHTMLAttributes } from 'react';
 
 /**
  * Controls padding and typography scale of the textarea.
@@ -8,7 +8,7 @@ import { FocusEvent, ReactNode, TextareaHTMLAttributes } from "react";
  * - `default` — standard body size for most layouts.
  * - `large` — emphasized input for hero or marketing surfaces.
  */
-export type TextAreaSize = "small" | "default" | "large";
+export type TextAreaSize = 'small' | 'default' | 'large';
 
 /**
  * Visual feedback state applied to the field border and clear affordance.
@@ -17,7 +17,7 @@ export type TextAreaSize = "small" | "default" | "large";
  * - `error` — error ring and error-toned clear button.
  * - `warning` — warning ring and warning-toned clear button.
  */
-export type TextAreaStatus = "warning" | "error" | "none";
+export type TextAreaStatus = 'warning' | 'error' | 'none';
 
 /**
  * Native CSS `resize` behavior on the underlying `<textarea>`.
@@ -27,7 +27,7 @@ export type TextAreaStatus = "warning" | "error" | "none";
  * - `horizontal` — width only.
  * - `both` — width and height.
  */
-export type TextAreaResize = "none" | "vertical" | "horizontal" | "both";
+export type TextAreaResize = 'none' | 'vertical' | 'horizontal' | 'both';
 
 /**
  * Props for the {@link TextArea} component.
@@ -40,7 +40,7 @@ export type TextAreaResize = "none" | "vertical" | "horizontal" | "both";
 export interface TextAreaProps
     extends Omit<
         TextareaHTMLAttributes<HTMLTextAreaElement>,
-        "onChange" | "suffix" | "prefix"
+        'onChange' | 'suffix' | 'prefix'
     > {
     /** Unique `id` on the native `<textarea>`. Used for labels, tooltips, and tests. */
     id: string;
@@ -124,8 +124,8 @@ export interface TextAreaProps
     tooltipOptions?: TooltipProps;
 
     /** Accessible name when no visible `<label>` is associated with the field. */
-    "aria-label"?: string;
+    'aria-label'?: string;
 
     /** Id of an element that describes the field (helper or error text). */
-    "aria-describedby"?: string;
+    'aria-describedby'?: string;
 }

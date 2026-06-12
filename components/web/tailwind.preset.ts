@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss";
-import { buildTailwindThemeColors } from "./tailwind-theme";
+import type { Config } from 'tailwindcss';
+import { buildTailwindThemeColors } from './tailwind-theme';
 
 /**
  * Tailwind preset for consumer apps.
@@ -20,12 +20,12 @@ import { buildTailwindThemeColors } from "./tailwind-theme";
  * ```
  */
 const TailwindPreset: Partial<Config> = {
-    darkMode: "media",
+    darkMode: 'media',
     theme: {
         extend: {
-            colors: buildTailwindThemeColors(),
-        },
-    },
+            colors: buildTailwindThemeColors()
+        }
+    }
 };
 
 export default TailwindPreset;

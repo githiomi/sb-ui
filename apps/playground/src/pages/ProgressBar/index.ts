@@ -1,2 +1,2 @@
-export * from "./ProgressBar.page";
-export * from "./ProgressBar.props";
+export * from './ProgressBar.page';
+export * from './ProgressBar.props';

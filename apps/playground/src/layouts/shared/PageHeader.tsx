@@ -1,11 +1,7 @@
-import { Link } from "react-router-dom";
-import type { FC, ReactNode } from "react";
-import { StatusBadge } from "@components/StatusBadge";
-import {
-    CATEGORY_LABELS,
-    type ComponentCategory,
-    type ComponentStatus,
-} from "@app/routes";
+import { Link } from 'react-router-dom';
+import type { FC, ReactNode } from 'react';
+import { StatusBadge } from '@components/StatusBadge';
+import { CATEGORY_LABELS, type ComponentCategory, type ComponentStatus } from '@app/routes';
 
 interface PageHeaderProps {
     category: ComponentCategory;
@@ -16,12 +12,12 @@ interface PageHeaderProps {
 }
 
 export const PageHeader: FC<PageHeaderProps> = ({
-    category,
-    title,
-    description,
-    status,
-    actions,
-}) => {
+                                                    category,
+                                                    title,
+                                                    description,
+                                                    status,
+                                                    actions
+                                                }) => {
     return (
         <header className="border-b border-outline/20 bg-surface">
             <div className="mx-auto max-w-5xl px-6 py-10">

@@ -1,6 +1,6 @@
-import React from "react";
-import type { PropsWithChildren } from "react";
-import { ToastProvider } from "../molecules/Toast";
+import type { PropsWithChildren } from 'react';
+import React from 'react';
+import { ToastProvider } from '../molecules/Toast';
 
 export interface SbuiProviderProps extends PropsWithChildren {
     /**
@@ -11,9 +11,9 @@ export interface SbuiProviderProps extends PropsWithChildren {
 }
 
 export const SbuiProvider = ({
-    children,
-    enableToastProvider = true,
-}: SbuiProviderProps) => {
+                                 children,
+                                 enableToastProvider = true
+                             }: SbuiProviderProps) => {
     if (!enableToastProvider) {
         return <>{children}</>;
     }

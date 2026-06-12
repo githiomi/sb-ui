@@ -1,28 +1,52 @@
 {
-  /*
-   * `paths` is declared here (the workspace's solution-style root config)
-   * and inherited by `tsconfig.app.json` via `extends`. As of TypeScript
-   * 5.0+ aliases are resolved relative to the config file that declares
-   * them, so an explicit `baseUrl` is no longer needed (and is deprecated
-   * in TypeScript 6+).
-   */
-  "compilerOptions": {
-    "paths": {
-      "@root/*": ["./*"],
-      "@app/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@routes/*": ["./src/routes/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@libs/*": ["./src/libs/*"]
-    }
-  },
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    /*
+     * `paths` is declared here (the workspace's solution-style root config)
+     * and inherited by `tsconfig.app.json` via `extends`. As of TypeScript
+     * 5.0+ aliases are resolved relative to the config file that declares
+     * them, so an explicit `baseUrl` is no longer needed (and is deprecated
+     * in TypeScript 6+).
+     */
+    "compilerOptions": {
+        "paths": {
+            "@root/*": [
+                "./*"
+            ],
+            "@app/*": [
+                "./src/*"
+            ],
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@layouts/*": [
+                "./src/layouts/*"
+            ],
+            "@pages/*": [
+                "./src/pages/*"
+            ],
+            "@routes/*": [
+                "./src/routes/*"
+            ],
+            "@styles/*": [
+                "./src/styles/*"
+            ],
+            "@utils/*": [
+                "./src/utils/*"
+            ],
+            "@hooks/*": [
+                "./src/hooks/*"
+            ],
+            "@libs/*": [
+                "./src/libs/*"
+            ]
+        }
+    },
+    "files": [ ],
+    "references": [
+        {
+            "path": "./tsconfig.app.json"
+        },
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
 }

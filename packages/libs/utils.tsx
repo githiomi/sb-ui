@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import { twMerge } from "tailwind-merge";
+import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
 
 /* -------------------------------------------------------------------------------------------------
  * Merge class names
@@ -16,5 +16,5 @@ import { twMerge } from "tailwind-merge";
  * @returns A single, conflict-free className string.
  */
 export function cn(...inputs: classNames.ArgumentArray) {
-  return twMerge(classNames(inputs));
+    return twMerge(classNames(inputs));
 }

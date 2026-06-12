@@ -1,137 +1,137 @@
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-in-out forwards;
+    animation: fadeIn 0.3s ease-in-out forwards;
 }
 
 .animate-scaleIn {
-  animation: scaleIn 0.3s ease-in-out forwards;
+    animation: scaleIn 0.3s ease-in-out forwards;
 }
 
 .arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
 }
 
 .arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid white;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
 }
 
 .arrow-right {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid white;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid white;
 }
 
 .arrow-left {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid white;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid white;
 }
 
 .border-tooltip-left-success {
-  border-left-color: rgb(var(--color-success-500));
+    border-left-color: rgb(var(--color-success-500));
 }
 
 .border-tooltip-right-success {
-  border-right-color: rgb(var(--color-success-500));
+    border-right-color: rgb(var(--color-success-500));
 }
 
 .border-tooltip-bottom-success {
-  border-bottom-color: rgb(var(--color-success-500));
+    border-bottom-color: rgb(var(--color-success-500));
 }
 
 .border-tooltip-top-success {
-  border-top-color: rgb(var(--color-success-500));
+    border-top-color: rgb(var(--color-success-500));
 }
 
 .border-tooltip-left-error {
-  border-left-color: rgb(var(--color-error-500));
+    border-left-color: rgb(var(--color-error-500));
 }
 
 .border-tooltip-right-error {
-  border-right-color: rgb(var(--color-error-500));
+    border-right-color: rgb(var(--color-error-500));
 }
 
 .border-tooltip-bottom-error {
-  border-bottom-color: rgb(var(--color-error-500));
+    border-bottom-color: rgb(var(--color-error-500));
 }
 
 .border-tooltip-top-error {
-  border-top-color: rgb(var(--color-error-500));
+    border-top-color: rgb(var(--color-error-500));
 }
 
 .border-tooltip-left-warning {
-  border-left-color: rgb(var(--color-warning-500));
+    border-left-color: rgb(var(--color-warning-500));
 }
 
 .border-tooltip-right-warning {
-  border-right-color: rgb(var(--color-warning-500));
+    border-right-color: rgb(var(--color-warning-500));
 }
 
 .border-tooltip-bottom-warning {
-  border-bottom-color: rgb(var(--color-warning-500));
+    border-bottom-color: rgb(var(--color-warning-500));
 }
 
 .border-tooltip-top-warning {
-  border-top-color: rgb(var(--color-warning-500));
+    border-top-color: rgb(var(--color-warning-500));
 }
 
 .border-tooltip-left-info {
-  border-left-color: rgb(var(--color-primary-500));
+    border-left-color: rgb(var(--color-primary-500));
 }
 
 .border-tooltip-right-info {
-  border-right-color: rgb(var(--color-primary-500));
+    border-right-color: rgb(var(--color-primary-500));
 }
 
 .border-tooltip-bottom-info {
-  border-bottom-color: rgb(var(--color-primary-500));
+    border-bottom-color: rgb(var(--color-primary-500));
 }
 
 .border-tooltip-top-info {
-  border-top-color: rgb(var(--color-primary-500));
+    border-top-color: rgb(var(--color-primary-500));
 }
 
 .tooltip-success-variant {
-  border-color: rgb(var(--color-success-500));
+    border-color: rgb(var(--color-success-500));
 }
 
 .tooltip-warning-variant {
-  border-color: rgb(var(--color-warning-500));
+    border-color: rgb(var(--color-warning-500));
 }
 
 .tooltip-error-variant {
-  border-color: rgb(var(--color-error-500));
+    border-color: rgb(var(--color-error-500));
 }
 
 .tooltip-info-variant {
-  border-color: rgb(var(--color-primary-500));
+    border-color: rgb(var(--color-primary-500));
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes scaleIn {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }

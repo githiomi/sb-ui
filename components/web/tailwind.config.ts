@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
-import TailwindPreset from "./tailwind.preset";
-import { buildTailwindThemeColors } from "./tailwind-theme";
+import type { Config } from 'tailwindcss';
+import TailwindPreset from './tailwind.preset';
+import { buildTailwindThemeColors } from './tailwind-theme';
 
 /**
  * Local Tailwind config used by `scripts/build-styles.ts` to produce the
@@ -11,16 +11,16 @@ import { buildTailwindThemeColors } from "./tailwind-theme";
  * will skip the library's own classes and tree-shake them out of the bundle.
  */
 export default {
-  presets: [TailwindPreset],
-  darkMode: "media",
-  content: [
-    "./index.ts",
-    "./src/**/*.{ts,tsx}",
-  ],
-  theme: {
-    extend: {
-      colors: buildTailwindThemeColors(),
+    presets: [TailwindPreset],
+    darkMode: 'media',
+    content: [
+        './index.ts',
+        './src/**/*.{ts,tsx}'
+    ],
+    theme: {
+        extend: {
+            colors: buildTailwindThemeColors()
+        }
     },
-  },
-  plugins: [],
+    plugins: []
 } satisfies Config;

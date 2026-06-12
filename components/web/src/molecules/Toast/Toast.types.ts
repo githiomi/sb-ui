@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 /**
  * The duration that a toast notification should be visible.
  * - "short": Typically a brief delay (e.g., 2-3 seconds).
  * - "long": A longer delay (e.g., 5-6 seconds).
  */
-export type ToastDuration = "short" | "long";
+export type ToastDuration = 'short' | 'long';
 
 /**
  * Visual style variants for the toast notification.
@@ -14,7 +14,7 @@ export type ToastDuration = "short" | "long";
  * - "warning": Indicates a warning or potentially problematic action.
  * - "info": Provides informational feedback to the user.
  */
-export type ToastVariant = "success" | "error" | "warning" | "info";
+export type ToastVariant = 'success' | 'error' | 'warning' | 'info';
 
 /**
  * Interface describing the visual properties for a particular toast variant.

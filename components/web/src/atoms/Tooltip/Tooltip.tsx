@@ -1,48 +1,43 @@
-import { cn } from "@uniicy/libs";
-import React, { ReactNode } from "react";
-import { AnimatePresence } from "motion/react";
-import {
-    TooltipProps,
-    TooltipTrigger,
-    TooltipPlacement,
-    TooltipPointerDirection,
-} from "./Tooltip.types";
+import { cn } from '@uniicy/libs';
+import React, { ReactNode } from 'react';
+import { AnimatePresence } from 'motion/react';
+import { TooltipPlacement, TooltipPointerDirection, TooltipProps, TooltipTrigger } from './Tooltip.types';
 
 const animationClasses = {
-    fade: "opacity-0 animate-fadeIn",
-    scale: "animate-scaleIn",
-    none: "",
+    fade: 'opacity-0 animate-fadeIn',
+    scale: 'animate-scaleIn',
+    none: ''
 };
 
 const variantBorderColorClasses = {
-    success: "tooltip-success-variant",
-    warning: "tooltip-warning-variant",
-    error: "tooltip-error-variant",
-    info: "tooltip-info-variant",
+    success: 'tooltip-success-variant',
+    warning: 'tooltip-warning-variant',
+    error: 'tooltip-error-variant',
+    info: 'tooltip-info-variant'
 };
 
 export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
-    id,
-    className,
-    content,
-    placement = "top",
-    trigger = "hover",
-    delay = 0,
-    arrow = true,
-    animation = "fade",
-    maxWidth,
-    disabled,
-    asChild = "div",
-    ref,
-    isVisible = false,
-    closeButton,
-    onClose,
-    onShow,
-    onHide,
-    children,
-    variant,
-    pointerDirection = "left",
-}) => {
+                                                                              id,
+                                                                              className,
+                                                                              content,
+                                                                              placement = 'top',
+                                                                              trigger = 'hover',
+                                                                              delay = 0,
+                                                                              arrow = true,
+                                                                              animation = 'fade',
+                                                                              maxWidth,
+                                                                              disabled,
+                                                                              asChild = 'div',
+                                                                              ref,
+                                                                              isVisible = false,
+                                                                              closeButton,
+                                                                              onClose,
+                                                                              onShow,
+                                                                              onHide,
+                                                                              children,
+                                                                              variant,
+                                                                              pointerDirection = 'left'
+                                                                          }) => {
     const [visible, setVisible] = React.useState(isVisible);
     const internalRef = React.useRef<HTMLDivElement>(null);
     const mergedRef = mergeRefs(ref, internalRef);
@@ -58,7 +53,7 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
     ): React.RefCallback<T> {
         return (value: T) => {
             refs.forEach((ref) => {
-                if (typeof ref === "function") {
+                if (typeof ref === 'function') {
                     ref(value);
                 } else if (ref) {
                     (ref as React.MutableRefObject<T | null>).current = value;
@@ -69,86 +64,86 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
 
     const getContainerPositionClass = (
         position: TooltipPlacement,
-        pointerDirection: TooltipPointerDirection,
+        pointerDirection: TooltipPointerDirection
     ): string => {
-        if (position === "bottom") {
-            if (pointerDirection === "left")
-                return "top-[calc(100%+8px)] left-0";
-            if (pointerDirection === "center")
-                return "top-[calc(100%+8px)] left-1/2 transform -translate-x-1/2";
-            if (pointerDirection === "right")
-                return "top-[calc(100%+8px)] right-0";
-        } else if (position === "top") {
-            if (pointerDirection === "left")
-                return "bottom-[calc(100%+8px)] left-0";
-            if (pointerDirection === "center")
-                return "bottom-[calc(100%+8px)] left-1/2 transform -translate-x-1/2";
-            if (pointerDirection === "right")
-                return "bottom-[calc(100%+8px)] right-0";
-        } else if (position === "left") {
-            if (pointerDirection === "left")
-                return "right-[calc(100%+8px)] top-0";
-            if (pointerDirection === "center")
-                return "right-[calc(100%+8px)] top-1/2 transform -translate-y-1/2";
-            if (pointerDirection === "right")
-                return "right-[calc(100%+8px)] bottom-0";
-        } else if (position === "right") {
-            if (pointerDirection === "left")
-                return "left-[calc(100%+8px)] top-0";
-            if (pointerDirection === "center")
-                return "left-[calc(100%+8px)] top-1/2 transform -translate-y-1/2";
-            if (pointerDirection === "right")
-                return "left-[calc(100%+8px)] bottom-0";
+        if (position === 'bottom') {
+            if (pointerDirection === 'left')
+                return 'top-[calc(100%+8px)] left-0';
+            if (pointerDirection === 'center')
+                return 'top-[calc(100%+8px)] left-1/2 transform -translate-x-1/2';
+            if (pointerDirection === 'right')
+                return 'top-[calc(100%+8px)] right-0';
+        } else if (position === 'top') {
+            if (pointerDirection === 'left')
+                return 'bottom-[calc(100%+8px)] left-0';
+            if (pointerDirection === 'center')
+                return 'bottom-[calc(100%+8px)] left-1/2 transform -translate-x-1/2';
+            if (pointerDirection === 'right')
+                return 'bottom-[calc(100%+8px)] right-0';
+        } else if (position === 'left') {
+            if (pointerDirection === 'left')
+                return 'right-[calc(100%+8px)] top-0';
+            if (pointerDirection === 'center')
+                return 'right-[calc(100%+8px)] top-1/2 transform -translate-y-1/2';
+            if (pointerDirection === 'right')
+                return 'right-[calc(100%+8px)] bottom-0';
+        } else if (position === 'right') {
+            if (pointerDirection === 'left')
+                return 'left-[calc(100%+8px)] top-0';
+            if (pointerDirection === 'center')
+                return 'left-[calc(100%+8px)] top-1/2 transform -translate-y-1/2';
+            if (pointerDirection === 'right')
+                return 'left-[calc(100%+8px)] bottom-0';
         }
-        return "";
+        return '';
     };
 
     const getVariantContainerClass = (
         position: TooltipPlacement,
-        pointerDirection: TooltipPointerDirection,
+        pointerDirection: TooltipPointerDirection
     ) => {
-        if (position == "bottom") {
-            if (pointerDirection === "left")
-                return "top-[-2px] left-0 h-4 w-[100px]";
-            if (pointerDirection === "center")
-                return "top-[-2px] left-1/2 transform -translate-x-1/2 h-4 w-[100px]";
-            if (pointerDirection === "right")
-                return "top-[-2px] right-0 h-4 w-[100px]";
-        } else if (position == "top") {
-            if (pointerDirection === "left")
-                return "bottom-[-2px] left-0 h-4 w-[100px]";
-            if (pointerDirection === "center")
-                return "bottom-[-2px] left-1/2 transform -translate-x-1/2 h-4 w-[100px]";
-            if (pointerDirection === "right")
-                return "bottom-[-2px] right-0 h-4 w-[100px]";
-        } else if (position == "left") {
-            return "left-[calc(100%-13px)] top-1/2 transform -translate-y-1/2 h-[100px] w-4";
-        } else if (position == "right") {
-            return "right-[calc(100%-13px)] top-1/2 transform -translate-y-1/2 h-[100px] w-4";
+        if (position == 'bottom') {
+            if (pointerDirection === 'left')
+                return 'top-[-2px] left-0 h-4 w-[100px]';
+            if (pointerDirection === 'center')
+                return 'top-[-2px] left-1/2 transform -translate-x-1/2 h-4 w-[100px]';
+            if (pointerDirection === 'right')
+                return 'top-[-2px] right-0 h-4 w-[100px]';
+        } else if (position == 'top') {
+            if (pointerDirection === 'left')
+                return 'bottom-[-2px] left-0 h-4 w-[100px]';
+            if (pointerDirection === 'center')
+                return 'bottom-[-2px] left-1/2 transform -translate-x-1/2 h-4 w-[100px]';
+            if (pointerDirection === 'right')
+                return 'bottom-[-2px] right-0 h-4 w-[100px]';
+        } else if (position == 'left') {
+            return 'left-[calc(100%-13px)] top-1/2 transform -translate-y-1/2 h-[100px] w-4';
+        } else if (position == 'right') {
+            return 'right-[calc(100%-13px)] top-1/2 transform -translate-y-1/2 h-[100px] w-4';
         }
 
-        return "";
+        return '';
     };
 
     function useTooltipVisibility(
         ref: React.RefObject<HTMLElement | null>,
         trigger: TooltipTrigger,
-        delay?: number,
+        delay?: number
     ): boolean {
         React.useEffect(() => {
             const el = ref.current;
             if (!el || disabled || content === null || content === undefined)
                 return;
 
-            if (trigger === "click") {
+            if (trigger === 'click') {
                 const handleClick = () => {
                     setVisible((prev) => !prev);
                 };
-                el.addEventListener("click", handleClick);
+                el.addEventListener('click', handleClick);
                 return () => {
-                    el.removeEventListener("click", handleClick);
+                    el.removeEventListener('click', handleClick);
                 };
-            } else if (trigger === "focus") {
+            } else if (trigger === 'focus') {
                 const handleFocus = () => {
                     setVisible(true);
                 };
@@ -156,13 +151,13 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
                     onHide?.();
                     setVisible(false);
                 };
-                el.addEventListener("focus", handleFocus);
-                el.addEventListener("blur", handleBlur);
+                el.addEventListener('focus', handleFocus);
+                el.addEventListener('blur', handleBlur);
                 return () => {
-                    el.removeEventListener("focus", handleFocus);
-                    el.removeEventListener("blur", handleBlur);
+                    el.removeEventListener('focus', handleFocus);
+                    el.removeEventListener('blur', handleBlur);
                 };
-            } else if (trigger === "hover") {
+            } else if (trigger === 'hover') {
                 const handleMouseEnter = () => {
                     if (delay) {
                         setTimeout(() => {
@@ -176,11 +171,11 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
                     setVisible(false);
                     onHide?.();
                 };
-                el.addEventListener("mouseenter", handleMouseEnter);
-                el.addEventListener("mouseleave", handleMouseLeave);
+                el.addEventListener('mouseenter', handleMouseEnter);
+                el.addEventListener('mouseleave', handleMouseLeave);
                 return () => {
-                    el.removeEventListener("mouseenter", handleMouseEnter);
-                    el.removeEventListener("mouseleave", handleMouseLeave);
+                    el.removeEventListener('mouseenter', handleMouseEnter);
+                    el.removeEventListener('mouseleave', handleMouseLeave);
                 };
             }
         }, [trigger, ref, delay]);
@@ -190,36 +185,36 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
 
     const useTooltipArrowPosition = (
         position: TooltipPlacement,
-        pointerDirection: TooltipPointerDirection = "left",
+        pointerDirection: TooltipPointerDirection = 'left'
     ) => {
         return React.useMemo(() => {
-            let arrowPositionClass = "";
+            let arrowPositionClass = '';
             let arrowInlineStyle: React.CSSProperties = {};
 
-            if (position === "bottom") {
-                arrowInlineStyle = { top: "-4px" };
+            if (position === 'bottom') {
+                arrowInlineStyle = { top: '-4px' };
                 arrowPositionClass =
-                    pointerDirection === "left"
-                        ? "left-2"
-                        : pointerDirection === "right"
-                            ? "right-2"
-                            : "left-1/2 transform -translate-x-1/2";
-            } else if (position === "top") {
-                arrowInlineStyle = { bottom: "-4px" };
+                    pointerDirection === 'left'
+                        ? 'left-2'
+                        : pointerDirection === 'right'
+                            ? 'right-2'
+                            : 'left-1/2 transform -translate-x-1/2';
+            } else if (position === 'top') {
+                arrowInlineStyle = { bottom: '-4px' };
                 arrowPositionClass =
-                    pointerDirection === "left"
-                        ? "left-2"
-                        : pointerDirection === "right"
-                            ? "right-2"
-                            : pointerDirection === "center"
-                                ? "left-1/2 transform -translate-x-1/2"
-                                : "bottom-[-2px] left-0 h-4 w-[100px]";
-            } else if (position === "left") {
-                arrowInlineStyle = { right: "-4px" };
-                arrowPositionClass = "top-1/2 transform -translate-y-1/2";
-            } else if (position === "right") {
-                arrowInlineStyle = { left: "-4px" };
-                arrowPositionClass = "top-1/2 transform -translate-y-1/2";
+                    pointerDirection === 'left'
+                        ? 'left-2'
+                        : pointerDirection === 'right'
+                            ? 'right-2'
+                            : pointerDirection === 'center'
+                                ? 'left-1/2 transform -translate-x-1/2'
+                                : 'bottom-[-2px] left-0 h-4 w-[100px]';
+            } else if (position === 'left') {
+                arrowInlineStyle = { right: '-4px' };
+                arrowPositionClass = 'top-1/2 transform -translate-y-1/2';
+            } else if (position === 'right') {
+                arrowInlineStyle = { left: '-4px' };
+                arrowPositionClass = 'top-1/2 transform -translate-y-1/2';
             }
 
             return { arrowPositionClass, arrowInlineStyle };
@@ -230,32 +225,32 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
 
     const { arrowPositionClass, arrowInlineStyle } = useTooltipArrowPosition(
         placement,
-        pointerDirection,
+        pointerDirection
     );
 
     const tooltipBgClass =
-        className?.match(/bg-(?:\[.*?]|[a-zA-Z0-9-]+)/)?.[0] || "bg-white";
+        className?.match(/bg-(?:\[.*?]|[a-zA-Z0-9-]+)/)?.[0] || 'bg-white';
 
     const textColor =
-        className?.match(/text-[a-zA-Z0-9-]+/)?.[0] || "text-inputDefaultText";
+        className?.match(/text-[a-zA-Z0-9-]+/)?.[0] || 'text-inputDefaultText';
 
     const containerPositionClass = cn(
-        "absolute z-10",
+        'absolute z-10',
         className,
-        getContainerPositionClass(placement, pointerDirection),
+        getContainerPositionClass(placement, pointerDirection)
     );
 
     const variantContainerClass = getVariantContainerClass(
         placement,
-        pointerDirection,
+        pointerDirection
     );
 
     const renderArrow = () => (
         <div
             className={cn(
-                "absolute h-2 w-2 rotate-45 bg-inherit",
+                'absolute h-2 w-2 rotate-45 bg-inherit',
                 arrowPositionClass,
-                variant && `tooltip-${placement}-variant-arrow-${variant}`,
+                variant && `tooltip-${placement}-variant-arrow-${variant}`
             )}
             style={arrowInlineStyle}
         />
@@ -281,9 +276,9 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
     const renderVariantBorder = () => (
         <div
             className={cn(
-                "absolute z-[-1] flex",
+                'absolute z-[-1] flex',
                 variant && variantBorderColorClasses[variant],
-                variantContainerClass,
+                variantContainerClass
             )}
         ></div>
     );
@@ -302,15 +297,15 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
                                 role="alert"
                                 data-testid="tooltip-container"
                                 className={cn(
-                                    "w-max",
+                                    'w-max',
                                     containerPositionClass,
-                                    animationClasses[animation],
+                                    animationClasses[animation]
                                 )}
                                 style={{
                                     maxWidth:
-                                        typeof maxWidth === "number"
+                                        typeof maxWidth === 'number'
                                             ? `${maxWidth}px`
-                                            : maxWidth,
+                                            : maxWidth
                                 }}
                             >
                                 <div
@@ -318,8 +313,8 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
                                     className={cn(
                                         className,
                                         tooltipBgClass,
-                                        "relative flex flex-col items-start gap-1 px-2 py-1",
-                                        textColor,
+                                        'relative flex flex-col items-start gap-1 px-2 py-1',
+                                        textColor
                                     )}
                                 >
                                     {closeButton && renderCloseButton()}
@@ -330,7 +325,7 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
                             </div>
                         )}
                     </AnimatePresence>
-                </>,
+                </>
             )}
         </div>
     );

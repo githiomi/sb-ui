@@ -1,4 +1,4 @@
-import { colors } from "@uniicy/assets";
+import { colors } from '@uniicy/assets';
 
 /**
  * Single source of truth for how `@uniicy/assets` tokens become Tailwind colors.
@@ -32,15 +32,15 @@ type PrimitiveName = keyof typeof primitives;
 type ShadeMap = Record<string, string>;
 
 const PRIMITIVE_DEFAULT_SHADE: Record<PrimitiveName, string> = {
-    primary: "500",
-    accent: "500",
-    success: "500",
-    error: "500",
-    warning: "500",
-    neutral: "500",
+    primary: '500',
+    accent: '500',
+    success: '500',
+    error: '500',
+    warning: '500',
+    neutral: '500'
 };
 
-const ALPHA_PLACEHOLDER = "<alpha-value>";
+const ALPHA_PLACEHOLDER = '<alpha-value>';
 
 /** Returns a Tailwind-friendly color reference that respects opacity modifiers. */
 function withAlpha(varName: string): string {
@@ -49,16 +49,17 @@ function withAlpha(varName: string): string {
 
 /* ------------------------------------------------------------------ */
 /*  Color-value normalization                                         */
+
 /* ------------------------------------------------------------------ */
 
 function hexToRgbTuple(hex: string): string {
-    const cleaned = hex.replace(/^#/, "");
+    const cleaned = hex.replace(/^#/, '');
     const expanded =
         cleaned.length === 3
             ? cleaned
-                  .split("")
-                  .map((c) => c + c)
-                  .join("")
+                .split('')
+                .map((c) => c + c)
+                .join('')
             : cleaned;
 
     if (expanded.length !== 6) {
@@ -74,7 +75,7 @@ function hexToRgbTuple(hex: string): string {
 
 function rgbStringToRgbTuple(value: string): string {
     const match = value.match(
-        /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*[0-9.]+\s*)?\)/,
+        /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*[0-9.]+\s*)?\)/
     );
     if (!match) {
         throw new Error(`Unsupported rgb()/rgba() color: "${value}"`);
@@ -89,18 +90,19 @@ function rgbStringToRgbTuple(value: string): string {
  * apply opacity at the call site with `/N` instead (e.g. `border-outline/20`).
  */
 function toRgbTuple(value: string): string {
-    if (value.startsWith("#")) return hexToRgbTuple(value);
-    if (value.startsWith("rgb")) return rgbStringToRgbTuple(value);
+    if (value.startsWith('#')) return hexToRgbTuple(value);
+    if (value.startsWith('rgb')) return rgbStringToRgbTuple(value);
     throw new Error(`Unsupported color value: "${value}"`);
 }
 
 /* ------------------------------------------------------------------ */
 /*  Tailwind theme colors                                             */
+
 /* ------------------------------------------------------------------ */
 
 function primitiveToTailwind(name: PrimitiveName, shades: ShadeMap) {
     const out: Record<string, string> = {
-        DEFAULT: withAlpha(`--color-${name}-${PRIMITIVE_DEFAULT_SHADE[name]}`),
+        DEFAULT: withAlpha(`--color-${name}-${PRIMITIVE_DEFAULT_SHADE[name]}`)
     };
     for (const shade of Object.keys(shades)) {
         out[shade] = withAlpha(`--color-${name}-${shade}`);
@@ -117,34 +119,35 @@ export function buildTailwindThemeColors() {
     const primitiveTokens = Object.fromEntries(
         (Object.keys(primitives) as PrimitiveName[]).map((name) => [
             name,
-            primitiveToTailwind(name, primitives[name] as ShadeMap),
-        ]),
+            primitiveToTailwind(name, primitives[name] as ShadeMap)
+        ])
     );
 
     const semanticTokens = {
-        fg: withAlpha("--color-fg"),
-        "fg-muted": withAlpha("--color-fg-muted"),
-        "fg-subtle": withAlpha("--color-fg-subtle"),
-        "fg-inverse": withAlpha("--color-fg-inverse"),
-        link: withAlpha("--color-link"),
-        brand: withAlpha("--color-brand"),
-        surface: withAlpha("--color-surface"),
-        "surface-elevated": withAlpha("--color-surface-elevated"),
-        "surface-inverse": withAlpha("--color-surface-inverse"),
-        canvas: withAlpha("--color-canvas"),
-        outline: withAlpha("--color-outline"),
-        "outline-subtle": withAlpha("--color-outline-subtle"),
-        "outline-strong": withAlpha("--color-outline-strong"),
+        fg: withAlpha('--color-fg'),
+        'fg-muted': withAlpha('--color-fg-muted'),
+        'fg-subtle': withAlpha('--color-fg-subtle'),
+        'fg-inverse': withAlpha('--color-fg-inverse'),
+        link: withAlpha('--color-link'),
+        brand: withAlpha('--color-brand'),
+        surface: withAlpha('--color-surface'),
+        'surface-elevated': withAlpha('--color-surface-elevated'),
+        'surface-inverse': withAlpha('--color-surface-inverse'),
+        canvas: withAlpha('--color-canvas'),
+        outline: withAlpha('--color-outline'),
+        'outline-subtle': withAlpha('--color-outline-subtle'),
+        'outline-strong': withAlpha('--color-outline-strong')
     };
 
     return {
         ...primitiveTokens,
-        ...semanticTokens,
+        ...semanticTokens
     };
 }
 
 /* ------------------------------------------------------------------ */
 /*  CSS variable generation                                           */
+
 /* ------------------------------------------------------------------ */
 
 function primitiveVariables(): Record<string, string> {
@@ -158,30 +161,30 @@ function primitiveVariables(): Record<string, string> {
     return vars;
 }
 
-function semanticVariables(mode: "light" | "dark"): Record<string, string> {
+function semanticVariables(mode: 'light' | 'dark'): Record<string, string> {
     const t = themes[mode];
     return {
-        "--color-fg": toRgbTuple(t.text.primary),
-        "--color-fg-muted": toRgbTuple(t.text.secondary),
-        "--color-fg-subtle": toRgbTuple(t.text.tertiary),
-        "--color-fg-inverse": toRgbTuple(t.text.inverse),
-        "--color-link": toRgbTuple(t.text.link),
-        "--color-brand": toRgbTuple(t.text.brand),
-        "--color-surface": toRgbTuple(t.background.surface),
-        "--color-surface-elevated": toRgbTuple(t.background.secondary),
-        "--color-surface-inverse": toRgbTuple(t.background.inverse),
-        "--color-canvas": toRgbTuple(t.background.primary),
-        "--color-outline": toRgbTuple(t.border.default),
-        "--color-outline-subtle": toRgbTuple(t.border.subtle),
-        "--color-outline-strong": toRgbTuple(t.border.strong),
+        '--color-fg': toRgbTuple(t.text.primary),
+        '--color-fg-muted': toRgbTuple(t.text.secondary),
+        '--color-fg-subtle': toRgbTuple(t.text.tertiary),
+        '--color-fg-inverse': toRgbTuple(t.text.inverse),
+        '--color-link': toRgbTuple(t.text.link),
+        '--color-brand': toRgbTuple(t.text.brand),
+        '--color-surface': toRgbTuple(t.background.surface),
+        '--color-surface-elevated': toRgbTuple(t.background.secondary),
+        '--color-surface-inverse': toRgbTuple(t.background.inverse),
+        '--color-canvas': toRgbTuple(t.background.primary),
+        '--color-outline': toRgbTuple(t.border.default),
+        '--color-outline-subtle': toRgbTuple(t.border.subtle),
+        '--color-outline-strong': toRgbTuple(t.border.strong)
     };
 }
 
 function block(selector: string, vars: Record<string, string>) {
     const lines = Object.entries(vars).map(
-        ([key, value]) => `  ${key}: ${value};`,
+        ([key, value]) => `  ${key}: ${value};`
     );
-    return `${selector} {\n${lines.join("\n")}\n}`;
+    return `${selector} {\n${lines.join('\n')}\n}`;
 }
 
 /**
@@ -193,17 +196,17 @@ function block(selector: string, vars: Record<string, string>) {
  */
 export function buildThemeCss() {
     const primitives = primitiveVariables();
-    const light = semanticVariables("light");
-    const dark = semanticVariables("dark");
+    const light = semanticVariables('light');
+    const dark = semanticVariables('dark');
 
     return [
-        "/* Auto-generated from @uniicy/assets — do not edit by hand. */",
-        block(":root", { ...primitives, ...light }),
+        '/* Auto-generated from @uniicy/assets — do not edit by hand. */',
+        block(':root', { ...primitives, ...light }),
         `@media (prefers-color-scheme: dark) {\n${block(
-            "  :root",
-            dark,
-        ).replace(/^/gm, "  ")}\n}`,
-        block(".dark", dark),
-        "",
-    ].join("\n\n");
+            '  :root',
+            dark
+        ).replace(/^/gm, '  ')}\n}`,
+        block('.dark', dark),
+        ''
+    ].join('\n\n');
 }

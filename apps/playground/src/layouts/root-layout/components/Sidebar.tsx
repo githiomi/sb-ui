@@ -1,24 +1,20 @@
-import { NavLink } from "react-router-dom";
-import { StatusBadge } from "@components/StatusBadge";
-import {
-    CATEGORY_LABELS,
-    componentRoutes,
-    groupByCategory,
-    type ComponentCategory,
-} from "@app/routes";
+import { NavLink } from 'react-router-dom';
+import { StatusBadge } from '@components/StatusBadge';
+import { CATEGORY_LABELS, type ComponentCategory, componentRoutes, groupByCategory } from '@app/routes';
 
 const CATEGORY_ORDER: ComponentCategory[] = [
-    "atom",
-    "molecule",
-    "organism",
-    "template",
+    'atom',
+    'molecule',
+    'organism',
+    'template'
 ];
 
 export function Sidebar() {
     const grouped = groupByCategory(componentRoutes);
 
     return (
-        <aside className="hidden h-full w-64 shrink-0 overflow-y-auto border-r border-accent bg-surface scrollbar-thin md:block">
+        <aside
+            className="hidden h-full w-64 shrink-0 overflow-y-auto border-r border-accent bg-surface scrollbar-thin md:block">
             <div className="px-4 py-5">
                 <div className="mb-4 flex items-center justify-between">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fg-subtle">
@@ -35,8 +31,8 @@ export function Sidebar() {
                     className={({ isActive }) =>
                         `mb-4 flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition ${
                             isActive
-                                ? "bg-primary-500/10 text-fg"
-                                : "text-fg-muted hover:bg-neutral-800 hover:text-fg"
+                                ? 'bg-primary-500/10 text-fg'
+                                : 'text-fg-muted hover:bg-neutral-800 hover:text-fg'
                         }`
                     }
                 >
@@ -72,8 +68,8 @@ export function Sidebar() {
                                                 className={({ isActive }) =>
                                                     `group flex items-center justify-between gap-2 rounded-lg px-3 py-1.5 text-sm transition ${
                                                         isActive
-                                                            ? "bg-primary-500/10 text-fg"
-                                                            : "text-fg-muted hover:bg-neutral-800 hover:text-fg"
+                                                            ? 'bg-primary-500/10 text-fg'
+                                                            : 'text-fg-muted hover:bg-neutral-800 hover:text-fg'
                                                     }`
                                                 }
                                             >

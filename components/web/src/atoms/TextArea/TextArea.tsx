@@ -1,40 +1,40 @@
-import { cn } from "@uniicy/libs";
-import { X } from "@uniicy/icons";
-import { Tooltip } from "@atoms/Tooltip";
-import { TextAreaProps } from "./TextArea.types";
-import React, { useEffect, useRef, useState } from "react";
+import { cn } from '@uniicy/libs';
+import { X } from '@uniicy/icons';
+import { Tooltip } from '@atoms/Tooltip';
+import { TextAreaProps } from './TextArea.types';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const TextArea: React.FC<TextAreaProps> = ({
-    id,
-    value,
-    className,
-    placeholder,
-    defaultValue,
-    size = "default",
-    disabled = false,
-    readOnly = false,
-    required = false,
-    onChange,
-    onFocus,
-    onBlur,
-    autoFocus = false,
-    allowClear = true,
-    maxLength,
-    minLength,
-    showCount = false,
-    rows = 3,
-    resize = "none",
-    prefix,
-    suffix,
-    addonBefore,
-    addonAfter,
-    status = "none",
-    tooltip,
-    tooltipOptions,
-    "aria-label": ariaLabel,
-    "aria-describedby": ariaDescribedBy,
-    ...props
-}) => {
+                                                      id,
+                                                      value,
+                                                      className,
+                                                      placeholder,
+                                                      defaultValue,
+                                                      size = 'default',
+                                                      disabled = false,
+                                                      readOnly = false,
+                                                      required = false,
+                                                      onChange,
+                                                      onFocus,
+                                                      onBlur,
+                                                      autoFocus = false,
+                                                      allowClear = true,
+                                                      maxLength,
+                                                      minLength,
+                                                      showCount = false,
+                                                      rows = 3,
+                                                      resize = 'none',
+                                                      prefix,
+                                                      suffix,
+                                                      addonBefore,
+                                                      addonAfter,
+                                                      status = 'none',
+                                                      tooltip,
+                                                      tooltipOptions,
+                                                      'aria-label': ariaLabel,
+                                                      'aria-describedby': ariaDescribedBy,
+                                                      ...props
+                                                  }) => {
     const [isFocused, setIsFocused] = useState(false);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const clearButtonRef = useRef<HTMLButtonElement>(null);
@@ -60,66 +60,66 @@ export const TextArea: React.FC<TextAreaProps> = ({
     };
 
     const handleClear = () => {
-        onChange("");
+        onChange('');
         if (textAreaRef.current) {
             textAreaRef.current.focus();
         }
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === "Escape" && allowClear && value) {
+        if (e.key === 'Escape' && allowClear && value) {
             handleClear();
         }
     };
 
     const textareaClasses = cn(
-        "w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg dark:text-fg-inverse rounded",
+        'w-full p-2 border border-2 border-neutral-300 rounded-sm transition-all duration-200 text-fg dark:text-fg-inverse rounded',
         {
             // Size variants
-            "text-sm": size === "small",
-            "text-lg": size === "large",
-            "text-base": size === "default",
+            'text-sm': size === 'small',
+            'text-lg': size === 'large',
+            'text-base': size === 'default',
 
             // State variants
-            "bg-gray-300 text-gray-500 cursor-not-allowed":
+            'bg-gray-300 text-gray-500 cursor-not-allowed':
                 disabled || readOnly,
-            "bg-fg": !disabled && !readOnly,
+            'bg-fg': !disabled && !readOnly,
 
             // Add-ons
-            "rounded-tl-none rounded-bl-none": addonBefore,
-            "rounded-tr-none rounded-br-none": addonAfter,
+            'rounded-tl-none rounded-bl-none': addonBefore,
+            'rounded-tr-none rounded-br-none': addonAfter,
 
             // Focus state
-            "focus-within:ring-2 focus-within:shadow-[0_0_15px_0] focus-within:shadow-primary-500 focus-within:ring-primary-500 outline-none":
-                isFocused,
-            "ring-2 !ring-error-500 focus-within:shadow-error-500":
-                status === "error",
-            "ring-2 !ring-warning-500 focus-within:shadow-warning-500":
-                status === "warning",
+            'focus-within:ring-2 focus-within:shadow-[0_0_15px_0] focus-within:shadow-primary-500 focus-within:ring-primary-500 outline-none':
+            isFocused,
+            'ring-2 !ring-error-500 focus-within:shadow-error-500':
+                status === 'error',
+            'ring-2 !ring-warning-500 focus-within:shadow-warning-500':
+                status === 'warning',
 
             // Resize options
-            "resize-none": resize === "none",
-            "resize-y": resize === "vertical",
-            "resize-x": resize === "horizontal",
-            resize: resize === "both",
+            'resize-none': resize === 'none',
+            'resize-y': resize === 'vertical',
+            'resize-x': resize === 'horizontal',
+            resize: resize === 'both'
         },
-        className,
+        className
     );
 
     const clearButtonClasses = cn(
-        "absolute top-2 right-2 size-5 cursor-pointer flex items-center justify-center rounded-full focus:outline-none",
+        'absolute top-2 right-2 size-5 cursor-pointer flex items-center justify-center rounded-full focus:outline-none',
         {
-            "right-6": suffix,
-            "bg-neutral-300 hover:bg-neutral-400": status === "none",
-            "bg-error-500/90 hover:bg-error-500": status === "error",
-            "bg-warning-500/90 hover:bg-warning-500": status === "warning",
-        },
+            'right-6': suffix,
+            'bg-neutral-300 hover:bg-neutral-400': status === 'none',
+            'bg-error-500/90 hover:bg-error-500': status === 'error',
+            'bg-warning-500/90 hover:bg-warning-500': status === 'warning'
+        }
     );
 
     const getStatusMessage = () => {
-        if (status === "error") return "Error";
-        if (status === "warning") return "Warning";
-        return "";
+        if (status === 'error') return 'Error';
+        if (status === 'warning') return 'Warning';
+        return '';
     };
 
     return (
@@ -130,7 +130,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
                 aria-describedby={ariaDescribedBy}
                 data-testid="test-textarea-container"
                 aria-labelledby={
-                    id ? `${id}-text-area` : "Text Area Input Field"
+                    id ? `${id}-text-area` : 'Text Area Input Field'
                 }
             >
                 {addonBefore && (
@@ -169,7 +169,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
                     minLength={minLength}
                     rows={rows}
                     aria-label={ariaLabel || placeholder}
-                    aria-invalid={status === "error"}
+                    aria-invalid={status === 'error'}
                     aria-required={required}
                     aria-disabled={disabled}
                     aria-readonly={readOnly}
@@ -178,14 +178,14 @@ export const TextArea: React.FC<TextAreaProps> = ({
                         [
                             status ? `${id}-status` : null,
                             showCount ? `${id}-count` : null,
-                            tooltip ? `${id}-tooltip` : null,
+                            tooltip ? `${id}-tooltip` : null
                         ]
                             .filter(Boolean)
-                            .join(" ") || undefined
+                            .join(' ') || undefined
                     }
                     style={{
-                        paddingLeft: prefix ? "2rem" : "",
-                        paddingRight: suffix || allowClear ? "2rem" : "",
+                        paddingLeft: prefix ? '2rem' : '',
+                        paddingRight: suffix || allowClear ? '2rem' : ''
                     }}
                     {...props}
                 />
@@ -221,8 +221,8 @@ export const TextArea: React.FC<TextAreaProps> = ({
                             <X
                                 size={12}
                                 strokeWidth={2.5}
-                                className={cn("text-neutral-200", {
-                                    "text-primary": status === "none",
+                                className={cn('text-neutral-200', {
+                                    'text-primary': status === 'none'
                                 })}
                             />
                         </div>
@@ -235,10 +235,10 @@ export const TextArea: React.FC<TextAreaProps> = ({
                         aria-live="polite"
                         aria-label={`Current Word Count: ${value?.length || 0}/${maxLength || 0}`}
                         className={cn(
-                            "absolute bottom-1.5 right-1 text-[10px] text-neutral-500",
+                            'absolute bottom-1.5 right-1 text-[10px] text-neutral-500',
                             {
-                                "bottom-2 right-2": resize !== "none",
-                            },
+                                'bottom-2 right-2': resize !== 'none'
+                            }
                         )}
                     >
                         {maxLength

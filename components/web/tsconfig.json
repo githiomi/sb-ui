@@ -1,33 +1,53 @@
 {
-  "compilerOptions": {
-    "jsx": "react",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["node"],
-    "target": "ES2022",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "@atoms/*": ["./src/atoms/*"],
-      "@assets/*": ["../../packages/assets/*"],
-      "@uniicy/icons": ["../../packages/icons/src/index.ts"],
-      "@uniicy/icons/*": ["../../packages/icons/src/*"],
-      "@uniicy/core": ["../../packages/core/index.ts"],
-      "@uniicy/core/*": ["../../packages/core/*"],
-      "@uniicy/libs/*": ["../../packages/libs/*"],
-      "@uniicy/styles/*": ["../../packages/styles/*"],
-      "@uniicy/themes/*": ["../../packages/themes/*"]
-    }
-  },
-  "include": [
-    "src",
-    "scripts",
-    "index.ts",
-    "tailwind.config.ts",
-    "tailwind.preset.ts",
-    "tailwind-theme.ts"
-  ]
+    "compilerOptions": {
+        "jsx": "react",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "types": [
+            "node"
+        ],
+        "target": "ES2022",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "paths": {
+            "@atoms/*": [
+                "./src/atoms/*"
+            ],
+            "@assets/*": [
+                "../../packages/assets/*"
+            ],
+            "@uniicy/icons": [
+                "../../packages/icons/src/index.ts"
+            ],
+            "@uniicy/icons/*": [
+                "../../packages/icons/src/*"
+            ],
+            "@uniicy/core": [
+                "../../packages/core/index.ts"
+            ],
+            "@uniicy/core/*": [
+                "../../packages/core/*"
+            ],
+            "@uniicy/libs/*": [
+                "../../packages/libs/*"
+            ],
+            "@uniicy/styles/*": [
+                "../../packages/styles/*"
+            ],
+            "@uniicy/themes/*": [
+                "../../packages/themes/*"
+            ]
+        }
+    },
+    "include": [
+        "src",
+        "scripts",
+        "index.ts",
+        "tailwind.config.ts",
+        "tailwind.preset.ts",
+        "tailwind-theme.ts"
+    ]
 }

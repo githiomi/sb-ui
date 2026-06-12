@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export type ProgressBarProps = {
     id: string;
@@ -7,23 +7,23 @@ export type ProgressBarProps = {
     defaultValue?: number;
     max?: number;
     min?: number;
-    size?: "small" | "medium" | "large";
+    size?: 'small' | 'medium' | 'large';
     color?: string;
     backgroundColor?: string;
     striped?: boolean;
     animated?: boolean;
-    variant?: "solid" | "dashed" | "dotted";
+    variant?: 'solid' | 'dashed' | 'dotted';
     showPercentage?: boolean;
     indeterminate?: boolean;
     autoFocus?: boolean;
     onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
     style?: React.CSSProperties;
     onChange?: (value: number) => void;
-    direction?: "horizontal" | "vertical";
+    direction?: 'horizontal' | 'vertical';
     minColor?: string;
     maxColor?: string;
     showLoadingLabel?: boolean;
-    labelPosition?: "inside" | "outside";
+    labelPosition?: 'inside' | 'outside';
     minLabel?: string;
     maxLabel?: string;
 };

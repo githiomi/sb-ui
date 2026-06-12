@@ -1,6 +1,9 @@
 # SB UI — Sport Betting Component Library
 
-A **React** component library and **interactive playground** for building, previewing, and stress-testing UI used in the Uniicy sports-betting experience. The repo is a **Bun + Turborepo** monorepo: design tokens and shared utilities live in `packages/`, publishable web components live in `components/web`, and the playground in `apps/playground` is the live workbench for developers and QA.
+A **React** component library and **interactive playground** for building, previewing, and stress-testing UI used in the
+Uniicy sports-betting experience. The repo is a **Bun + Turborepo** monorepo: design tokens and shared utilities live in
+`packages/`, publishable web components live in `components/web`, and the playground in `apps/playground` is the live
+workbench for developers and QA.
 
 ![Uniicy component playground — overview screen](https://raw.githubusercontent.com/githiomi/sb-ui/main/docs/images/playground.png)
 
@@ -9,7 +12,7 @@ A **React** component library and **interactive playground** for building, previ
 ## What’s in this repo
 
 | Area               | Path                                                                         | Role                                                                                                          |
-| ------------------ | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+|--------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | **Web components** | [`components/web`](./components/web)                                         | Atomic React components (`TextArea`, `Tooltip`, …), built with **tsup**, shipped as **`@dgithiomi/sbui-web`** |
 | **Playground**     | [`apps/playground`](./apps/playground)                                       | Vite app to browse variants, API tables, and theme modes                                                      |
 | **Design tokens**  | [`packages/assets`](./packages/assets)                                       | Color primitives, themes (light/dark), shared token source                                                    |
@@ -23,9 +26,11 @@ A **React** component library and **interactive playground** for building, previ
 ## Features
 
 - **Atomic design** — Components organized as atoms (molecules/organisms planned as the library grows).
-- **Token-driven theming** — Colors from `@uniicy/assets` become CSS variables and Tailwind utilities (`text-fg`, `bg-surface`, `border-outline`, …).
+- **Token-driven theming** — Colors from `@uniicy/assets` become CSS variables and Tailwind utilities (`text-fg`,
+  `bg-surface`, `border-outline`, …).
 - **Light & dark** — Theme variables follow `prefers-color-scheme` and a `.dark` class for manual toggling.
-- **Shipped stylesheet** — One import (`@dgithiomi/sbui-web/styles.css`) gives consumers tokens, Tailwind utilities, and component CSS (e.g. tooltip animations).
+- **Shipped stylesheet** — One import (`@dgithiomi/sbui-web/styles.css`) gives consumers tokens, Tailwind utilities, and
+  component CSS (e.g. tooltip animations).
 - **TypeScript-first** — Props documented in `.types.ts` files; declarations published in `dist/`.
 - **Interactive playground** — Sidebar navigation, variant sections, props tables, and status badges for each component.
 
@@ -59,7 +64,7 @@ sb-component-library/
 ## Components (web)
 
 | Component    | Status | Description                                                                                   |
-| ------------ | ------ | --------------------------------------------------------------------------------------------- |
+|--------------|--------|-----------------------------------------------------------------------------------------------|
 | **TextArea** | Stable | Controlled multi-line input with status, character count, clear, addons, and optional tooltip |
 | **Tooltip**  | Stable | Accessible overlay with placement, triggers, variants, and animations                         |
 
@@ -69,7 +74,8 @@ More atoms will appear in the playground sidebar as they are added.
 
 ## Prerequisites
 
-- **[Bun](https://bun.sh)** `1.3+` (package manager for this monorepo — use `bun install`, not `npm install`, because of `workspace:*` dependencies)
+- **[Bun](https://bun.sh)** `1.3+` (package manager for this monorepo — use `bun install`, not `npm install`, because of
+  `workspace:*` dependencies)
 - **Node.js** 20+ (for tooling compatibility)
 
 ---
@@ -98,7 +104,8 @@ This uses **Turborepo** to:
 2. Start **`@dgithiomi/sbui-web`** in watch mode (`tsup --watch`)
 3. Start the **playground** Vite dev server
 
-Open the URL Vite prints (typically `http://localhost:5173`). Use the sidebar to open **TextArea** (and other components as they are added), try variants, and read the API reference at the bottom of each page.
+Open the URL Vite prints (typically `http://localhost:5173`). Use the sidebar to open **TextArea** (and other components
+as they are added), try variants, and read the API reference at the bottom of each page.
 
 ### 3. Build everything
 
@@ -120,15 +127,19 @@ bun run build:styles   # stylesheet only, when needed
 
 Understanding this helps when debugging styling or publishing.
 
-1. **JavaScript** — [`components/web/tsup.config.ts`](./components/web/tsup.config.ts) bundles `index.ts` to `dist/index.mjs` / `.cjs` and generates `dist/index.d.ts`.
+1. **JavaScript** — [`components/web/tsup.config.ts`](./components/web/tsup.config.ts) bundles `index.ts` to
+   `dist/index.mjs` / `.cjs` and generates `dist/index.d.ts`.
 2. **Styles** — [`components/web/scripts/build-styles.ts`](./components/web/scripts/build-styles.ts):
     - Prepends auto-generated **CSS variables** (light/dark) from tokens
-    - Processes [`src/styles.css`](./components/web/src/styles.css) with PostCSS (`postcss-import`, Tailwind, Autoprefixer)
+    - Processes [`src/styles.css`](./components/web/src/styles.css) with PostCSS (`postcss-import`, Tailwind,
+      Autoprefixer)
     - Inlines per-component CSS (e.g. [`Tooltip.css`](./components/web/src/atoms/Tooltip/Tooltip.css))
     - Writes **`dist/styles.css`**
-3. **Watch** — `tsup --watch` runs `build-styles` on success so `dist/styles.css` is not left missing after a clean rebuild.
+3. **Watch** — `tsup --watch` runs `build-styles` on success so `dist/styles.css` is not left missing after a clean
+   rebuild.
 
-**Adding component CSS:** create `src/atoms/<Component>/<Component>.css` and add `@import "./atoms/<Component>/<Component>.css";` in `src/styles.css`.
+**Adding component CSS:** create `src/atoms/<Component>/<Component>.css` and add
+`@import "./atoms/<Component>/<Component>.css";` in `src/styles.css`.
 
 ---
 
@@ -169,9 +180,11 @@ export function Notes() {
 }
 ```
 
-**Next.js (App Router):** put interactive usage in a `"use client"` file and import `@dgithiomi/sbui-web/styles.css` in `app/layout.tsx`.
+**Next.js (App Router):** put interactive usage in a `"use client"` file and import `@dgithiomi/sbui-web/styles.css` in
+`app/layout.tsx`.
 
-For **React + Vite**, **Next.js Pages/App Router**, Tailwind preset setup, dark mode, troubleshooting, and a pre-publish checklist, see:
+For **React + Vite**, **Next.js Pages/App Router**, Tailwind preset setup, dark mode, troubleshooting, and a pre-publish
+checklist, see:
 
 **[docs/consumer-integration-guide.md](./docs/consumer-integration-guide.md)**
 
@@ -179,7 +192,8 @@ For **React + Vite**, **Next.js Pages/App Router**, Tailwind preset setup, dark 
 
 ## Global provider usage (recommended)
 
-`SbuiProvider` is the single top-level wrapper for library features that require React context (Toast now, more features later).
+`SbuiProvider` is the single top-level wrapper for library features that require React context (Toast now, more features
+later).
 
 ### Why `enableToastProvider` exists
 
@@ -237,7 +251,7 @@ If `enableToastProvider={false}`, `useToast()` will throw unless you provide `To
 ## Package exports (`@dgithiomi/sbui-web`)
 
 | Import                                | Description                         |
-| ------------------------------------- | ----------------------------------- |
+|---------------------------------------|-------------------------------------|
 | `@dgithiomi/sbui-web`                 | React components + TypeScript types |
 | `@dgithiomi/sbui-web/styles.css`      | Global stylesheet (required)        |
 | `@dgithiomi/sbui-web/tailwind-preset` | Tailwind v3 preset for host apps    |
@@ -278,7 +292,7 @@ Prefer semantic classes in components so light/dark switches without changing JS
 ## Scripts (root)
 
 | Command         | Description                                    |
-| --------------- | ---------------------------------------------- |
+|-----------------|------------------------------------------------|
 | `bun run dev`   | Start library watch + playground (Turbo)       |
 | `bun run build` | Build all packages and apps                    |
 | `bun run test`  | Placeholder — add tests as the library matures |

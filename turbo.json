@@ -1,30 +1,40 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
-  "globalDependencies": ["package.json", "turbo.json"],
-  "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "build/**"],
-      "inputs": [
+    "$schema": "https://turbo.build/schema.json",
+    "ui": "tui",
+    "globalDependencies": [
         "package.json",
-        "tsup.config.ts",
-        "tailwind.config.ts",
-        "tailwind-theme.ts",
-        "tailwind.preset.ts",
-        "postcss.config.js",
-        "scripts/**",
-        "src/**",
-        "index.ts",
-        "atoms/**",
-        "molecules/**",
-        "organisms/**"
-      ]
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true,
-      "dependsOn": ["^build"]
+        "turbo.json"
+    ],
+    "tasks": {
+        "build": {
+            "dependsOn": [
+                "^build"
+            ],
+            "outputs": [
+                "dist/**",
+                "build/**"
+            ],
+            "inputs": [
+                "package.json",
+                "tsup.config.ts",
+                "tailwind.config.ts",
+                "tailwind-theme.ts",
+                "tailwind.preset.ts",
+                "postcss.config.js",
+                "scripts/**",
+                "src/**",
+                "index.ts",
+                "atoms/**",
+                "molecules/**",
+                "organisms/**"
+            ]
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": [
+                "^build"
+            ]
+        }
     }
-  }
 }

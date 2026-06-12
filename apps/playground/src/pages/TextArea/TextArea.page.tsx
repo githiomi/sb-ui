@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { cn } from "@libs/utils";
-import { PageHeader } from "@layouts/shared";
-import { TextAreaProps } from "./TextArea.props";
-import { PropsTable } from "@layouts/shared/PropsTable";
-import { VariantSection } from "@components/VariantSection";
-import { TextArea, type TextAreaStatus } from "@dgithiomi/sbui-web";
+import { useState } from 'react';
+import { cn } from '@libs/utils';
+import { PageHeader } from '@layouts/shared';
+import { TextAreaProps } from './TextArea.props';
+import { PropsTable } from '@layouts/shared/PropsTable';
+import { VariantSection } from '@components/VariantSection';
+import { TextArea, type TextAreaStatus } from '@dgithiomi/sbui-web';
 
 export function TextAreaPage() {
-    const [defaultValue, setDefaultValue] = useState("");
-    const [tooltipValue, setTooltipValue] = useState("");
-    const [statusValue, setStatusValue] = useState("");
-    const [showCountValue, setShowCountValue] = useState("");
+    const [defaultValue, setDefaultValue] = useState('');
+    const [tooltipValue, setTooltipValue] = useState('');
+    const [statusValue, setStatusValue] = useState('');
+    const [showCountValue, setShowCountValue] = useState('');
 
     // STATUS
-    const [status, setStatus] = useState<TextAreaStatus>("none");
+    const [status, setStatus] = useState<TextAreaStatus>('none');
 
     // CLASSES
     const buttonClasses =
-        "w-24 rounded-md p-2 text-sm font-medium text-fg transition";
+        'w-24 rounded-md p-2 text-sm font-medium text-fg transition';
 
     return (
         <div className="bg-canvas">
@@ -54,12 +54,12 @@ export function TextAreaPage() {
                         onChange={(value) => setTooltipValue(value)}
                         placeholder="Jot down a few thoughts about tonight's fixture…"
                         tooltipOptions={{
-                            trigger: "hover",
-                            placement: "right",
-                            pointerDirection: "center",
-                            content: "Text Area Tooltip",
-                            id: "text-area-default-tooltip",
-                            className: "text-fg-inverse text-xs",
+                            trigger: 'hover',
+                            placement: 'right',
+                            pointerDirection: 'center',
+                            content: 'Text Area Tooltip',
+                            id: 'text-area-default-tooltip',
+                            className: 'text-fg-inverse text-xs'
                         }}
                     />
                 </div>
@@ -82,28 +82,28 @@ export function TextAreaPage() {
                     <div className="flex-1 flex justify-center items-center gap-2">
                         <button
                             className={cn(
-                                "!bg-surface hover:!bg-surface/90",
-                                buttonClasses,
+                                '!bg-surface hover:!bg-surface/90',
+                                buttonClasses
                             )}
-                            onClick={() => setStatus("none")}
+                            onClick={() => setStatus('none')}
                         >
                             None
                         </button>
                         <button
                             className={cn(
-                                "!bg-error-500 hover:!bg-error-500/90",
-                                buttonClasses,
+                                '!bg-error-500 hover:!bg-error-500/90',
+                                buttonClasses
                             )}
-                            onClick={() => setStatus("error")}
+                            onClick={() => setStatus('error')}
                         >
                             Error
                         </button>
                         <button
                             className={cn(
-                                "!bg-warning-500 hover:!bg-warning-500/90",
-                                buttonClasses,
+                                '!bg-warning-500 hover:!bg-warning-500/90',
+                                buttonClasses
                             )}
-                            onClick={() => setStatus("warning")}
+                            onClick={() => setStatus('warning')}
                         >
                             Warning
                         </button>
@@ -134,7 +134,7 @@ export function TextAreaPage() {
                             API reference
                         </h2>
                         <p className="mt-1 text-sm text-fg-muted">
-                            Public props exposed by{" "}
+                            Public props exposed by{' '}
                             <span className="font-mono text-fg">TextArea</span>.
                         </p>
                     </header>

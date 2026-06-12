@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 /*
  * `@dgithiomi/sbui-web` is consumed like any installed dependency: workspace link in
@@ -9,12 +9,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
     plugins: [react()],
     resolve: {
-        tsconfigPaths: true,
+        tsconfigPaths: true
     },
     server: {
         watch: {
             // Rebuilds in the linked workspace package refresh the playground
-            ignored: ["!**/components/web/**"],
-        },
-    },
+            ignored: ['!**/components/web/**']
+        }
+    }
 });

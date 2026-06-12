@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { ToastContext } from "./Toast.provider";
+import { useContext } from 'react';
+import { ToastContext } from './Toast.provider';
 
 export function useToast() {
     const toastContext = useContext(ToastContext);
 
     if (!toastContext) {
         throw new Error(
-            "useToast must be used within a ToastProvider or SbuiProvider",
+            'useToast must be used within a ToastProvider or SbuiProvider'
         );
     }
 

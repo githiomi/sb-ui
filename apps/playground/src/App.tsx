@@ -1,7 +1,7 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { RootLayout } from "./layouts/root-layout";
-import { NotFoundPage } from "./pages/NotFound.page";
-import { HOME_ROUTE, componentRoutes } from "./routes";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { RootLayout } from './layouts/root-layout';
+import { NotFoundPage } from './pages/NotFound.page';
+import { componentRoutes, HOME_ROUTE } from './routes';
 
 function App() {
     const HomeElement = HOME_ROUTE.element;

@@ -1,10 +1,10 @@
-import { ReactNode, RefObject } from "react";
+import { ReactNode, RefObject } from 'react';
 
-export type TooltipAnimation = "fade" | "scale" | "none";
-export type TooltipPointerDirection = "left" | "right" | "center";
-export type TooltipPlacement = "top" | "bottom" | "left" | "right";
-export type TooltipTrigger = "hover" | "click" | "focus" | "manual";
-export type TooltipVariant = "warning" | "success" | "error" | "info";
+export type TooltipAnimation = 'fade' | 'scale' | 'none';
+export type TooltipPointerDirection = 'left' | 'right' | 'center';
+export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
+export type TooltipTrigger = 'hover' | 'click' | 'focus' | 'manual';
+export type TooltipVariant = 'warning' | 'success' | 'error' | 'info';
 
 export interface TooltipProps {
     /**
@@ -71,7 +71,7 @@ export interface TooltipProps {
     /**
      * Specifies the type of element wrapping the Tooltip trigger.
      */
-    asChild?: "button" | "span" | "div";
+    asChild?: 'button' | 'span' | 'div';
 
     /**
      * A reference to the underlying Tooltip container.

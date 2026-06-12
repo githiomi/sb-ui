@@ -1,16 +1,16 @@
-import React from "react";
-import { IconProps } from "../types";
+import React from 'react';
+import { IconProps } from '../types';
 
 export const CircledInformation: React.FC<IconProps> = ({
-    size = 16,
-    className,
-    strokeWidth = 2,
-    color = "currentColor",
-    ...props
-}) => (
+                                                            size = 16,
+                                                            className,
+                                                            strokeWidth = 2,
+                                                            color = 'currentColor',
+                                                            ...props
+                                                        }) => (
     <svg
-    fill="none"
-    aria-hidden
+        fill="none"
+        aria-hidden
         width={size}
         height={size}
         viewBox="0 0 20 20"

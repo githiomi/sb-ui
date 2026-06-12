@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import { twMerge } from "tailwind-merge";
+import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
 
 /* -------------------------------------------------------------------------------------------------
  * Merge class names
