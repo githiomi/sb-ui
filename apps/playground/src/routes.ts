@@ -1,5 +1,15 @@
 import type { ComponentType } from 'react';
-import { LandingPage, ProgressBarPage, TextAreaPage } from './pages';
+import {
+    ButtonPage,
+    ChainedStatusPage,
+    LandingPage,
+    ProgressBarPage,
+    TablePage,
+    TabsPage,
+    TextAreaPage,
+    ToastPage,
+    TooltipPage
+} from './pages';
 
 /**
  * Single source of truth for the playground's navigation.
@@ -35,6 +45,36 @@ export const HOME_ROUTE = {
 
 export const componentRoutes: ComponentRoute[] = [
     {
+        slug: 'button',
+        path: '/components/button',
+        title: 'Button',
+        description:
+            'Primary action control for forms, toolbars, and betting workflows.',
+        category: 'atom',
+        status: 'stable',
+        element: ButtonPage
+    },
+    {
+        slug: 'chained-status',
+        path: '/components/chained-status',
+        title: 'ChainedStatus',
+        description:
+            'Chained status indicators for sequences of match or selection states.',
+        category: 'atom',
+        status: 'stable',
+        element: ChainedStatusPage
+    },
+    {
+        slug: 'progress-bar',
+        path: '/components/progress-bar',
+        title: 'ProgressBar',
+        description:
+            'Visual progress indicator with sizes, variants, and labels.',
+        category: 'atom',
+        status: 'stable',
+        element: ProgressBarPage
+    },
+    {
         slug: 'text-area',
         path: '/components/text-area',
         title: 'TextArea',
@@ -45,13 +85,44 @@ export const componentRoutes: ComponentRoute[] = [
         element: TextAreaPage
     },
     {
-        slug: 'progress-bar',
-        path: '/components/progress-bar',
-        title: 'ProgressBar',
-        description: 'A progress bar component.',
+        slug: 'tooltip',
+        path: '/components/tooltip',
+        title: 'Tooltip',
+        description:
+            'Contextual hints with placement, trigger modes, and semantic variants.',
         category: 'atom',
         status: 'stable',
-        element: ProgressBarPage
+        element: TooltipPage
+    },
+    {
+        slug: 'tabs',
+        path: '/components/tabs',
+        title: 'Tabs',
+        description:
+            'Switchable panels for live views, market groups, or settings.',
+        category: 'molecule',
+        status: 'stable',
+        element: TabsPage
+    },
+    {
+        slug: 'toast',
+        path: '/components/toast',
+        title: 'Toast',
+        description:
+            'Transient notifications for bet placement, errors, and system messages.',
+        category: 'molecule',
+        status: 'stable',
+        element: ToastPage
+    },
+    {
+        slug: 'table',
+        path: '/components/table',
+        title: 'Table',
+        description:
+            'Data tables for bet slips, market lists, and account history.',
+        category: 'organism',
+        status: 'stable',
+        element: TablePage
     }
 ];
 

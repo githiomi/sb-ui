@@ -25,7 +25,7 @@ export function TopBar() {
                         Overview
                     </NavLink>
                     <NavLink
-                        to="/components/text-area"
+                        to="/components/button"
                         className={({ isActive }) =>
                             `rounded-md px-3 py-1.5 transition ${
                                 isActive
