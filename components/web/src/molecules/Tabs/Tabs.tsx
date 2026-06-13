@@ -70,11 +70,7 @@ export const Tabs = forwardRef<TabsRef, TabsProps>((props, ref) => {
         const isActive = i === activeIndex;
         const labelNode = <span className={tab.disabled ? 'opacity-50' : ''}>{tab.label}</span>;
 
-        const disabledClassNames = `
-      !cursor-not-allowed
-      hover:cursor-not-allowed
-      hover:bg-[var(--color-tertiary)]
-    `;
+        const disabledClassNames = `!cursor-not-allowed hover:cursor-not-allowed opacity-60`;
 
         const style =
             (tabPosition === 'left' || tabPosition === 'right') && containerHeight

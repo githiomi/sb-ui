@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Tabs } from '@dgithiomi/sbui-web';
-import { VariantSection } from '@components/VariantSection';
-import { PageHeader, PropsTable } from '@layouts/shared';
 import { TabsProps } from './Tabs.props';
+import { Tabs } from '@dgithiomi/sbui-web';
+import { PageHeader, PropsTable } from '@layouts/shared';
+import { VariantSection } from '@components/VariantSection';
 
 const basicTabs = [
     {

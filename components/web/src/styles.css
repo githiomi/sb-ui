@@ -10,6 +10,8 @@
  *
  * Consumers import the built file with `import "@dgithiomi/sbui-web/styles.css"`.
  */
+@import "./atoms/Button/Button.css";
+@import "./organisms/Table/Table.css";
 @import "./atoms/Tooltip/Tooltip.css";
 @import "./atoms/ProgressBar/ProgressBar.css";
 
