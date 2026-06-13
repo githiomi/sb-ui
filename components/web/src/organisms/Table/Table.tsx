@@ -209,6 +209,9 @@ export const Table: React.FC<TableProps> = ({
     const renderPagination = () => {
         if (!pagination) return null;
 
+        console.log('currentPage', currentPage);
+        console.log('currentPageSize', currentPageSize);
+
         return (
             <div className="paginator-wrapper m-2 flex flex-row-reverse">
                 <nav className="paginator-controls" aria-label="Pagination">
@@ -240,6 +243,7 @@ export const Table: React.FC<TableProps> = ({
                     <select
                         id="page-size"
                         value={currentPageSize}
+                        className="page-size-select"
                         onChange={(e) => handlePageSizeChange(e.target.value)}
                     >
                         {[10, 20, 50, 100].map((size) => (

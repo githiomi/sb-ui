@@ -229,10 +229,10 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
     );
 
     const tooltipBgClass =
-        className?.match(/bg-(?:\[.*?]|[a-zA-Z0-9-]+)/)?.[0] || 'bg-white';
+        className?.match(/bg-(?:\[.*?]|[a-zA-Z0-9-]+)/)?.[0] || 'bg-fg';
 
     const textColor =
-        className?.match(/text-[a-zA-Z0-9-]+/)?.[0] || 'text-inputDefaultText';
+        className?.match(/text-[a-zA-Z0-9-]+/)?.[0] || 'text-fg-inverse';
 
     const containerPositionClass = cn(
         'absolute z-10',
@@ -266,7 +266,7 @@ export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
             tabIndex={0}
             aria-label="Close tooltip"
             type="button"
-            className="absolute top-4 right-4 cursor-pointer text-[var(--color-secondary)]"
+            className="absolute top-4 right-4 cursor-pointer text-primary-900"
             onClick={hideToolTip}
         >
             ✕

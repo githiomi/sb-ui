@@ -34,7 +34,7 @@ export function TooltipPage() {
                 <Tooltip
                     id="tooltip-default"
                     content="Kick-off is scheduled for 20:00 GMT."
-                    placement="top"
+                    placement="right"
                     pointerDirection="center"
                 >
                     <Button
@@ -53,7 +53,7 @@ export function TooltipPage() {
                 <Tooltip
                     trigger="click"
                     id="tooltip-click"
-                    placement="bottom"
+                    placement="right"
                     pointerDirection="center"
                     content="Accumulator rules apply to this market."
                 >
@@ -70,7 +70,7 @@ export function TooltipPage() {
                 title="Placements"
                 description="Position the panel on any side of the trigger."
             >
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 justify-center py-10">
                     {placements.map(({ label, placement }) => (
                         <Tooltip
                             key={placement}
@@ -94,7 +94,7 @@ export function TooltipPage() {
                 title="Semantic variants"
                 description="Map tooltip color to success, warning, error, or info states."
             >
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 justify-center py-10">
                     {variants.map(({ label, variant }) => (
                         <Tooltip
                             key={variant}
@@ -112,25 +112,6 @@ export function TooltipPage() {
                         </Tooltip>
                     ))}
                 </div>
-            </VariantSection>
-
-            <VariantSection
-                title="Dismissible"
-                description="Add `closeButton` for longer explanations the user can manually dismiss."
-            >
-                <Tooltip
-                    closeButton
-                    id="tooltip-close-button"
-                    placement="right"
-                    pointerDirection="center"
-                    content="Cash-out is unavailable once the event has started."
-                >
-                    <Button
-                        label="Cash out"
-                        id="tooltip-close-button-trigger"
-                        onClick={() => undefined}
-                    />
-                </Tooltip>
             </VariantSection>
 
             <section className="border-t border-outline/20">
