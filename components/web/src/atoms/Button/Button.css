@@ -1,0 +1,18 @@
+.button-base {
+    /* @apply inline-flex items-center justify-center transition-colors duration-200 cursor-pointer disabled: opacity-100 disabled: cursor-not-allowed; */
+}
+
+.spinner {
+}
+
+.button-loading {
+    @apply pointer-events-none;
+}
+
+.button-rounded {
+    @apply rounded-[4px];
+}
+
+.button-rounded-logout {
+    @apply rounded-bl-3xl;
+}
