@@ -25,6 +25,12 @@
             "@molecules": [
                 "./src/molecules/index.ts"
             ],
+            "@organisms/*": [
+                "./src/organisms/*"
+            ],
+            "@organisms": [
+                "./src/organisms/index.ts"
+            ],
             "@widgets/*": [
                 "./src/widgets/*"
             ],
