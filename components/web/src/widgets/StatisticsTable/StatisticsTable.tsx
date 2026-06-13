@@ -1,8 +1,9 @@
-import { cn } from '@uniicy/libs'
-import React, { useState, useEffect } from 'react';
+import { cn } from '@uniicy/libs';
+import React, { useEffect, useState } from 'react';
 import SkeletonLoader from './StatisticsTable.loader';
-import { ChainedStatus, ChainedStatusItem, Status } from '@atoms/ChainedStatus';
+import { ColumnProps as TableColumn, Table } from '@organisms/Table';
 import { FilterOptions, LeagueStatisticsProps } from './StatisticsTable.types';
+import { ChainedStatus, ChainedStatusItem, Status } from '@atoms/ChainedStatus';
 
 export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
     data,
