@@ -29,8 +29,30 @@ utilities like `bg-primary-500`, `text-primary-500`, and `bg-primary-500/20` can
 Because the CSS variables store only channels, use them directly like this:
 
 ```css
-color: rgb(var(--color-primary-500));
-background-color: rgb(var(--color-primary-500) / 0.2);
+color:
+
+rgb
+(
+var
+(
+--color-primary-500
+
+)
+)
+;
+background-color:
+
+rgb
+(
+var
+(
+--color-primary-500
+
+)
+/
+0.2
+)
+;
 ```
 
 Tailwind does that wrapping for you:

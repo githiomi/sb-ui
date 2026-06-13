@@ -17,27 +17,27 @@ const variantBorderColorClasses = {
 };
 
 export const Tooltip: React.FC<TooltipProps & { children: ReactNode }> = ({
-                                                                              id,
-                                                                              className,
-                                                                              content,
-                                                                              placement = 'top',
-                                                                              trigger = 'hover',
-                                                                              delay = 0,
-                                                                              arrow = true,
-                                                                              animation = 'fade',
-                                                                              maxWidth,
-                                                                              disabled,
-                                                                              asChild = 'div',
-                                                                              ref,
-                                                                              isVisible = false,
-                                                                              closeButton,
-                                                                              onClose,
-                                                                              onShow,
-                                                                              onHide,
-                                                                              children,
-                                                                              variant,
-                                                                              pointerDirection = 'left'
-                                                                          }) => {
+    id,
+    className,
+    content,
+    placement = 'top',
+    trigger = 'hover',
+    delay = 0,
+    arrow = true,
+    animation = 'fade',
+    maxWidth,
+    disabled,
+    asChild = 'div',
+    ref,
+    isVisible = false,
+    closeButton,
+    onClose,
+    onShow,
+    onHide,
+    children,
+    variant,
+    pointerDirection = 'left'
+}) => {
     const [visible, setVisible] = React.useState(isVisible);
     const internalRef = React.useRef<HTMLDivElement>(null);
     const mergedRef = mergeRefs(ref, internalRef);

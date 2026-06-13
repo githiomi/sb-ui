@@ -14,11 +14,11 @@ interface VariantSectionProps {
  * components are still legible.
  */
 export const VariantSection: FC<VariantSectionProps> = ({
-                                                            title,
-                                                            description,
-                                                            children,
-                                                            fullBleed = false
-                                                        }) => {
+    title,
+    description,
+    children,
+    fullBleed = false
+}) => {
     return (
         <section className="border-b border-outline/20 last:border-b-0">
             <div className="mx-auto grid max-w-5xl gap-6 px-6 py-10 md:grid-cols-[220px,1fr]">

@@ -3,30 +3,30 @@ import { ProgressBarProps } from './ProgressBar.types';
 import React, { useEffect, useRef, useState } from 'react';
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({
-                                                            id,
-                                                            className,
-                                                            value: propValue,
-                                                            defaultValue = 0,
-                                                            max = 100,
-                                                            min = 0,
-                                                            size = 'medium',
-                                                            color = 'primary',
-                                                            striped = false,
-                                                            animated = false,
-                                                            variant = 'solid',
-                                                            showPercentage = false,
-                                                            indeterminate = false,
-                                                            autoFocus = false,
-                                                            onClick,
-                                                            onChange,
-                                                            direction = 'horizontal',
-                                                            minColor,
-                                                            maxColor,
-                                                            showLoadingLabel = true,
-                                                            labelPosition = 'outside',
-                                                            minLabel,
-                                                            maxLabel
-                                                        }) => {
+    id,
+    className,
+    value: propValue,
+    defaultValue = 0,
+    max = 100,
+    min = 0,
+    size = 'medium',
+    color = 'primary',
+    striped = false,
+    animated = false,
+    variant = 'solid',
+    showPercentage = false,
+    indeterminate = false,
+    autoFocus = false,
+    onClick,
+    onChange,
+    direction = 'horizontal',
+    minColor,
+    maxColor,
+    showLoadingLabel = true,
+    labelPosition = 'outside',
+    minLabel,
+    maxLabel
+}) => {
     const isFirstRender = React.useRef(true);
     const progressBarRef = useRef<HTMLDivElement>(null);
     const [value, setValue] = useState<number>(

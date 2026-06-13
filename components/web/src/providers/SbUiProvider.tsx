@@ -11,9 +11,9 @@ export interface SbuiProviderProps extends PropsWithChildren {
 }
 
 export const SbuiProvider = ({
-                                 children,
-                                 enableToastProvider = true
-                             }: SbuiProviderProps) => {
+    children,
+    enableToastProvider = true
+}: SbuiProviderProps) => {
     if (!enableToastProvider) {
         return <>{children}</>;
     }

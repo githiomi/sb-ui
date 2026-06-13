@@ -12,12 +12,12 @@ interface PageHeaderProps {
 }
 
 export const PageHeader: FC<PageHeaderProps> = ({
-                                                    category,
-                                                    title,
-                                                    description,
-                                                    status,
-                                                    actions
-                                                }) => {
+    category,
+    title,
+    description,
+    status,
+    actions
+}) => {
     return (
         <header className="border-b border-outline/20 bg-surface">
             <div className="mx-auto max-w-5xl px-6 py-10">

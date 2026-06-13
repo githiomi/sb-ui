@@ -2,12 +2,12 @@ import React from 'react';
 import type { IconProps } from '../types';
 
 export const SportsBetting: React.FC<IconProps> = ({
-                                                       size = 20,
-                                                       className,
-                                                       strokeWidth = 2,
-                                                       color = 'currentColor',
-                                                       ...props
-                                                   }) => (
+    size = 20,
+    className,
+    strokeWidth = 2,
+    color = 'currentColor',
+    ...props
+}) => (
     <svg
         width={size}
         height={size}

@@ -16,6 +16,21 @@
             "@atoms/*": [
                 "./src/atoms/*"
             ],
+            "@atoms": [
+                "./src/atoms/index.ts"
+            ],
+            "@molecules/*": [
+                "./src/molecules/*"
+            ],
+            "@molecules": [
+                "./src/molecules/index.ts"
+            ],
+            "@widgets/*": [
+                "./src/widgets/*"
+            ],
+            "@widgets": [
+                "./src/widgets/index.ts"
+            ],
             "@assets/*": [
                 "../../packages/assets/*"
             ],

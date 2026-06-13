@@ -7,12 +7,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { secondsToMillis, TOAST_VARIANTS as variants } from './Toast.utils';
 
 export const Toast: React.FC<ToastProps> = ({
-                                                title,
-                                                message,
-                                                onClose,
-                                                variant = 'success',
-                                                duration = 'short'
-                                            }) => {
+    title,
+    message,
+    onClose,
+    variant = 'success',
+    duration = 'short'
+}) => {
     const isMobile = useIsMobile();
     const [progress, setProgress] = useState(0);
     const [paused, setPaused] = useState(false);

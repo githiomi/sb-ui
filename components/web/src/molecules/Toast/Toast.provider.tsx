@@ -1,14 +1,14 @@
-import React, { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
 import { Toast } from './Toast';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { ToastContextType, ToastInternal, ToastProps } from './Toast.types';
+import React, { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
 
 export const ToastContext = createContext<ToastContextType | null>(null);
 
 export const ToastProvider: React.FC<{ children: ReactNode }> = ({
-                                                                     children
-                                                                 }) => {
+    children
+}) => {
     const [toasts, setToasts] = useState<ToastInternal[]>([]);
     const [isClient, setIsClient] = useState(false);
 

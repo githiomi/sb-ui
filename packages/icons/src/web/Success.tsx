@@ -2,12 +2,12 @@ import React from 'react';
 import { IconProps } from '../types';
 
 export const Success: React.FC<IconProps> = ({
-                                                 size = 16,
-                                                 className,
-                                                 strokeWidth = 2,
-                                                 color = '#0FE630',
-                                                 ...props
-                                             }) => (
+    size = 16,
+    className,
+    strokeWidth = 2,
+    color = '#0FE630',
+    ...props
+}) => (
     <svg
         fill="none"
         aria-hidden
