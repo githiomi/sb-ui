@@ -1,1 +1,1 @@
-export * from './SbuiProvider';
+export * from './SbUiProvider';

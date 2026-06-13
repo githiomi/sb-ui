@@ -15,7 +15,7 @@ export default defineConfig({
         }
     },
     sourcemap: true,
-    clean: true,
+    clean: !process.argv.includes('--watch'),
     outDir: 'dist',
     target: 'es2018',
     // Ensure Node resolves formats correctly and matches `package.json` fields.

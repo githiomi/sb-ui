@@ -13,7 +13,7 @@ export default defineConfig({
         }
     },
     sourcemap: true,
-    clean: true,
+    clean: !process.argv.includes('--watch'),
     outDir: 'dist',
     target: 'es2018',
     external: ['react'],

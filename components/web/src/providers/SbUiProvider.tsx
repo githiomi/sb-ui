@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import { ToastProvider } from '../molecules/Toast';
+import { ToastProvider } from '@molecules/Toast';
 
-export interface SbuiProviderProps extends PropsWithChildren {
+export interface SbUiProviderProps extends PropsWithChildren {
     /**
      * Keep this provider extensible: feature providers can be toggled here
      * as the library grows without forcing consumer-level wrapper churn.
@@ -10,10 +10,10 @@ export interface SbuiProviderProps extends PropsWithChildren {
     enableToastProvider?: boolean;
 }
 
-export const SbuiProvider = ({
+export const SbUiProvider = ({
     children,
     enableToastProvider = true
-}: SbuiProviderProps) => {
+}: SbUiProviderProps) => {
     if (!enableToastProvider) {
         return <>{children}</>;
     }
