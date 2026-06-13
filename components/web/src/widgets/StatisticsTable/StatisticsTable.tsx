@@ -1,6 +1,8 @@
+import { Button } from '@atoms';
 import { cn } from '@uniicy/libs';
-import React, { useEffect, useState } from 'react';
+import { Tab, Tabs } from '@molecules';
 import SkeletonLoader from './StatisticsTable.loader';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { ColumnProps as TableColumn, Table } from '@organisms/Table';
 import { FilterOptions, LeagueStatisticsProps } from './StatisticsTable.types';
 import { ChainedStatus, ChainedStatusItem, Status } from '@atoms/ChainedStatus';
@@ -42,7 +44,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         setActiveFilter(value);
     };
 
-    const headerTemplate = (header: string, centerText: boolean = true): React.ReactNode => {
+    const headerTemplate = (header: string, centerText: boolean = true): ReactNode => {
         const headerClasses = cn('px-2 py-2 w-full', {
             'text-center': centerText && !isMobile,
             'text-left': !centerText,
@@ -54,7 +56,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         );
     };
 
-    const renderChainStatus = (formString: string, index: number): React.ReactNode => {
+    const renderChainStatus = (formString: string, index: number): ReactNode => {
         const chainedItems: ChainedStatusItem[] = formString.split('-').map((form) => {
             return {
                 label: form,
@@ -95,7 +97,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         });
     };
 
-    const Ligatabelle = (): React.ReactNode => {
+    const Ligatabelle = (): ReactNode => {
         const columns: string[] = ['id', 'Team', 'Sp', 'G', 'U', 'V', 'Tore', 'Pkt'];
         const columnData = getTableData(columns);
 
@@ -128,7 +130,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         );
     };
 
-    const HeimTable = (): React.ReactNode => {
+    const HeimTable = (): ReactNode => {
         const columnData = getTableData(['G', 'U', 'V']);
 
         const excludeIn = ['Gast'];
@@ -162,7 +164,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         );
     };
 
-    const GastTable = (): React.ReactNode => {
+    const GastTable = (): ReactNode => {
         const columnData = getTableData(['G', 'U', 'V']);
 
         const excludeIn = ['Heim'];
@@ -196,7 +198,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         );
     };
 
-    const FormTable = (): React.ReactNode => {
+    const FormTable = (): ReactNode => {
         const columns: string[] = ['id', 'Team', 'Form', 'Sp', 'G', 'U', 'V', 'Tore', 'Pkt'];
         const columnData = getTableData(columns, true);
 
@@ -221,7 +223,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         );
     };
 
-    const DesktopLayout = (): React.ReactNode => {
+    const DesktopLayout = (): ReactNode => {
         return (
             <div role="region" aria-label="Desktop league statistics view" aria-live="polite">
                 {/* Table Switchers */}
@@ -266,7 +268,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         );
     };
 
-    const MobileLayout = (): React.ReactNode => {
+    const MobileLayout = (): ReactNode => {
         const mobileTabs: Tab[] = [
             {
                 label: 'Ligatabelle',
