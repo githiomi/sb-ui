@@ -1,9 +1,5 @@
-.button-base {
-    /* @apply inline-flex items-center justify-center transition-colors duration-200 cursor-pointer disabled: opacity-100 disabled: cursor-not-allowed; */
-}
-
 .spinner {
-    @apply inline-block size-6 shrink-0 box-border aspect-square animate-spin rounded-full border-3 border-solid border-current border-t-transparent;
+    @apply inline-block size-6 shrink-0 box-border aspect-square animate-spin rounded-full border-2 border-solid border-current border-t-transparent;
 }
 
 .button-loading {

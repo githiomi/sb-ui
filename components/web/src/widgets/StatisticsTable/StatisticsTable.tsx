@@ -11,7 +11,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
     data,
     showChainedStatus = false,
     skeletonLoaderRowCount = 18,
-    error = 'There was an unexpected error retrieving data for this table',
+    error = 'There was an unexpected error retrieving data for this table'
 }: LeagueStatisticsProps) => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -47,7 +47,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
     const headerTemplate = (header: string, centerText: boolean = true): ReactNode => {
         const headerClasses = cn('px-2 py-2 w-full', {
             'text-center': centerText && !isMobile,
-            'text-left': !centerText,
+            'text-left': !centerText
         });
         return (
             <div className="bg-tertiary w-full" aria-label={`Table header: ${header}`}>
@@ -60,7 +60,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         const chainedItems: ChainedStatusItem[] = formString.split('-').map((form) => {
             return {
                 label: form,
-                status: form as Status,
+                status: form as Status
             };
         });
 
@@ -91,8 +91,8 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
                     ),
                 className: cn('truncate', {
                     '!p-0 w-[5%]': column === 'id',
-                    '!p-0 w-[3%]': column === 'id' && isFormTable,
-                }),
+                    '!p-0 w-[3%]': column === 'id' && isFormTable
+                })
             } as TableColumn;
         });
     };
@@ -103,7 +103,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
 
         const excludeIn = ['Heim', 'Gast'];
         const classes = cn('ligatabelle', {
-            hidden: excludeIn.includes(activeFilter),
+            hidden: excludeIn.includes(activeFilter)
         });
 
         return (
@@ -136,7 +136,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         const excludeIn = ['Gast'];
         const classes = cn('heim', {
             hidden: excludeIn.includes(activeFilter),
-            heim_ligatabelle: activeFilter == 'Ligatabelle',
+            heim_ligatabelle: activeFilter == 'Ligatabelle'
         });
 
         return (
@@ -170,7 +170,7 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         const excludeIn = ['Heim'];
         const classes = cn('gast', {
             hidden: excludeIn.includes(activeFilter),
-            gast_ligatabelle: activeFilter == 'Ligatabelle',
+            gast_ligatabelle: activeFilter == 'Ligatabelle'
         });
 
         return (
@@ -272,20 +272,20 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
         const mobileTabs: Tab[] = [
             {
                 label: 'Ligatabelle',
-                body: <Ligatabelle />,
+                body: <Ligatabelle />
             },
             {
                 label: 'Heim',
-                body: <HeimTable />,
+                body: <HeimTable />
             },
             {
                 label: 'Gast',
-                body: <GastTable />,
+                body: <GastTable />
             },
             {
                 label: 'Formtabelle',
-                body: <FormTable />,
-            },
+                body: <FormTable />
+            }
         ];
 
         const handleTabChange = (index: number) => {
@@ -322,4 +322,4 @@ export const StatisticsTable: React.FC<LeagueStatisticsProps> = ({
             {isMobile ? <MobileLayout /> : <DesktopLayout />}
         </section>
     );
-}
+};

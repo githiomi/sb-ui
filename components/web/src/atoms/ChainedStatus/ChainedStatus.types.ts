@@ -8,7 +8,7 @@ export interface ChainedStatusItem {
 export const statusColors: Record<Status, string> = {
     N: 'bg-error-400',
     U: 'bg-warning-500',
-    S: 'bg-success-300',
+    S: 'bg-success-300'
 };
 
 export type ChainedStatusVariant = 'circle' | 'square';

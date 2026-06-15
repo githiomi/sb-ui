@@ -38,7 +38,7 @@ export const ChainedStatus: React.FC<ChainedStatusProps> = ({
     className,
     size = 'default',
     direction = 'left',
-    variant = 'square',
+    variant = 'square'
 }: ChainedStatusProps) => {
     const chevronPosition =
         direction === 'left' ? chevronSizes[size].leftPosition : chevronSizes[size].rightPosition;
@@ -99,4 +99,4 @@ export const ChainedStatus: React.FC<ChainedStatusProps> = ({
             )}
         </section>
     );
-}
+};
